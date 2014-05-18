@@ -1,7 +1,7 @@
 
 package Controle.portal;
 
-import Controle.Portal;
+import Modelo.Portal;
 import Modelo.Carta;
 import Visao.acervo.VitrineDoAcervo;
 import Visao.portal.VPortal;

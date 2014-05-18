@@ -3,7 +3,7 @@
 package Visao.portal;
 
 import Controle.Configuravel;
-import Controle.Portal;
+import Modelo.Portal;
 import Controle.portal.EditarBaralho;
 import Visao.acervo.VitrineDoAcervo;
 import java.awt.event.ActionListener;

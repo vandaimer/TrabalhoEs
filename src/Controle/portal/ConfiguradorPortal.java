@@ -2,7 +2,7 @@
 package Controle.portal;
 
 import Controle.Configurador;
-import Controle.Portal;
+import Modelo.Portal;
 import Visao.portal.VPortal;
 
 

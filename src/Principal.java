@@ -1,4 +1,4 @@
-import Controle.Portal;
+import Modelo.Portal;
 import Modelo.Jogador;
 
 public class Principal

@@ -2,7 +2,7 @@
 
 package Controle.portal;
 
-import Controle.Portal;
+import Modelo.Portal;
 import Visao.portal.VPortal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
