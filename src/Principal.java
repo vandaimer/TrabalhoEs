@@ -1,6 +1,5 @@
 import Controle.Portal;
 import Modelo.Jogador;
-import com.sun.swing.internal.plaf.synth.resources.synth_sv;
 
 public class Principal
 {
