@@ -3,7 +3,7 @@ package Controle.portal;
 
 import Modelo.Portal;
 import Modelo.Carta;
-import Visao.acervo.VitrineDoAcervo;
+import Visao.visualizadordecartas.VisualizadorDeCartas;
 import Visao.portal.VPortal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,7 +22,7 @@ public class VisualizarAcervo implements  ActionListener{
            
     @Override
     public void actionPerformed(ActionEvent e) {  
-        VitrineDoAcervo vitrine = vportal.criarVitrine();
+        VisualizadorDeCartas vitrine = vportal.visualizadorDeCartas();
         List<Carta> cartas=portal.obterAcervo();
         vitrine.listarCartas(cartas);
     }

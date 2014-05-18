@@ -22,7 +22,6 @@ public class Principal {
         
         Portal p = new Portal();
         p.criarJogador(new Jogador("LUIZ", "12345"));
-        p.setJogador(new Jogador("OUTRO USUARIO", "SENHA DELE"));
-        p.autenticar();
+        p.autenticar(new Jogador("OUTRO USUARIO", "SENHA DELE"));
     }
 }

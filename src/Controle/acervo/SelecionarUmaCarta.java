@@ -4,13 +4,13 @@ package Controle.acervo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import Modelo.Carta;
-import Visao.acervo.VitrineDoAcervo;
+import Visao.visualizadordecartas.VisualizadorDeCartas;
 
 public class SelecionarUmaCarta implements ActionListener {
 
-    private VitrineDoAcervo v;
+    private VisualizadorDeCartas v;
 
-    public SelecionarUmaCarta(VitrineDoAcervo v) {
+    public SelecionarUmaCarta(VisualizadorDeCartas v) {
         this.v = v;
     }
     
