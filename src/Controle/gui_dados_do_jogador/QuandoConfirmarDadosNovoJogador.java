@@ -27,10 +27,10 @@ public class QuandoConfirmarDadosNovoJogador implements ActionListener {
         }
 
         Jogador j = new Jogador(nmUsuario, senha);
-        boolean autenticou = true;
-//boolean autenticou = portal.criarJogador(j);
 
-        if (autenticou) {
+        boolean cadastrou = portal.criarJogador(j);
+
+        if (cadastrou) {
             aut.habilitarConfirmarDados(false);
             aut.mostrarMensagem("Jogador cadastrado com sucesso.");
         } else {

@@ -6,5 +6,6 @@ public interface RepositorioDoJogo
 {
     public List<Carta> obterCartasDoAcervo();
     public boolean autenticar( Jogador j );
-    public void salvar( Jogador j );
+    public boolean salvar( Jogador j );
+    public Jogador pesquisarPorChave(String id);
 }
