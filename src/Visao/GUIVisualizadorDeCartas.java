@@ -14,5 +14,5 @@ public void mostrar(Carta c);
 public void listarCartas(List<Carta> l);
 public void selecionarUmaCarta(ListSelectionListener a);
 public Carta obterCartaSelecionada();
-
+public void tornarVisivel(boolean b);
 }

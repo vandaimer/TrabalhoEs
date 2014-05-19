@@ -14,7 +14,7 @@ public class FormVisualizadorDeCartas extends javax.swing.JFrame implements GUIV
     
     public FormVisualizadorDeCartas() {
         initComponents();
-        setVisible(true);
+      
     }
     
     @SuppressWarnings("unchecked")
@@ -113,6 +113,11 @@ public class FormVisualizadorDeCartas extends javax.swing.JFrame implements GUIV
     @Override
     public void aplicarConfiguracao(Configurador<GUIVisualizadorDeCartas> conf) {
         conf.configurar(this);
+    }
+
+    @Override
+    public void tornarVisivel(boolean b) {
+        setVisible(b);
     }
 }
 

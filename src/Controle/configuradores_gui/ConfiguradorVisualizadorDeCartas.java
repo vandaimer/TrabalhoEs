@@ -11,6 +11,7 @@ public class ConfiguradorVisualizadorDeCartas implements Configurador<GUIVisuali
     @Override
     public void configurar(GUIVisualizadorDeCartas t) {
         t.selecionarUmaCarta(new SelecionarUmaCarta(t));
+        t.tornarVisivel(true);
     }
     
 }
