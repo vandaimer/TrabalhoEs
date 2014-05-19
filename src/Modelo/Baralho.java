@@ -1,14 +1,17 @@
 package Modelo;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Baralho {
 
-    private List<Carta> lista;
+    private  List<Carta> lista = new LinkedList<>();
 
     public Baralho() {
-        lista = new ArrayList<>();
+    }
+
+    public Baralho(Baralho b) {
+       lista=b.listarCartas();
     }
 
     public void adicionar(Carta c) {
@@ -16,17 +19,17 @@ public class Baralho {
     }
 
     public ErroDeValidacao validar() {
-       
+
         return ErroDeValidacao.NAO_HOUVE_ERRO;
-    
+
     }
 
     //seria esse o método pra obter as cartas?
     public List<Carta> listarCartas() {
-        List<Carta> cartas = new ArrayList<>();
+        List<Carta> cartas = new LinkedList<>();
 
         for (Carta c : lista) {
-       
+
             cartas.add(new Carta(c));
 
         }
@@ -40,8 +43,9 @@ public class Baralho {
 
     public void montarBaralho(List<Carta> c) {
         for (Carta i : c) {
-            
+
             lista.add(new Carta(i));
+
         }
     }
 }
