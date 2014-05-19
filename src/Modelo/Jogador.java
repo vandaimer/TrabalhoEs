@@ -14,6 +14,13 @@ public class Jogador
         this.nome = nome;
         this.senha = senha;
     }
+    
+     public Jogador(Jogador j)
+    {
+        this.nome = j.nome;
+        this.senha = j.senha;
+        this.baralho=new Baralho(j.baralho);
+    }
 
     public void adicionarCarta( Carta c)
     {
