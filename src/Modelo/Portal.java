@@ -18,7 +18,7 @@ public class Portal implements Observador, Observado {
     }
 
     public boolean autenticar(Jogador j) {
-        boolean autenticou = this.repositorioJogo.autenticar(j);
+        boolean autenticou = repositorioJogo.autenticar(j);
 
         if (autenticou) {
             /*
