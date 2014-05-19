@@ -9,8 +9,8 @@ public class Portal implements Observador, Observado {
     private RepositorioDoJogo repositorioJogo;
     private Jogador jogador;
 
-    public Portal() {
-        this.repositorioJogo = new RepositorDeJogoEmMemoria();
+    public Portal(RepositorioDoJogo rep) {
+        this.repositorioJogo =rep;
     }
 
     public void setJogador(Jogador j) {
@@ -50,6 +50,7 @@ public class Portal implements Observador, Observado {
     public void salvarJogador(Jogador jogador) {
 
     }
+    
 
     @Override
     public void registrar(Observador o) {

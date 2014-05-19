@@ -4,6 +4,7 @@ package main;
 import Controle.configuradores_gui.ConfiguradorPortal;
 import Modelo.Portal;
 import Visao.janelas.FormPortal;
+import Modelo.RepositorDeJogoEmMemoria;
 
 public class Principal {
 
@@ -22,7 +23,7 @@ public class Principal {
     
     public static void iniciarFormularioDoPortal(){
         FormPortal fportal=new FormPortal();
-        ConfiguradorPortal confp=new ConfiguradorPortal(new Portal());
+        ConfiguradorPortal confp=new ConfiguradorPortal(new Portal(new RepositorDeJogoEmMemoria()));
         fportal.aplicarConfiguracao(confp);
         
     }
