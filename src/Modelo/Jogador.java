@@ -11,6 +11,7 @@ public class Jogador
     public Jogador( String nome, String senha )
     {
         this.nome = nome;
+        baralho = new Baralho();
 
         /*
           foda-se sem criptografia kk
@@ -21,12 +22,12 @@ public class Jogador
 
     public void adicionarCarta( Carta c)
     {
-        
+        baralho.adicionar(c);
     }
 
     public void adicionarCarta( List<Carta> c )
     {
-
+    	baralho.montarBaralho(c);
     }
 
     public ErroDeValidacao validarBaralho()
@@ -36,17 +37,22 @@ public class Jogador
 
     public List<Carta> obterCartasAtuais()
     {
-        return null;
+    	
+        return baralho.listarCartas();
     }
 
     public void remover( Carta c )
     {
-
+    	baralho.remover(c);
     }
 
-    public void editarBaralho( Carta c, byte opcao )
-    {
-
+    public void editarBaralho( Carta c, int opcao )
+    {    	
+    	if(opcao == 0){
+    		baralho.adicionar(c);
+    	}else{
+    		baralho.remover(c);
+    	}
     }
 
     @Override
