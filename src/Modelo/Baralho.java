@@ -1,10 +1,8 @@
 package Modelo;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map.Entry;
 
 public class Baralho {
 
@@ -98,4 +96,6 @@ public class Baralho {
 
 		}
 	}
+
+	
 }

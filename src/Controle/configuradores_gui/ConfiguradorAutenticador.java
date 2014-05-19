@@ -20,6 +20,7 @@ public class ConfiguradorAutenticador implements Configurador<GUIDadosDoJogador>
         t.habilitarConfirmarDados(true);
         t.quandoConfirmarDados(new QuandoConfirmarDadosDeAutenticacao(portal, t));
         t.quandoCancelar(new QuandoCancelar(t));
+        t.tornarVisivel(true);
         
     }
     
