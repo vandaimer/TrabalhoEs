@@ -27,8 +27,9 @@ public class Principal {
         fportal.aplicarConfiguracao(confp);
         
     }
+    
     public static void main(String[] args) {
-        fixarTemaJava();
+    	fixarTemaJava();
         iniciarFormularioDoPortal();
     }
 }
