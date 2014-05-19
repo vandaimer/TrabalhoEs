@@ -40,7 +40,8 @@ public class Baralho {
 
     public ErroDeValidacao validar() {
     	
-    	if(quantidadeCartas() < 40){
+    
+        if(quantidadeCartas() < 40){
     	
     	return ErroDeValidacao.NUM_CARTAS_INSUFICIENTE;}
     	

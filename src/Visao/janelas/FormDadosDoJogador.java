@@ -12,7 +12,7 @@ public class FormDadosDoJogador extends javax.swing.JFrame implements GUIDadosDo
  
     public FormDadosDoJogador() {
         initComponents();
-        setVisible(true);
+
     }
 
    
@@ -137,5 +137,10 @@ public class FormDadosDoJogador extends javax.swing.JFrame implements GUIDadosDo
     @Override
     public void aplicarConfiguracao(Configurador<GUIDadosDoJogador> conf) {
     conf.configurar(this);
+    }
+
+    @Override
+    public void tornarVisivel(boolean t) {
+        setVisible(t);
     }
 }
