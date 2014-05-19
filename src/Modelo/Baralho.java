@@ -9,7 +9,7 @@ import java.util.Map.Entry;
 public class Baralho {
 
 	private List<Carta> lista = new LinkedList<>();
-	private HashMap<Carta, Integer> mapeamentoQuantidade = new HashMap<>();
+	
 
 	public Baralho() {
 	}
@@ -55,7 +55,7 @@ public class Baralho {
 	private boolean verificaRepeticao() {
 
 		boolean existeRepeticao = false;
-
+		HashMap<Carta, Integer> mapeamentoQuantidade = new HashMap<>();
 		for (Carta c : lista) {
 
 			if (!mapeamentoQuantidade.containsKey(c)) {
