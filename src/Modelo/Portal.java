@@ -1,6 +1,5 @@
 package Modelo;
 
-import Modelo.*;
 
 import java.util.List;
 
@@ -13,25 +12,18 @@ public class Portal implements Observador, Observado {
         this.repositorioJogo =rep;
     }
 
-    public void setJogador(Jogador j) {
-        this.jogador = j;
-    }
+   
 
     public boolean autenticar(Jogador j) {
         boolean autenticou = this.repositorioJogo.autenticar(j);
 
         if (autenticou) {
-            /*
-             Mudar Interface grafica dizendo q nao pode logar
-             */
-            System.out.println("AUTENTICOU");
-        } else {
-            /*
-             Mudar Interface grafica AUTENTICOU
-             */
-            System.out.println("NAO AUTENTICOU");
+            notificarObservadores("usuario_autenticado");
 
+        } else {
+            notificarObservadores("usuario_nao_autenticado");
         }
+        
         return autenticou;
     }
 
@@ -48,7 +40,7 @@ public class Portal implements Observador, Observado {
     }
 
     public void salvarJogador(Jogador jogador) {
-
+        repositorioJogo.salvar(jogador);
     }
     
 

@@ -20,7 +20,7 @@ public class ObservadorDoPortal implements Observador {
 
         if (portal.equals(fonte)) {
 
-            if ("usuario_logado".equals(msg)) {
+            if ("usuario_autenticado".equals(msg)) {
 
                 guiportal.habilitarAutenticarJogador(true);
                 guiportal.habilitarEditarBaralho(true);
@@ -29,7 +29,7 @@ public class ObservadorDoPortal implements Observador {
 
             }
 
-            if ("usuario_deslogado".equals(msg)) {
+            if ("usuario_nao_autenticado".equals(msg)) {
                 guiportal.habilitarAutenticarJogador(true);
                 guiportal.habilitarEditarBaralho(false);
                 guiportal.habilitarNovoJogador(true);
