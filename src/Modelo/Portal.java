@@ -17,6 +17,7 @@ public class Portal implements  Observado {
         boolean autenticou = repositorioJogo.autenticar(j);
         
         if (autenticou) {
+        	jogador=repositorioJogo.pesquisarPorChave(j.toString());
             notificarObservadores("usuario_autenticado");
             
         } else {
