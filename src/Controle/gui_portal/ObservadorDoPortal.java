@@ -22,7 +22,7 @@ public class ObservadorDoPortal implements Observador {
 
             if ("usuario_autenticado".equals(msg)) {
 
-                guiportal.habilitarAutenticarJogador(false);
+                guiportal.habilitarAutenticarJogador(true);
                 guiportal.habilitarNovoJogador(false);
                 guiportal.habilitarEditarBaralho(true);
                 guiportal.habilitarVisualizarAcervo(true);

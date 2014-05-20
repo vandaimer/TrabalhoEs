@@ -3,6 +3,7 @@ package testes.pombo;
 
 import Modelo.Baralho;
 import Modelo.Carta;
+import Modelo.ValidacaoBaralhoComRegrasDoJogo;
 
 
 public class Teste {
@@ -22,7 +23,7 @@ public class Teste {
     	b.adicionar(c3);
     	b.adicionar(c1);
     	
-    	System.out.println(b.verificaRepeticao());
+    	System.out.println(b.validar(new ValidacaoBaralhoComRegrasDoJogo(40, 60,2)));
     	
     }
 }

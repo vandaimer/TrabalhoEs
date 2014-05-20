@@ -25,70 +25,8 @@ public class Baralho {
 
     }
 
-    public List<ErroDeValidacao> validar() {
-
-        List<ErroDeValidacao> listaErros = new LinkedList<>();
-        
-        if (quantidadeCartas() < 5) {
-
-            listaErros.add(ErroDeValidacao.NUM_CARTAS_INSUFICIENTE);
-        }
-
-        if (quantidadeCartas() > 10) {
-
-            listaErros.add(ErroDeValidacao.NUM_CARTAS_EXCEDENTE);
-        }
-
-        if (verificaRepeticao()) {
-            listaErros.add(ErroDeValidacao.CARTAS_REPETIDAS);
-        }
-        
-
-//		if (quantidadeCartas() < 40) {
-//
-//			listaErros.add(ErroDeValidacao.NUM_CARTAS_INSUFICIENTE);
-//		}
-//
-//		if (quantidadeCartas() > 60) {
-//
-//			listaErros.add(ErroDeValidacao.NUM_CARTAS_EXCEDENTE);
-//		}
-//
-//		if (verificaRepeticao()) {
-//			listaErros.add(ErroDeValidacao.CARTAS_REPETIDAS);
-//		}
-        return listaErros;
-
-    }
-
-    private int quantidadeCartas() {
-        return lista.size();
-    }
-
-    public boolean verificaRepeticao() {
-
-        boolean existeRepeticao = false;
-        HashMap<Carta, Integer> mapeamentoQuantidade = new HashMap<>();
-        for (Carta c : lista) {
-
-            if (!mapeamentoQuantidade.containsKey(c)) {
-                mapeamentoQuantidade.put(c, 1);
-            } else {
-                int qtdade = mapeamentoQuantidade.get(c);
-                qtdade++;
-                mapeamentoQuantidade.put(c, qtdade);
-            }
-
-        }
-
-        for (Carta c : mapeamentoQuantidade.keySet()) {
-            if (mapeamentoQuantidade.get(c) > 2) {
-                existeRepeticao = true;
-                break;
-            }
-        }
-
-        return existeRepeticao;
+    public List<ErroDeValidacao> validar(EstrategiaDeValidacaoDoBaralho e) {
+        return e.validar(this);
     }
 
     // seria esse o método pra obter as cartas?

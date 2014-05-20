@@ -29,7 +29,8 @@ public class Jogador {
     }
 
     public List<ErroDeValidacao> validarBaralho() {
-        return baralho.validar();
+//        return baralho.validar(new ValidacaoBaralhoComRegrasDoJogo(40,60,2));
+        return baralho.validar(new ValidacaoBaralhoComRegrasDoJogo());
     }
 
     public List<Carta> obterCartasAtuais() {
