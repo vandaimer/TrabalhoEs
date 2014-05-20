@@ -26,7 +26,7 @@ public class AdicionarUmaCarta implements ActionListener {
 
         jogador.adicionarCarta(c);
         edj.listarCartasDoJogador(jogador.obterCartasAtuais());
-        edj.exibirMensagem("Carta " + c + " adicionada com sucesso.");
+        edj.exibirMensagem(c + " adicionada ao baralho.");
 
     }
 

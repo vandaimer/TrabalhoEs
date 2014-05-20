@@ -27,6 +27,7 @@ public class RemoverUmaCarta implements ActionListener {
         
         jogador.remover(c);
         edj.listarCartasDoJogador(jogador.obterCartasAtuais());
+        edj.exibirMensagem(c + " removida do baralho.");
         
     }
     
