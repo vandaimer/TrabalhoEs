@@ -21,5 +21,6 @@ public interface GUIEditorDejogador extends Configuravel<GUIEditorDejogador>{
     public void mostrarCartaDoAcervo(Carta c);
     public void mostrarCartaDoJogador(Carta c);
     public void salvarAlteracoes(ActionListener a);
+    public void exibirMensagem(String msg);
     public void tornarVisivel(boolean b);
 }

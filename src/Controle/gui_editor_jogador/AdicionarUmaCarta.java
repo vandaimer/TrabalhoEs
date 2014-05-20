@@ -5,7 +5,7 @@ import Modelo.Jogador;
 import Visao.GUIEditorDejogador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JOptionPane;
+
 
 public class AdicionarUmaCarta implements ActionListener {
 
@@ -20,9 +20,14 @@ public class AdicionarUmaCarta implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Carta c = edj.obterCartaSelecionadaDoAcervo();
+        if (c == null) {
+            return;
+        }
+
         jogador.adicionarCarta(c);
         edj.listarCartasDoJogador(jogador.obterCartasAtuais());
-        JOptionPane.showMessageDialog(null, "Carta " +c +" adicionada com sucesso.");
+        edj.exibirMensagem("Carta " + c + " adicionada com sucesso.");
+
     }
 
 }
