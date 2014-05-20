@@ -21,7 +21,7 @@ public class NovoJogador implements  ActionListener{
         ConfiguradorNovoJogador conf = new ConfiguradorNovoJogador(portal);
         FormDadosDoJogador fautenticador = new FormDadosDoJogador();
         fautenticador.aplicarConfiguracao(conf);
-    
+        fautenticador.setVisible(true);
     }
 
     

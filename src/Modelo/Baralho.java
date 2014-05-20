@@ -26,23 +26,25 @@ public class Baralho {
 
 	}
 
-	public ErroDeValidacao validar() {
+	public List<ErroDeValidacao> validar() {
 
+		List<ErroDeValidacao> listaErros = new LinkedList<>();
+		
 		if (quantidadeCartas() < 40) {
 
-			return ErroDeValidacao.NUM_CARTAS_INSUFICIENTE;
+			listaErros.add(ErroDeValidacao.NUM_CARTAS_INSUFICIENTE);
 		}
 
 		if (quantidadeCartas() > 60) {
 
-			return ErroDeValidacao.NUM_CARTAS_EXCEDENTE;
+			listaErros.add(ErroDeValidacao.NUM_CARTAS_EXCEDENTE);
 		}
 
 		if (verificaRepeticao()) {
-			return ErroDeValidacao.CARTAS_REPETIDAS;
+			listaErros.add(ErroDeValidacao.CARTAS_REPETIDAS);
 		}
 
-		return ErroDeValidacao.NAO_HOUVE_ERRO;
+		return listaErros;
 
 	}
 
@@ -50,7 +52,7 @@ public class Baralho {
 		return lista.size();
 	}
 
-	private boolean verificaRepeticao() {
+	public boolean verificaRepeticao() {
 
 		boolean existeRepeticao = false;
 		HashMap<Carta, Integer> mapeamentoQuantidade = new HashMap<>();
