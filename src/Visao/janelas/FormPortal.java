@@ -112,7 +112,6 @@ public class FormPortal extends javax.swing.JFrame implements GUIPortal {
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 
-
     
     @Override
     public void autenticarJogador(ActionListener a) {
@@ -137,11 +136,15 @@ public class FormPortal extends javax.swing.JFrame implements GUIPortal {
         conf.configurar(this);
     }
 
-   
+   public void setTextLogout()
+   {
+	   this.jBSair.setText("Logout");
+   }
 
     @Override
-    public void novoJogador(ActionListener a) {
-    jBNovoJogador.addActionListener(a);
+    public void novoJogador(ActionListener a)
+    {
+    	jBNovoJogador.addActionListener(a);
     }
 
     @Override
@@ -170,7 +173,8 @@ public class FormPortal extends javax.swing.JFrame implements GUIPortal {
     }
 
     @Override
-    public void sair(ActionListener a) {
-    jBSair.addActionListener(a);
+    public void sair(ActionListener a)
+    {
+    	jBSair.addActionListener(a);
     }
 }
