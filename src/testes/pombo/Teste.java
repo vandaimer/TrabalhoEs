@@ -1,11 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package testes.pombo;
 
+<<<<<<< HEAD
 import Modelo.Baralho;
 import Modelo.Carta;
 
@@ -13,6 +8,9 @@ import Modelo.Carta;
  *
  * @author jean
  */
+=======
+
+>>>>>>> 5500b7da7fceb1a4a47a5cba542fdad721aae731
 public class Teste {
     public static void main(String[] args) {
     	

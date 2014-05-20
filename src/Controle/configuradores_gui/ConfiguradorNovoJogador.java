@@ -20,6 +20,7 @@ public class ConfiguradorNovoJogador implements Configurador<GUIDadosDoJogador> 
         t.habilitarConfirmarDados(true);
         t.quandoCancelar(new QuandoCancelar(t));
         t.quandoConfirmarDados(new QuandoConfirmarDadosNovoJogador(portal, t));
+        t.tornarVisivel(true);
     }
     
 }

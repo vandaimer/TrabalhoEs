@@ -24,7 +24,10 @@ public class FormPortal extends javax.swing.JFrame implements GUIPortal {
         jBEditarBaralho = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
+        
+        setLocationRelativeTo(null);
+        setLayout(null);
+        
         jBAutenticar.setText("Autenticar");
 
         jBNovoJogador.setText("Novo Jogador");

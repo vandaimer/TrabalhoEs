@@ -3,7 +3,9 @@
 package Visao;
 
 import Controle.Configuravel;
+
 import java.awt.event.ActionListener;
+import java.awt.event.KeyListener;
 
 public interface GUIDadosDoJogador extends Configuravel<GUIDadosDoJogador>{
     
@@ -12,7 +14,11 @@ public interface GUIDadosDoJogador extends Configuravel<GUIDadosDoJogador>{
     public void mostrarMensagem(String m);
     public void fechar();
     public void habilitarConfirmarDados(boolean h);
+    public void quandoPressionarTeclaConfirmacao(KeyListener a);
     public void quandoConfirmarDados(ActionListener a);
+
+
     public void quandoCancelar(ActionListener a);
     public void tornarVisivel(boolean t);
 }
+
