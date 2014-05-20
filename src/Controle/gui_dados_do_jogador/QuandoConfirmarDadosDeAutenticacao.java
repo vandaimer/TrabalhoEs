@@ -25,7 +25,7 @@ public abstract class QuandoConfirmarDadosDeAutenticacao
         String nmUsuario = aut.obterNomeDeUsuario();
         String senha = aut.obterSenha();
 
-        if (nmUsuario.isEmpty() || senha.isEmpty()) {
+        if( nmUsuario.isEmpty() || senha.isEmpty() ) {
             aut.mostrarMensagem("Verifique se o nome de usuario e senha foram preenchidos corretamente.");
             return;
         }

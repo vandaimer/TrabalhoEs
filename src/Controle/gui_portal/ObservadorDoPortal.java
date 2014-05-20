@@ -26,7 +26,6 @@ public class ObservadorDoPortal implements Observador {
                 guiportal.habilitarNovoJogador(false);
                 guiportal.habilitarEditarBaralho(true);
                 guiportal.habilitarVisualizarAcervo(true);
-                guiportal.setTextLogout();
             }
 
             if ("usuario_nao_autenticado".equals(msg)) {

@@ -21,7 +21,5 @@ public interface GUIPortal extends Configuravel<GUIPortal>{
     public void habilitarEditarBaralho(boolean b);
     public void habilitarVisualizarAcervo(boolean b);
     
-    public void setTextLogout();
-    
     public void tornarVisivel(boolean v);
 }

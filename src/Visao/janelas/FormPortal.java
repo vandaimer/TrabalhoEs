@@ -138,11 +138,6 @@ public class FormPortal extends javax.swing.JFrame implements GUIPortal {
         conf.configurar(this);
     }
 
-   public void setTextLogout()
-   {
-	   this.jBSair.setText("Logout");
-   }
-
     @Override
     public void novoJogador(ActionListener a)
     {
