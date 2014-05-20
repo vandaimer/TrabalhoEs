@@ -3,7 +3,9 @@ package Visao.janelas;
 
 import Visao.GUIPortal;
 import Controle.Configurador;
+
 import java.awt.event.ActionListener;
+import java.awt.event.KeyListener;
 
 public class FormPortal extends javax.swing.JFrame implements GUIPortal {
     

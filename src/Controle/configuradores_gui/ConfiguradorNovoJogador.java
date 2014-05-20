@@ -2,6 +2,10 @@
 package Controle.configuradores_gui;
 
 import Controle.Configurador;
+import Controle.gui_dados_do_jogador.ConfirmaDadosNovoJogoTecla;
+import Controle.gui_dados_do_jogador.ConfirmaDadosNovoJogorClick;
+import Controle.gui_dados_do_jogador.ConfirmarAutenticacaoPorClick;
+import Controle.gui_dados_do_jogador.ConfirmarAutenticacaoPorTecla;
 import Controle.gui_dados_do_jogador.QuandoCancelar;
 import Controle.gui_dados_do_jogador.QuandoConfirmarDadosNovoJogador;
 import Modelo.Portal;
@@ -19,7 +23,8 @@ public class ConfiguradorNovoJogador implements Configurador<GUIDadosDoJogador> 
     public void configurar(GUIDadosDoJogador t) {
         t.habilitarConfirmarDados(true);
         t.quandoCancelar(new QuandoCancelar(t));
-        t.quandoConfirmarDados(new QuandoConfirmarDadosNovoJogador(portal, t));
+        t.quandoConfirmarDadosClick(new ConfirmaDadosNovoJogorClick(portal, t));
+        t.quandoConfirmarDadosTecla(new ConfirmaDadosNovoJogoTecla(portal, t));
         t.tornarVisivel(true);
     }
     

@@ -6,7 +6,8 @@ import Visao.GUIDadosDoJogador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class QuandoConfirmarDadosNovoJogador implements ActionListener {
+public abstract class QuandoConfirmarDadosNovoJogador
+{
 
     private Portal portal;
     private GUIDadosDoJogador aut;
@@ -16,12 +17,13 @@ public class QuandoConfirmarDadosNovoJogador implements ActionListener {
         this.aut = aut;
     }
 
-    @Override
-    public void actionPerformed(ActionEvent ae) {
+
+    public void executarCadastro()
+    {
         String nmUsuario = aut.obterNomeDeUsuario();
         String senha = aut.obterSenha();
 
-        if (nmUsuario == null || senha == null) {
+        if (nmUsuario.isEmpty() || senha.isEmpty()) {
             aut.mostrarMensagem("Verifique se o nome de usario e senha foram preenchidos corretamente.");
             return;
         }

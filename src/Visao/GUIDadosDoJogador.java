@@ -15,7 +15,8 @@ public interface GUIDadosDoJogador extends Configuravel<GUIDadosDoJogador>{
     public void fechar();
     public void habilitarConfirmarDados(boolean h);
     public void quandoPressionarTeclaConfirmacao(KeyListener a);
-    public void quandoConfirmarDados(ActionListener a);
+    public void quandoConfirmarDadosClick(ActionListener a);
+    public void quandoConfirmarDadosTecla(KeyListener a);
 
 
     public void quandoCancelar(ActionListener a);

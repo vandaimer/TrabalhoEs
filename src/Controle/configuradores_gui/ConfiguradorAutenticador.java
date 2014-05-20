@@ -20,7 +20,7 @@ public class ConfiguradorAutenticador implements Configurador<GUIDadosDoJogador>
     @Override
     public void configurar(GUIDadosDoJogador t) {
         t.habilitarConfirmarDados(true);
-        t.quandoConfirmarDados(new ConfirmarAutenticacaoPorClick(portal, t));
+        t.quandoConfirmarDadosClick(new ConfirmarAutenticacaoPorClick(portal, t));
         t.quandoPressionarTeclaConfirmacao( new ConfirmarAutenticacaoPorTecla(portal, t));
         t.quandoCancelar(new QuandoCancelar(t));
         t.tornarVisivel(true);

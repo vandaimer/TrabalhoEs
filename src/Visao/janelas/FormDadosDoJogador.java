@@ -129,11 +129,6 @@ public class FormDadosDoJogador extends javax.swing.JFrame implements GUIDadosDo
     }
 
     @Override
-    public void quandoConfirmarDados(ActionListener a) {
-    	jBConfirmar.addActionListener(a);
-    }
-
-    @Override
     public void quandoCancelar(ActionListener a) {
     jBCancelar.addActionListener(a);
     }
@@ -154,5 +149,18 @@ public class FormDadosDoJogador extends javax.swing.JFrame implements GUIDadosDo
     public void tornarVisivel(boolean t) {
         setVisible(t);
     }
+
+	@Override
+	public void quandoConfirmarDadosClick(ActionListener a)
+	{
+		jBConfirmar.addActionListener(a);
+	}
+
+
+	@Override
+	public void quandoConfirmarDadosTecla(KeyListener a)
+	{
+		jPSenha.addKeyListener( a );	
+	}
 
 }
