@@ -22,7 +22,7 @@ public class QuandoConfirmarDadosDeAutenticacao implements ActionListener {
         String senha = aut.obterSenha();
 
         if (nmUsuario == null || senha == null) {
-            aut.mostrarMensagem("Verifique se o nome de usario e senha foram preenchidos corretamente.");
+            aut.mostrarMensagem("Verifique se o nome de usuario e senha foram preenchidos corretamente.");
             return;
         }
 
