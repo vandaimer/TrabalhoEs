@@ -5,24 +5,29 @@ import Modelo.Jogador;
 import Visao.GUIEditorDejogador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JOptionPane;
 
-public class AdicionarUmaCarta implements ActionListener {
-
+public class RemoverUmaCarta implements ActionListener {
+    
     private GUIEditorDejogador edj;
     private Jogador jogador;
-
-    public AdicionarUmaCarta(GUIEditorDejogador edj, Jogador jogador) {
+    
+    public RemoverUmaCarta(GUIEditorDejogador edj, Jogador jogador) {
         this.edj = edj;
         this.jogador = jogador;
     }
-
+    
     @Override
     public void actionPerformed(ActionEvent e) {
-        Carta c = edj.obterCartaSelecionadaDoAcervo();
-        jogador.adicionarCarta(c);
+        
+        Carta c = edj.obterCartaSelecionadaDoJogador();
+        
+        if (c == null) {
+            return;
+        }
+        
+        jogador.remover(c);
         edj.listarCartasDoJogador(jogador.obterCartasAtuais());
-        JOptionPane.showMessageDialog(null, "Carta " +c +" adicionada com sucesso.");
+        
     }
-
+    
 }
