@@ -13,11 +13,13 @@ public interface GUIPortal extends Configuravel<GUIPortal>{
     public void editarBaralho(ActionListener a);
     public void visualizarAcervo(ActionListener a);
     public void sair(ActionListener a);
-    
+
     public void habilitarAutenticarJogador(boolean b);
     public void habilitarNovoJogador(boolean b);
     public void habilitarEditarBaralho(boolean b);
     public void habilitarVisualizarAcervo(boolean b);
+    
+    public void setTextLogout();
     
     public void tornarVisivel(boolean v);
 }

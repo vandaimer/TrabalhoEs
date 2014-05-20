@@ -22,11 +22,11 @@ public class ObservadorDoPortal implements Observador {
 
             if ("usuario_autenticado".equals(msg)) {
 
-                guiportal.habilitarAutenticarJogador(true);
+                guiportal.habilitarAutenticarJogador(false);
+                guiportal.habilitarNovoJogador(false);
                 guiportal.habilitarEditarBaralho(true);
-                guiportal.habilitarNovoJogador(true);
                 guiportal.habilitarVisualizarAcervo(true);
-
+                guiportal.setTextLogout();
             }
 
             if ("usuario_nao_autenticado".equals(msg)) {
@@ -36,7 +36,6 @@ public class ObservadorDoPortal implements Observador {
                 guiportal.habilitarVisualizarAcervo(true);
 
             }
-
         }
 
     }

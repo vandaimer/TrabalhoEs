@@ -26,7 +26,7 @@ public class Portal implements  Observado {
         
         return autenticou;
     }
-    
+
     public boolean criarJogador(Jogador j) {
         boolean autenticou = repositorioJogo.autenticar(j);
         
@@ -44,7 +44,7 @@ public class Portal implements  Observado {
     public Jogador obterJogadorLogado() {
         return new Jogador(jogador);
     }
-    
+
     public boolean salvarJogador(Jogador jgd) {
         
         if (jogador == null) {

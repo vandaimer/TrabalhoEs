@@ -119,17 +119,18 @@ public class FormDadosDoJogador extends javax.swing.JFrame implements GUIDadosDo
 
     @Override
     public void fechar() {
-    this.dispose();
+    	this.dispose();
     }
 
     @Override
-    public void habilitarConfirmarDados(boolean h) {
-    jBConfirmar.setEnabled(h);
+    public void habilitarConfirmarDados(boolean h)
+    {
+    	this.fechar();
     }
 
     @Override
     public void quandoConfirmarDados(ActionListener a) {
-    jBConfirmar.addActionListener(a);
+    	jBConfirmar.addActionListener(a);
     }
 
     @Override
@@ -139,7 +140,7 @@ public class FormDadosDoJogador extends javax.swing.JFrame implements GUIDadosDo
 
     @Override
     public void aplicarConfiguracao(Configurador<GUIDadosDoJogador> conf) {
-    conf.configurar(this);
+    	conf.configurar(this);
     }
 
 
