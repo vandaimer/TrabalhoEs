@@ -47,17 +47,7 @@ public class Jogador {
         } else {
             baralho.remover(c);
         }
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 23 * hash + Objects.hashCode(this.baralho);
-        hash = 23 * hash + Objects.hashCode(this.nome);
-        hash = 23 * hash + Objects.hashCode(this.senha);
-        return hash;
-    }
-
+    }    
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -66,7 +56,6 @@ public class Jogador {
         if (getClass() != obj.getClass()) {
             return false;
         }
-
         final Jogador other = (Jogador) obj;
         if (!Objects.equals(this.nome, other.nome)) {
             return false;

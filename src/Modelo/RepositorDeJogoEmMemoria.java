@@ -20,20 +20,16 @@ public class RepositorDeJogoEmMemoria implements RepositorioDoJogo {
     @java.lang.Override
     public List<Carta> obterCartasDoAcervo() {
         List<Carta> retorno = new ArrayList(60);
-
         for (Carta c : listaDeCartaACervo) {
             retorno.add(new Carta(c));
         }
-
         return retorno;
     }
-
     @java.lang.Override
     public boolean autenticar(Jogador j) {
         if (j == null) {
             return false;
         }
-
         Jogador encontrado = listaJogador.get(j.toString());
         return j.equals(encontrado);
     }
