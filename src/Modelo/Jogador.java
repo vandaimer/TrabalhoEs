@@ -28,7 +28,7 @@ public class Jogador {
         baralho.montarBaralho(c);
     }
 
-    public ErroDeValidacao validarBaralho() {
+    public List<ErroDeValidacao> validarBaralho() {
         return baralho.validar();
     }
 

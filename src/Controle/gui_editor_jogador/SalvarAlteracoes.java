@@ -5,7 +5,6 @@ import Modelo.Jogador;
 import Modelo.Portal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.LinkedList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -21,9 +20,9 @@ public class SalvarAlteracoes implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        List<ErroDeValidacao> erros = new LinkedList();
-        ErroDeValidacao validarBaralho = jgd.validarBaralho();
-        erros.add(validarBaralho);
+         
+       List<ErroDeValidacao> erros = jgd.validarBaralho();
+        
         
         StringBuilder sb = new StringBuilder();
         
