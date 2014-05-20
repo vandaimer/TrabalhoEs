@@ -15,7 +15,7 @@ public class FormDadosDoJogador extends javax.swing.JFrame implements GUIDadosDo
  
     public FormDadosDoJogador() {
         initComponents();
-        setVisible(true);
+
     }
 
    
@@ -143,8 +143,15 @@ public class FormDadosDoJogador extends javax.swing.JFrame implements GUIDadosDo
     }
 
 
+
 	@Override
 	public void quandoPressionarTeclaConfirmacao(KeyListener a) {
 		jPSenha.addKeyListener(a);
 	}
+
+    @Override
+    public void tornarVisivel(boolean t) {
+        setVisible(t);
+    }
+
 }

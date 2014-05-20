@@ -17,24 +17,22 @@ public class ConfirmarAutenticacaoPorTecla extends QuandoConfirmarDadosDeAutenti
 	@Override
 	public void keyPressed(KeyEvent e)
 	{
-		System.out.println("BUCETA1");
+		
 		if( e.getKeyCode() == KeyEvent.VK_ENTER ) 
 	    {
 	    	executarAutenticacao();
-	    	System.out.println("BUCETA2");
+	    	
 	    }
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		System.out.println("BUCETA3");
-		
+	
 	}
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-		System.out.println("BUCETA4");
+	
 		
 	}
 
