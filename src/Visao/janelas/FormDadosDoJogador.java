@@ -37,7 +37,7 @@ public class FormDadosDoJogador extends javax.swing.JFrame implements GUIDadosDo
 
         jLabel2.setText("Senha");
 
-        jBConfirmar.setText("Conirmar");
+        jBConfirmar.setText("Confirmar");
 
         jBCancelar.setText("Cancelar");
 
