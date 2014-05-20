@@ -3,7 +3,10 @@ package Visao.janelas;
 
 import Visao.GUIDadosDoJogador;
 import Controle.Configurador;
+
 import java.awt.event.ActionListener;
+import java.awt.event.KeyListener;
+
 import javax.swing.JOptionPane;
 
 
@@ -138,4 +141,10 @@ public class FormDadosDoJogador extends javax.swing.JFrame implements GUIDadosDo
     public void aplicarConfiguracao(Configurador<GUIDadosDoJogador> conf) {
     conf.configurar(this);
     }
+
+
+	@Override
+	public void quandoPressionarTeclaConfirmacao(KeyListener a) {
+		jPSenha.addKeyListener(a);
+	}
 }
