@@ -19,8 +19,14 @@ public class ConfirmaDadosNovoJogoTecla extends QuandoConfirmarDadosNovoJogador 
 	{
 		if( e.getKeyCode() == KeyEvent.VK_ENTER ) 
 	    {
-	    	executarCadastro();
-	    }
+            try
+            {
+                executarCadastro();
+            }catch (Exception err )
+            {
+                err.printStackTrace();
+            }
+        }
 	}
 
 	@Override

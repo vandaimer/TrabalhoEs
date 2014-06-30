@@ -13,11 +13,13 @@ public class Portal implements  Observado {
         this.repositorioJogo = rep;
     }
     
-    public boolean autenticar(Jogador j) {
+    public boolean autenticar(Jogador j) throws Exception
+    {
         boolean autenticou = repositorioJogo.autenticar(j);
         
-        if (autenticou) {
-        	jogador=repositorioJogo.pesquisarPorChave(j.toString());
+        if (autenticou)
+        {
+            jogador=repositorioJogo.pesquisarPorChave(j.toString());
             notificarObservadores("usuario_autenticado");
             
         } else {
@@ -27,39 +29,46 @@ public class Portal implements  Observado {
         return autenticou;
     }
 
-    public boolean criarJogador(Jogador j) {
+    public boolean criarJogador(Jogador j) throws Exception
+    {
         boolean autenticou = repositorioJogo.autenticar(j);
-        
-        if (autenticou) {
+        if (autenticou)
+        {
             return false;
         }
-        
+
         return repositorioJogo.salvar(j);
     }
     
-    public List<Carta> obterAcervo() {
+    public List<Carta> obterAcervo()
+    {
         return this.repositorioJogo.obterCartasDoAcervo();
     }
     
-    public Jogador obterJogadorLogado() {
+    public Jogador obterJogadorLogado()
+    {
         return new Jogador(jogador);
     }
 
-    public boolean salvarJogador(Jogador jgd) {
+    public boolean salvarJogador(Jogador jgd) throws Exception
+    {
         
-        if (jogador == null) {
+        if (jogador == null)
+        {
             return false;
         }
-        
+
+        jgd.setID( jogador.getId() );
         boolean salvou = repositorioJogo.salvar(jgd);
-        
-        if (salvou) {
+
+        if (salvou)
+        {
             jogador = jgd;
         }
-        
+
         return salvou;
     }
-    
+
     @Override
     public void registrar(Observador o) {
         observadores.add(o);

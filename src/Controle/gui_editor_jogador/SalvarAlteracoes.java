@@ -27,9 +27,16 @@ public class SalvarAlteracoes implements ActionListener {
         StringBuilder sb = new StringBuilder();
         
         if (erros.isEmpty()) {
-            
-            boolean salvou = portal.salvarJogador(jgd);
-            
+
+            boolean salvou = false;
+            try
+            {
+                salvou = portal.salvarJogador(jgd);
+            } catch (Exception e1)
+            {
+                e1.printStackTrace();
+            }
+
             if (salvou) {
                 
                 sb.append("Alteracoes salvas com sucesso");

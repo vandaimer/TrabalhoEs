@@ -1,5 +1,6 @@
 package Modelo;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
@@ -8,19 +9,23 @@ public class Jogador {
     private Baralho baralho = new Baralho();
     private String nome;
     private String senha;
+    private int id;
 
-    public Jogador(String nome, String senha) {
+    public Jogador(String nome, String senha)
+    {
         this.nome = nome;
         this.senha = senha;
     }
 
-    public Jogador(Jogador j) {
+    public Jogador(Jogador j)
+    {
         this.nome = j.nome;
         this.senha = j.senha;
         this.baralho = new Baralho(j.baralho);
     }
 
-    public void adicionarCarta(Carta c) {
+    public void adicionarCarta(Carta c)
+    {
         baralho.adicionar(c);
     }
 
@@ -33,7 +38,8 @@ public class Jogador {
         return baralho.validar(new ValidacaoBaralhoComRegrasDoJogo());
     }
 
-    public List<Carta> obterCartasAtuais() {
+    public List<Carta> obterCartasAtuais()
+    {
 
         return baralho.listarCartas();
     }
@@ -70,12 +76,30 @@ public class Jogador {
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         StringBuilder sb = new StringBuilder();
         sb.append("{\"nome\":\"");
         sb.append(nome);
         sb.append("\"}");
-        return sb.toString(); 
+        return sb.toString();
     }
 
+    public String getNome()
+    {
+        return this.nome;
+    }
+    public String getSenha()
+    {
+        return this.senha;
+    }
+
+    public int getId()
+    {
+        return this.id;
+    }
+    public void setID( int id )
+    {
+        this.id = id;
+    }
 }

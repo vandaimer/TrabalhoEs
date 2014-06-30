@@ -14,9 +14,15 @@ public class ConfirmaDadosNovoJogorClick extends QuandoConfirmarDadosNovoJogador
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e)
+	public void actionPerformed( ActionEvent a )
 	{
-		this.executarCadastro();
-	}
+        try
+        {
+            this.executarCadastro();
+        }catch ( Exception e )
+        {
+            e.printStackTrace();
+        }
+    }
 
 }

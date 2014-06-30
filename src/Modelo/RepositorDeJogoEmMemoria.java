@@ -13,7 +13,7 @@ public class RepositorDeJogoEmMemoria implements RepositorioDoJogo {
     public RepositorDeJogoEmMemoria() {
         listaDeCartaACervo = new ArrayList(60);
         for (int i = 1; i < 61; i++) {
-            listaDeCartaACervo.add(new Carta("carta numero: " + i));
+            listaDeCartaACervo.add(new Carta("carta numero: " + i,i));
         }
     }
 

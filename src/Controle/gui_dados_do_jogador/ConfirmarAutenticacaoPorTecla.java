@@ -20,9 +20,13 @@ public class ConfirmarAutenticacaoPorTecla extends QuandoConfirmarDadosDeAutenti
 		
 		if( e.getKeyCode() == KeyEvent.VK_ENTER ) 
 	    {
-	    	executarAutenticacao();
-	    	
-	    }
+            try {
+                executarAutenticacao();
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
+
+        }
 	}
 
 	@Override

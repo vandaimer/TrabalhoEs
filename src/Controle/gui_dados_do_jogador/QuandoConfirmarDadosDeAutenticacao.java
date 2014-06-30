@@ -20,8 +20,7 @@ public abstract class QuandoConfirmarDadosDeAutenticacao
         this.aut = aut;
     }
 
-    protected void executarAutenticacao()
-    {
+    protected void executarAutenticacao() throws Exception {
         String nmUsuario = aut.obterNomeDeUsuario();
         String senha = aut.obterSenha();
 
@@ -38,7 +37,7 @@ public abstract class QuandoConfirmarDadosDeAutenticacao
             aut.mostrarMensagem("Jogador autenticado com sucesso.");
         } else {
             aut.habilitarConfirmarDados(true);
-            aut.mostrarMensagem("Jogador nao conseguiu se autenticar.");
+            aut.mostrarMensagem("Jogador nao conseguiu se getJogador.");
         }
 
     }

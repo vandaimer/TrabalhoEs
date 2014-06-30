@@ -18,7 +18,7 @@ public abstract class QuandoConfirmarDadosNovoJogador
     }
 
 
-    public void executarCadastro()
+    public void executarCadastro() throws Exception
     {
         String nmUsuario = aut.obterNomeDeUsuario();
         String senha = aut.obterSenha();

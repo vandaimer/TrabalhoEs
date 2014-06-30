@@ -16,6 +16,10 @@ public class ConfirmarAutenticacaoPorClick extends QuandoConfirmarDadosDeAutenti
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		executarAutenticacao();
-	}
+        try {
+            executarAutenticacao();
+        } catch (Exception e1) {
+            e1.printStackTrace();
+        }
+    }
 }
