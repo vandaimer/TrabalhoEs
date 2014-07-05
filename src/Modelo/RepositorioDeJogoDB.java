@@ -4,7 +4,6 @@ import Modelo.Persistencia.BaralhoDao;
 import Modelo.Persistencia.CartaDao;
 import Modelo.Persistencia.ConexaoBanco;
 import Modelo.Persistencia.JogadorDao;
-import sun.org.mozilla.javascript.json.JsonParser;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
