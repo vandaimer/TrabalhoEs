@@ -91,12 +91,3 @@ class AprovarConexao implements Runnable {
 }
 
 
-class Cal implements Callable<List<ReceptorDoControleRemoto>>{
-
-    @Override
-    public List<ReceptorDoControleRemoto> call() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-
-}
