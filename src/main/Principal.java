@@ -1,12 +1,12 @@
 package main;
 
 
-import Controle.configuradores_gui.ConfiguradorPortal;
-import Modelo.Persistencia.ConexaoBanco;
-import Modelo.Portal;
-import Modelo.RepositorioDeJogoDB;
-import Visao.janelas.FormPortal;
-import Modelo.RepositorDeJogoEmMemoria;
+import controle.configuradores_gui.ConfiguradorPortal;
+import modelo.persistencia.ConexaoBanco;
+import modelo.Portal;
+import modelo.RepositorioDeJogoDB;
+import visao.janelas.FormPortal;
+import modelo.RepositorDeJogoEmMemoria;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
