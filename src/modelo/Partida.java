@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-public class Partida implements Observado {
+public class Partida extends ObservadoImpl{
 
     private EstadoDaPartida _estado;
     private int _numDeJogadores;
@@ -71,21 +71,5 @@ public class Partida implements Observado {
         return true;
     }
 
-    @Override
-    public void registrar(Observador o) {
-        observadores.add(o);
-    }
-
-    @Override
-    public void remover(Observador o) {
-        observadores.remove(o);
-    }
-
-    @Override
-    public void notificarObservadores(Object msg) {
-        for (Observador o : observadores) {
-            o.notificar(this, msg);
-
-        }
-    }
+    
 }

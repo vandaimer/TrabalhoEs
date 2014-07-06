@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 
-public class ControleRemoto implements Observador {
+public class ControleRemoto extends ObservadoImpl {
 
     private Jogador _jgd;
     private Conector con;
@@ -47,11 +47,6 @@ public class ControleRemoto implements Observador {
     }
 
     @Override
-    public void notificar(Observado fonte, Object msg) {
-        System.out.println("mandar msg via rede " + msg);
-    }
-
-    @Override
     protected void finalize() throws Throwable {
         super.finalize();
         tNotificao.interrupt();
@@ -78,12 +73,13 @@ public class ControleRemoto implements Observador {
                     Mensagem msg = (Mensagem) leitura;
 
                     if ("jogada_realizada".equals(msg.obterAssunto())) {
-                        Serializable conteudo= msg.obterConteudo();
-                        _jgd.equals(conteudo);
-                        System.out.println("Eu "+conteudo+" realizei minha jogada");
-                    }
+                        Serializable conteudo = msg.obterConteudo();
 
-                   
+                        if (_jgd.equals(conteudo)) {
+                            //faca algo
+                        }
+
+                    }
 
                 }
 
