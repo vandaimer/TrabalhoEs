@@ -30,10 +30,8 @@ public class Fabrica implements FabricaFerramentasPersistencia
         {
             if( this.conexao == null )
             {
-//                return this.conexao = DriverManager.getConnection( "jdbc:mysql://"+this.host+"/"+this.banco, this.login,
-//                        this.senha );
-                return this.conexao = DriverManager.getConnection("jdbc:postgresql://" + this.host +":5432/"+ this.banco, this.login,
-                        this.senha);
+                return this.conexao = DriverManager.getConnection( "jdbc:mysql://"+this.host+"/"+this.banco, this.login,
+                        this.senha );
             }
             return this.conexao;
         }
