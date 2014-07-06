@@ -1,9 +1,15 @@
 package modelo;
 
-public interface EstadoDaPartida {
+import java.io.Serializable;
+
+public interface EstadoDaPartida extends Serializable{
 
     public void jogar(Partida p, Jogador jgd, Jogada j);
-    public void comprar(Partida p, Jogador jgd, Baralho b);
+    public void iniciar(Partida p);
+    public void fimDoJogo(Partida p);
+    public void verificandoVencedorDoTurno(Partida p);
+    public boolean fimDoJogo();
+    
    
 
 }

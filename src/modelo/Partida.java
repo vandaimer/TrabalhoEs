@@ -2,51 +2,54 @@ package modelo;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public class Partida implements Observado {
 
     private EstadoDaPartida _estado;
     private int _numDeJogadores;
-    private List<Jogador> jogadores = new LinkedList<Jogador>();
-    private boolean _fimJogo_teste = false;
+    private List<Jogador> jogadores = new LinkedList<Jogador>();   
+    private Map<Jogador, Jogada> mapaJogadas;
+    int _turnoAtual;
 
-    public Partida(int numDeJogadores) {
+    public Partida(int numDeJogadores) {    	
         _estado = null;//insere estado inicial
         _numDeJogadores = numDeJogadores;
-
+        _turnoAtual = 0;
+        
     }
 
-    public void iniciar() {
-
-        if (jogadores.size() != _numDeJogadores) {
-            notificarObservadores("fim_de_jogo");
-            _fimJogo_teste = true;
-        }
-
+    public synchronized void iniciar() {    	
     }
-
+    public void incrementarTurno(){
+    	_turnoAtual++;
+    }
+    public boolean quantidadeJogadoresValida(){
+    	
+    	return jogadores.size() != _numDeJogadores;
+    }
     public boolean fimDeJogo() {
-        return _fimJogo_teste;
+        return _estado.fimDoJogo();
     }
 
     public void adicionarJogador(Jogador j) throws IllegalArgumentException {
+    	jogadores.add(j);
     }
-
+    public void adicionarJogada(Jogador jgd, Jogada j){
+    	mapaJogadas.put(jgd, j);    	
+    }
+    
     void fixarEstado(EstadoDaPartida e) {
         _estado = e;
     }
 
     public synchronized void jogar(Jogador jgd, Jogada j) {
         _estado.jogar(this, jgd, j);
-    }
-
-    public synchronized void comprar(Jogador jgd, Baralho b) {
-        _estado.comprar(this, jgd, b);
-    }
+    }   
 
     @Override
     public void registrar(Observador o) {
-
+    	
     }
 
     @Override
