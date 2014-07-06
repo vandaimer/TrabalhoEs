@@ -17,7 +17,7 @@ public class Partida implements Observado {
     
 
 	public Partida(int numDeJogadores) {    	
-		_estado = null;//insere estado inicial
+		_estado = new AguardandoIniciar();//insere estado inicial
 		_numDeJogadores = numDeJogadores;
 		_turnoAtual = 0;
 
@@ -30,12 +30,13 @@ public class Partida implements Observado {
 	public synchronized void iniciar() { 
 		_estado.iniciar(this);
 	}
+        
 	public void incrementarTurno(){
 		_turnoAtual++;
 	}
 	public boolean quantidadeJogadoresValida(){
 
-		return jogadores.size() != _numDeJogadores;
+		return jogadores.size() == _numDeJogadores;
 	}
 	public boolean fimDeJogo() {
 		return _estado.fimDoJogo();

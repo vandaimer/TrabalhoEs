@@ -27,7 +27,7 @@ public class Teste {
         
     	
     	p.criarPartida(1234);
-    	System.out.print("partida criada");
+    	System.out.println("partida criada");
         
     }
 }

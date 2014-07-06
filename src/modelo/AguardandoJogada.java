@@ -9,7 +9,7 @@ public class AguardandoJogada implements EstadoDaPartida{
 		try{
 			j.baralhoValido(new ValidacaoMao());
 			p.adicionarJogada(jgd, j);
-			p.notificarObservadores(new Mensagem("Jogada realizada", jgd));
+			p.notificarObservadores(new Mensagem("jogada_realizada", jgd));
 			if(p.associacaoCompleta()){
 				p.fixarEstado(new VerificandoPontuacao());
 			}
@@ -22,19 +22,19 @@ public class AguardandoJogada implements EstadoDaPartida{
 
 	@Override
 	public void iniciar(Partida p) {
-		p.notificarObservadores(this);
+		
 		
 	}
 
 	@Override
 	public void fimDoJogo(Partida p) {
-		p.notificarObservadores(this);
+		
 		
 	}
 
 	@Override
 	public void verificandoVencedorDoTurno(Partida p) {
-		p.notificarObservadores(this);
+		
 		
 	}
 

@@ -22,11 +22,11 @@ public class ServidorDePartida {
         if (numJogadores < 2) {
             throw new IllegalArgumentException("O numero minimo de jogadores deve ser 2.");
         }
-        
+
         if (!(timeOut > 0)) {
             throw new IllegalArgumentException("O tempo de espera pra conexao de ser maior que zero.");
         }
-        
+
     }
 
     public ServidorDePartida(int porta) throws IOException {
@@ -86,7 +86,7 @@ class Servico implements Runnable {
 
             Jogador j = (Jogador) con.receber();
             partida.adicionarJogador(j);
-            ReceptorDoControleRemoto recp = new ReceptorDoControleRemoto(partida,j, con);
+            ReceptorDoControleRemoto recp = new ReceptorDoControleRemoto(partida, j, con);
             receptores.add(recp);
             partida.registrar(recp);
             con.enviar(j);
@@ -122,12 +122,12 @@ class Servico implements Runnable {
 
             partida.iniciar();
 
-            boolean fimJogo = false;
+            
 
-            while (!fimJogo) {
-
-                Thread.sleep(10000);
-                fimJogo = true;
+            while (!partida.fimDeJogo()) {
+                Thread.sleep(5000);
+                System.out.println("Jogo rodando");
+                
 
             }
 
@@ -138,7 +138,7 @@ class Servico implements Runnable {
             _svsocket.close();
             System.out.println("fim de jodo");
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
 
     }

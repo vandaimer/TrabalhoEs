@@ -31,7 +31,7 @@ public class ControleRemoto implements Observador {
             throw new IOException("Falha ao conectar");
         }
 
-        System.out.print(resposta);
+        System.out.println(resposta);
 
 
         

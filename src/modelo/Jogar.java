@@ -2,7 +2,7 @@ package modelo;
 
 import java.io.Serializable;
 
-public class Jogar implements Serializable {
+public class Jogar implements Serializable,MetodoRemotoPartida {
     
     private final Jogador j;
     private final Jogada jgd;
@@ -12,6 +12,7 @@ public class Jogar implements Serializable {
         this.jgd = jgd;
     }
     
+    @Override
     public void aceitar(Partida p) {
         p.jogar(j, jgd);
     }
