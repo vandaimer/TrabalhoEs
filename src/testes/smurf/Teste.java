@@ -22,9 +22,9 @@ public class Teste {
     	Jogador j = new Jogador("rodrigo", "123");
     	Portal p = new Portal(new RepositorDeJogoEmMemoria());
     	p.autenticar(j);
-    	System.out.print("Criando partida");
-    	p.criarPartida(1234);
     	
+    	p.criarPartida(1234);
+    	System.out.print("partida criada");
         
     }
 }
