@@ -14,7 +14,9 @@ public class Teste {
         Jogador j = new Jogador("jean", "1");
         portal.criarJogador(j);
         portal.autenticar(j);
-        ControleRemoto ctr = portal.conectarAoOponente("192.168.1.3", 1234);
+        ControleRemoto ctr = portal.conectarAoOponente("177.132.96.43", 1234);
+        //ControleRemoto ctr = portal.conectarAoOponente("192.168.1.3", 1234);
+   
         
         
     

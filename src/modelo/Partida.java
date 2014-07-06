@@ -28,6 +28,7 @@ public class Partida implements Observado {
 	public synchronized void iniciar() { 
 		_estado.iniciar(this);
 	}
+        
 	public void incrementarTurno(){
 		_turnoAtual++;
 	}

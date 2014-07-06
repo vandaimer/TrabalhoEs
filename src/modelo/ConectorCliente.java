@@ -23,7 +23,9 @@ public class ConectorCliente implements Conector {
 
         } catch (UnknownHostException e) {
             _socket = null;
+             e.printStackTrace();
         } catch (IOException e) {
+            e.printStackTrace();
             _socket = null;
         }
 
@@ -70,7 +72,7 @@ public class ConectorCliente implements Conector {
 
     @Override
     public boolean estaConectado() {
-        return _socket == null;
+        return _socket != null;
     }
 
 }

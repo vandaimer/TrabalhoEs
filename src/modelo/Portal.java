@@ -43,7 +43,11 @@ public class Portal implements Observado {
         if (autenticou) {
             return false;
         }
+
+ 
+
         
+
         return repositorioJogo.salvar(j);
     }
 
