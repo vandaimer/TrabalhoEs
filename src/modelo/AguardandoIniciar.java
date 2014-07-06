@@ -11,7 +11,7 @@ public class AguardandoIniciar implements EstadoDaPartida{
 	@Override
 	public void iniciar(Partida p) {
 		if(p.quantidadeJogadoresValida()){
-			p.notificarObservadores(this);
+			p.notificarObservadores(new Mensagem("iniciar", null));
 			p.fixarEstado(new AguardandoJogada());
 			p.incrementarTurno();
 		}
