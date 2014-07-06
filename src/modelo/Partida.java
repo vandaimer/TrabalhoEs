@@ -12,6 +12,7 @@ public class Partida implements Observado {
     private int _numDeJogadores;
     private List<Jogador> jogadores = new LinkedList<Jogador>();
     private Map<Jogador, Jogada> mapaJogadas;
+    private List<Observador> observadores = new LinkedList<Observador>();
     int _turnoAtual;
 
 	public Partida(int numDeJogadores) {    	
@@ -64,17 +65,20 @@ public class Partida implements Observado {
 
 	@Override
 	public void registrar(Observador o) {
-
+		observadores.add(o);
 	}
 
 	@Override
 	public void remover(Observador o) {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		observadores.remove(o);
 	}
 
 	@Override
 	public void notificarObservadores(Object msg) {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		for (Observador o : observadores) {
+			o.notificar(this, msg);
+			
+		}
 	}
 }
 

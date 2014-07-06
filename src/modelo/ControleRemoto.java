@@ -30,6 +30,7 @@ public class ControleRemoto implements Observador {
         if (resposta instanceof Jogador && !((Jogador) resposta).equals(j)) {
             throw new IOException("Falha ao conectar");
         }
+        System.out.print(resposta);
 
         tNotificao = new Thread(new LeitorDeNotificacao(con, this));
         tNotificao.start();
