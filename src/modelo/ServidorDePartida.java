@@ -114,7 +114,7 @@ class Servico implements Runnable {
 
             aceitarJogadores();
             semafaro.acquire();
-
+            
             for (ReceptorDoControleRemoto r : receptores) {
 
                 r.iniciar();

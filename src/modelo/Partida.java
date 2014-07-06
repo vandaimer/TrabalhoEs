@@ -5,9 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Partida implements Observado {
-
-
-
+	
     private EstadoDaPartida _estado;
     private int _numDeJogadores;
     private List<Jogador> jogadores = new LinkedList<Jogador>();
@@ -17,7 +15,7 @@ public class Partida implements Observado {
     
 
 	public Partida(int numDeJogadores) {    	
-		_estado = null;//insere estado inicial
+		_estado = new AguardandoIniciar();//insere estado inicial
 		_numDeJogadores = numDeJogadores;
 		_turnoAtual = 0;
 
@@ -35,7 +33,7 @@ public class Partida implements Observado {
 	}
 	public boolean quantidadeJogadoresValida(){
 
-		return jogadores.size() != _numDeJogadores;
+		return jogadores.size() == _numDeJogadores;
 	}
 	public boolean fimDeJogo() {
 		return _estado.fimDoJogo();

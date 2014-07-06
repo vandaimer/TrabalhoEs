@@ -43,7 +43,7 @@ public class Portal implements Observado {
         if (autenticou) {
             return false;
         }
-        System.out.println(j.getSenha());
+        
         return repositorioJogo.salvar(j);
     }
 
