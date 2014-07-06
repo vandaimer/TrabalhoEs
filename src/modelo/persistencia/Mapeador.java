@@ -202,7 +202,6 @@ public class Mapeador implements MapeadorEntidadesDoJogo
             this.psmt.setObject( contador, where.get( condicao ) );
             contador++;
         }
-        System.out.println(tabela);
         return this.psmt.executeQuery();
     }
 
