@@ -1,6 +1,6 @@
-﻿DROP TABLE baralho;
-DROP TABLE carta;
-DROP TABLE jogador;
+﻿--DROP TABLE baralho;
+--DROP TABLE carta;
+--DROP TABLE jogador;
 
 CREATE TABLE jogador
 (

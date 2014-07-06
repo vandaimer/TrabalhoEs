@@ -36,16 +36,16 @@ public class Principal {
         /*
           Em banco de dados
          */
-        FabricaFerramentasPersistencia fabrica = new Fabrica( "localhost","root","admin","EngenhariaSoftware");
+        FabricaFerramentasPersistencia fabrica = new Fabrica( "150.162.52.177","jogoes","@fuckingpassword@","engenhariasoftware");
         ConfiguradorPortal confp=new ConfiguradorPortal(new Portal(new RepositorioDeJogoDB( fabrica )));
         fportal.aplicarConfiguracao(confp);
         
     }
     
-        public static void iniciarFormularioDoPortalMemoria() throws Exception
+    public static void iniciarFormularioDoPortalMemoria() throws Exception
     {
         FormPortal fportal=new FormPortal();
-        
+
         ConfiguradorPortal confp=new ConfiguradorPortal(new Portal(new RepositorDeJogoEmMemoria()));
 
         fportal.aplicarConfiguracao(confp);
@@ -55,6 +55,6 @@ public class Principal {
     public static void main(String[] args) throws Exception
     {
         fixarTemaJava();
-        iniciarFormularioDoPortalMemoria();
+        iniciarFormularioDoPortal();
     }
 }
