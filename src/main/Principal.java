@@ -2,14 +2,11 @@ package main;
 
 
 import controle.configuradores_gui.ConfiguradorPortal;
-import modelo.persistencia.ConexaoBanco;
 import modelo.Portal;
 import modelo.RepositorioDeJogoDB;
+import modelo.persistencia.Fabrica;
+import modelo.persistencia.FabricaFerramentasPersistencia;
 import visao.janelas.FormPortal;
-import modelo.RepositorDeJogoEmMemoria;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
 
 public class Principal {
 
@@ -33,12 +30,13 @@ public class Principal {
         /*
           Em memoria
          */
-        ConfiguradorPortal confp=new ConfiguradorPortal(new Portal(new RepositorDeJogoEmMemoria()));
+        //ConfiguradorPortal confp=new ConfiguradorPortal(new Portal(new RepositorDeJogoEmMemoria()));
 
         /*
           Em banco de dados
          */
-        //ConfiguradorPortal confp=new ConfiguradorPortal(new Portal(new RepositorioDeJogoDB()));
+        FabricaFerramentasPersistencia fabrica = new Fabrica( "localhost","root","admin","EngenhariaSoftware");
+        ConfiguradorPortal confp=new ConfiguradorPortal(new Portal(new RepositorioDeJogoDB( fabrica )));
         fportal.aplicarConfiguracao(confp);
         
     }
