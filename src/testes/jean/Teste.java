@@ -1,48 +1,32 @@
 package testes.jean;
 
-import modelo.ConectorCliente;
 import java.io.IOException;
-import java.io.Serializable;
-import java.net.ServerSocket;
+import modelo.ConectorCliente;
+import modelo.Jogador;
+import modelo.ServidorDePartida;
 
-public class Teste implements Runnable {
+public class Teste {
 
-    private ConectorCliente cli;
+    public static void main(String[] args) throws IOException, InterruptedException {
+        ServidorDePartida sv = new ServidorDePartida(1234);
+        sv.iniciarServico();
+        System.out.println("Esperando");
+        Thread.sleep(2000);
+       
+        Jogador j1 = new Jogador("Jean", "j");
+        Jogador j2 = new Jogador("Rodz", "j");
 
-    public Teste(ConectorCliente cli) {
-        this.cli = cli;
+        ConectorCliente c1 = new ConectorCliente("localhost", 1234);
+        System.out.println("Enviar cliente 1");
+        c1.enviar(j1);
+        System.out.println(c1.receber());
+        //ConectorCliente c2 = new ConectorCliente("localhost", 1234);
+        
+//       System.out.println("Enviar cliente 2");
+//        c2.enviar(j2);
+//        System.out.println(c2.receber());
+//        
+        System.out.println("fim dos envios");
     }
 
-    public static void main(String[] args) throws IOException {
-        ServerSocket sv = new ServerSocket(1234);
-
-        while (true) {
-
-            System.out.println("Aguardando conexao");
-            ConectorCliente cli = new ConectorCliente(sv.accept());
-            new Thread(new Teste(cli)).start();
-
-        }
-
-    }
-
-    @Override
-    public void run() {
-        cli.enviar("conexao_aceita");
-
-        while (true) {
-            Serializable receber = cli.receber();
-            
-            if (receber==null) {
-                break;
-            }
-            
-            System.out.println(receber);
-
-            
-        }
-
-        System.out.println("fim conexao");
-
-    }
 }

@@ -11,10 +11,12 @@ private Conector con;
         this.con = con;
     }
 
-    
+
+    public void iniciar(){}
+     public void finalizar(){}
     @Override
     public void notificar(Observado fonte, Object msg) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

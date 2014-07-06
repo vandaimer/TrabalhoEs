@@ -1,9 +1,10 @@
 package modelo;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
-public class Jogador {
+public class Jogador implements Serializable{
 
     private Baralho baralho = new Baralho();
     private String nome;
