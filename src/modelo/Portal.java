@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Portal implements Observado {
+public class Portal extends ObservadoImpl{
 
     private final RepositorioDoJogo repositorioJogo;
     private Jogador jogador;
@@ -75,21 +75,5 @@ public class Portal implements Observado {
         return salvou;
     }
 
-    @Override
-    public void registrar(Observador o) {
-        observadores.add(o);
-    }
-
-    @Override
-    public void remover(Observador o) {
-        observadores.remove(o);
-    }
-
-    @Override
-    public void notificarObservadores(Object msg) {
-        for (Observador obs : observadores) {
-            obs.notificar(this, msg);
-        }
-    }
 
 }
