@@ -4,7 +4,15 @@ public class AguardandoJogada implements EstadoDaPartida{
 
 	@Override
 	public void jogar(Partida p, Jogador jgd, Jogada j) {
+		//vou fazer algum coisa
 		
+		try{
+			j.baralhoValido(new ValidacaoMao());
+			p.adicionarJogada(jgd, j);
+			
+		}catch(ExcecaoQuebraDeRegrasDoBaralho e){
+			p.notificarObservadores(this);
+		}
 		
 	}
 
