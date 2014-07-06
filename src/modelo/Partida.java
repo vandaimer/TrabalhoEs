@@ -5,9 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Partida implements Observado {
-
-
-
+	
     private EstadoDaPartida _estado;
     private int _numDeJogadores;
     private List<Jogador> jogadores = new LinkedList<Jogador>();
