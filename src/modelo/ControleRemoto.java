@@ -16,7 +16,7 @@ public class ControleRemoto implements Observador {
         _jgd = j;
         con = new ConectorCliente(ip, porta);
 
-        if (con.estaConectado()) {
+        if (!con.estaConectado()) {
             throw new IOException("Falha ao conectar");
         }
 
