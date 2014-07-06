@@ -79,8 +79,10 @@ public class ControleRemoto implements Observador {
 
                     if ("jogada_realizada".equals(msg.obterAssunto())) {
                         Serializable conteudo= msg.obterConteudo();
-                        _jgd.equals(conteudo);
-                        System.out.println("Eu "+conteudo+" realizei minha jogada");
+                        if(_jgd.equals(conteudo)){
+                        	System.out.println("Eu "+conteudo+" realizei minha jogada");
+                        }
+                        
                     }
 
                    
