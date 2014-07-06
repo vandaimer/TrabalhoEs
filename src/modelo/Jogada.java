@@ -10,4 +10,8 @@ public class Jogada implements Serializable {
         _b = b;
     }
 
+    public void baralhoValido(EstrategiaDeValidacaoDoBaralho e) throws ExcecaoQuebraDeRegrasDoBaralho {
+        _b.validar(e);
+    }
+
 }
