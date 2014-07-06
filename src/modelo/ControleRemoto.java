@@ -4,10 +4,11 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 
-public class ControleRemoto {
+public class ControleRemoto implements Observador {
 
     private Jogador _jgd;
     private Conector con;
+    private Thread tNotificao;
 
     public ControleRemoto(Jogador j, String ip, int porta)
             throws IOException, ExcececaoConexaoRecusada {
@@ -38,6 +39,38 @@ public class ControleRemoto {
         b.montarBaralho(cartas);
         Jogada jgda = new Jogada(b);
         con.enviar(new Jogar(_jgd, jgda));
+    }
+
+    @Override
+    public void notificar(Observado fonte, Object msg) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    class LeitorDeNotificacao implements Runnable {
+
+        private Conector _con;
+        private ControleRemoto _ctr;
+
+        public LeitorDeNotificacao(Conector con, ControleRemoto ctr) {
+            _con = con;
+            _ctr = ctr;
+        }
+
+        @Override
+        public void run() {
+
+            while (true) {
+
+                Serializable leitura = _con.receber();
+
+                if (leitura instanceof Mensagem) {
+                   Mensagem msg= (Mensagem)leitura;
+                }
+
+            }
+
+        }
+
     }
 
 }
