@@ -14,6 +14,7 @@ public class AguardandoIniciar implements EstadoDaPartida{
 			p.notificarObservadores(new Mensagem("iniciar_turno", null));
 			p.fixarEstado(new AguardandoJogada());
 			p.incrementarTurno();
+                        p.limparJogadas();
 		}
 	}
 
