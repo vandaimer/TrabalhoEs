@@ -13,6 +13,7 @@ public class Partida implements Observado {
     private List<Jogador> jogadores = new LinkedList<Jogador>();
     private Map<Jogador, Jogada> mapaJogadas;
     int _turnoAtual;
+    
 
 	public Partida(int numDeJogadores) {    	
 		_estado = null;//insere estado inicial

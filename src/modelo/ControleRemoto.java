@@ -30,7 +30,8 @@ public class ControleRemoto implements Observador {
         if (resposta instanceof Jogador && !((Jogador) resposta).equals(j)) {
             throw new IOException("Falha ao conectar");
         }
-
+        
+        System.out.println(resposta);
         tNotificao = new Thread(new LeitorDeNotificacao(con, this));
         tNotificao.start();
 
@@ -46,7 +47,7 @@ public class ControleRemoto implements Observador {
 
     @Override
     public void notificar(Observado fonte, Object msg) {
-    
+        System.out.println("mandar msg via rede "+msg);
     }
 
     @Override
@@ -74,7 +75,6 @@ public class ControleRemoto implements Observador {
 
                 if (leitura instanceof Mensagem) {
                     Mensagem msg = (Mensagem) leitura;
-
                     
                     System.out.println("Assunto:"+ msg.obterAssunto());
                     System.out.println("Conteudo:"+ msg.obterConteudo());
