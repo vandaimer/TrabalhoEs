@@ -7,6 +7,9 @@
 package testes.smurf;
 
 import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import modelo.ConectorCliente;
 
 import modelo.ExcececaoConexaoRecusada;
 import modelo.Jogador;
@@ -25,6 +28,20 @@ public class Teste {
     	p.autenticar(j);    	
     	p.criarPartida(1234);
     	System.out.println("partida criada");
-        
+        servir(1234);
+    }
+    
+        public static void servir( int porta) {
+        try {
+
+            ServerSocket sv=new ServerSocket(porta);
+            Socket sc = sv.accept();
+            ConectorCliente con = new ConectorCliente(sc);
+            con.enviar("conexao aceita");
+            System.out.println(con.receber());
+           sv.close();
+
+        } catch (Exception e) {
+        }
     }
 }
