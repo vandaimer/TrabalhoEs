@@ -86,7 +86,7 @@ class Servico implements Runnable {
 
             Jogador j = (Jogador) con.receber();
             partida.adicionarJogador(j);
-            ReceptorDoControleRemoto recp = new ReceptorDoControleRemoto(j, con);
+            ReceptorDoControleRemoto recp = new ReceptorDoControleRemoto(partida,j, con);
             receptores.add(recp);
             partida.registrar(recp);
             con.enviar(j);

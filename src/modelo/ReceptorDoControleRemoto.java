@@ -1,22 +1,41 @@
-
 package modelo;
 
+import java.io.Serializable;
 
-public class ReceptorDoControleRemoto implements Observador{
-private Jogador jgd;
-private Conector con;
+public class ReceptorDoControleRemoto implements Observador {
 
-    public ReceptorDoControleRemoto(Jogador jgd, Conector con) {
-        this.jgd = jgd;
-        this.con = con;
+    private Jogador _jgd;
+    private Conector _con;
+    private Thread tLeitura;
+    private Partida _p;
+
+    public ReceptorDoControleRemoto(Partida p, Jogador jgd, Conector con) {
+        _jgd = jgd;
+        _con = con;
+        _p = p;
+
     }
 
+    public void iniciar() {
 
-    public void iniciar(){}
-     public void finalizar(){}
+    }
+
+    public void finalizar() {
+
+    }
+
     @Override
     public void notificar(Observado fonte, Object msg) {
-       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        if (fonte.equals(_p)) {
+            try {
+                
+                _con.enviar((Serializable) msg);
+                
+            } catch (Exception e) {
+            }
+
+        }
     }
-    
+
 }
