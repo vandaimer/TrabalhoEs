@@ -22,7 +22,7 @@ public class Mapeador implements MapeadorEntidadesDoJogo
         try
         {
             this.connection = conexao;
-            this.tabela = "Carta";
+            this.tabela = "carta";
             ResultSet result = select( "" );
             System.out.println(result);
             List<Carta> cartas = new ArrayList<>();
@@ -245,7 +245,7 @@ public class Mapeador implements MapeadorEntidadesDoJogo
 
     protected ResultSet getJogador(String nome, String senha) throws Exception
     {
-        this.tabela = "Jogador";
+        this.tabela = "jogador";
         HashMap<String,Object> where = new HashMap<>();
         where.put( "NOME", nome );
         where.put( "SENHA", senha );
@@ -258,7 +258,7 @@ public class Mapeador implements MapeadorEntidadesDoJogo
 
     protected ResultSet getCartaByJogador( int jogador ) throws Exception
     {
-        this.tabela = "Baralho";
+        this.tabela = "baralho";
         HashMap<String,Object> where = new HashMap<>();
         Integer id = jogador;
         where.put( "id_jogador", id );
@@ -267,7 +267,7 @@ public class Mapeador implements MapeadorEntidadesDoJogo
 
     protected ResultSet getCartaByID( int carta ) throws Exception
     {
-        this.tabela = "Carta";
+        this.tabela = "carta";
         HashMap<String,Object> where = new HashMap<>();
         Integer id = carta;
         where.put( "ID", id );
@@ -276,7 +276,7 @@ public class Mapeador implements MapeadorEntidadesDoJogo
 
     protected void deletarBaralhorJogador( int jogador ) throws Exception
     {
-        this.tabela = "Baralho";
+        this.tabela = "baralho";
         HashMap<String,Object> where = new HashMap<>();
         Integer id = jogador;
         where.put( "id_jogador", id );
@@ -285,7 +285,7 @@ public class Mapeador implements MapeadorEntidadesDoJogo
 
     protected void adicionarCartaBaralho( int jogador, int carta ) throws Exception
     {
-        this.tabela = "Baralho";
+        this.tabela = "baralho";
         HashMap<String,Object> dados = new HashMap<>();
         Integer idJogador = jogador;
         Integer idCarta = carta;
@@ -296,7 +296,7 @@ public class Mapeador implements MapeadorEntidadesDoJogo
 
     protected void inserirJogador( String nome, String senha ) throws Exception
     {
-        this.tabela = "Jogador";
+        this.tabela = "jogador";
         HashMap<String,Object> where = new HashMap<>();
         where.put( "NOME", nome );
         where.put( "SENHA", senha );
