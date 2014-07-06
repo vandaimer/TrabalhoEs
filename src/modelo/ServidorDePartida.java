@@ -30,11 +30,11 @@ public class ServidorDePartida {
     }
 
     public ServidorDePartida(int porta) throws IOException {
-        this(porta, 2, 1000);
+        this(porta, 2, 10000);
     }
 
     public ServidorDePartida() throws IOException {
-        this(1234, 2, 1000);
+        this(1234);
     }
 
     public synchronized void iniciarServico() {
@@ -78,7 +78,7 @@ class Servico implements Runnable {
     public synchronized void aprovarConexao(Conector con) {
 
         if (receptores.size() == _numMaxJogadores) {
-            con.enviar("conexao_recusada");
+            con.enviar(new ExcececaoConexaoRecusada("O numero de jogadores aceito no servidor foi excedido."));
             return;
         }
 
@@ -89,7 +89,7 @@ class Servico implements Runnable {
             ReceptorDoControleRemoto recp = new ReceptorDoControleRemoto(j, con);
             receptores.add(recp);
             partida.registrar(recp);
-            con.enviar("conexao_aceita");
+            con.enviar(j);
 
         } catch (Exception e) {
             con.enviar(e);
@@ -190,6 +190,7 @@ class OuvinteDePorta implements Runnable {
 
                 if (++_nTimeOut == 6) {
                     _s.liberaSemafaro();
+                    System.out.println(_nTimeOut);
                     break;
                 }
 
