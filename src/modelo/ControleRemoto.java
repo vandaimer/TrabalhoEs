@@ -33,10 +33,6 @@ public class ControleRemoto implements Observador {
 
         System.out.println(resposta);
 
-
-        
-        
-
         tNotificao = new Thread(new LeitorDeNotificacao(con, this));
         tNotificao.start();
 
@@ -52,12 +48,12 @@ public class ControleRemoto implements Observador {
 
     @Override
     public void notificar(Observado fonte, Object msg) {
-        System.out.println("mandar msg via rede "+msg);
+        System.out.println("mandar msg via rede " + msg);
     }
 
     @Override
     protected void finalize() throws Throwable {
-        super.finalize(); 
+        super.finalize();
         tNotificao.interrupt();
     }
 
@@ -80,9 +76,14 @@ public class ControleRemoto implements Observador {
 
                 if (leitura instanceof Mensagem) {
                     Mensagem msg = (Mensagem) leitura;
-                    
-                    System.out.println("Assunto:"+ msg.obterAssunto());
-                    System.out.println("Conteudo:"+ msg.obterConteudo());
+
+                    if ("jogada_realizada".equals(msg.obterAssunto())) {
+                        Serializable conteudo= msg.obterConteudo();
+                        _jgd.equals(conteudo);
+                        System.out.println("Eu "+conteudo+" realizei minha jogada");
+                    }
+
+                   
 
                 }
 
