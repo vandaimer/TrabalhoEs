@@ -25,10 +25,11 @@ public class VerificandoPontuacao implements EstadoDaPartida{
 		//atualizar o score através da comparação de cartas
 		
 		if(p.fimDeJogo()){
-			p.notificarObservadores(this);
+			//enviar o score atual como mensagem no notificar
+			p.notificarObservadores(new Mensagem("Fim do jogo", null));
 			p.fixarEstado(new FimDoJogo());
 		}else{
-			p.notificarObservadores(this);
+			p.notificarObservadores(new Mensagem("pontuacao", null));
 			p.fixarEstado(new AguardandoIniciar());
 		}		
 	}

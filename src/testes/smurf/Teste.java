@@ -24,7 +24,7 @@ public class Teste {
         p.autenticar(j);
     	System.out.print("Criando partida");
     	p.criarPartida(1234);
-    	
+    	System.out.print("partida criada");
         
     }
 }
