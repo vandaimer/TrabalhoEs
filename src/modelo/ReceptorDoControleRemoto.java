@@ -28,9 +28,10 @@ public class ReceptorDoControleRemoto implements Observador {
     public void notificar(Observado fonte, Object msg) {
 
         if (fonte.equals(_p)) {
+            
             try {
                 
-                _con.enviar((Serializable) msg);
+               _con.enviar((Serializable)msg);
                 
             } catch (Exception e) {
             }

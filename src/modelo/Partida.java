@@ -14,6 +14,7 @@ public class Partida implements Observado {
     private Map<Jogador, Jogada> mapaJogadas;
     private List<Observador> observadores = new LinkedList<Observador>();
     int _turnoAtual;
+    
 
 	public Partida(int numDeJogadores) {    	
 		_estado = null;//insere estado inicial
