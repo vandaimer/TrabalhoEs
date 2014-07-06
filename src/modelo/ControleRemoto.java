@@ -31,6 +31,9 @@ public class ControleRemoto implements Observador {
             throw new IOException("Falha ao conectar");
         }
 
+        tNotificao = new Thread(new LeitorDeNotificacao(con, this));
+        tNotificao.start();
+
     }
 
     public void jogar(List<Carta> cartas) {
@@ -43,7 +46,13 @@ public class ControleRemoto implements Observador {
 
     @Override
     public void notificar(Observado fonte, Object msg) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize(); 
+        tNotificao.interrupt();
     }
 
     class LeitorDeNotificacao implements Runnable {
@@ -64,7 +73,12 @@ public class ControleRemoto implements Observador {
                 Serializable leitura = _con.receber();
 
                 if (leitura instanceof Mensagem) {
-                   Mensagem msg= (Mensagem)leitura;
+                    Mensagem msg = (Mensagem) leitura;
+
+                    
+                    System.out.println("Assunto:"+ msg.obterAssunto());
+                    System.out.println("Conteudo:"+ msg.obterConteudo());
+
                 }
 
             }
