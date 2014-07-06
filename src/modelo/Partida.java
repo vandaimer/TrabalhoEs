@@ -18,12 +18,9 @@ public class Partida implements Observado {
 		_estado = new AguardandoIniciar();//insere estado inicial
 		_numDeJogadores = numDeJogadores;
 		_turnoAtual = 0;
-
+		
 	}
-	public void verificarJogada(Jogada j){
 
-
-	}
 
 	public synchronized void iniciar() { 
 		_estado.iniciar(this);

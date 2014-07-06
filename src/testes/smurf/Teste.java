@@ -9,40 +9,40 @@ package testes.smurf;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import modelo.ConectorCliente;
+import java.util.LinkedList;
 
+import modelo.Carta;
+import modelo.ConectorCliente;
+import modelo.ControleRemoto;
 import modelo.ExcececaoConexaoRecusada;
 import modelo.Jogador;
 import modelo.Portal;
 import modelo.RepositorDeJogoEmMemoria;
+import modelo.RepositorioDeJogoDB;
+import modelo.persistencia.Fabrica;
 
 /**
  *
  * @author jean
  */
 public class Teste {
-    public static void main(String[] args) throws ExcececaoConexaoRecusada, IOException {
-    	Jogador j = new Jogador("rodrigo", "123");
-    	Portal p = new Portal(new RepositorDeJogoEmMemoria());
-    	
-    	p.criarJogador(j);
-    	p.autenticar(j);    	
-    	p.criarPartida(1234);
-    	System.out.println("partida criada");
-        servir(1234);
-    }
-    
-        public static void servir( int porta) {
-        try {
+	public static void main(String[] args) throws ExcececaoConexaoRecusada, IOException, InterruptedException {
+		Jogador j = new Jogador("rodrigo", "mel");
+		Portal p = new Portal(new RepositorioDeJogoDB(new Fabrica("150.162.52.177", "jogoes", "@fuckingpassword@", "engenhariasoftware")));   	
+		p.autenticar(j);    	
+		ControleRemoto r = p.conectarAoOponente("192.168.1.4",1234);
+		
+		Thread.sleep(5000);
+		r.jogar(new LinkedList<Carta>());
 
-            ServerSocket sv=new ServerSocket(porta);
-            Socket sc = sv.accept();
-            ConectorCliente con = new ConectorCliente(sc);
-            con.enviar("conexao aceita");
-            System.out.println(con.receber());
-           sv.close();
 
-        } catch (Exception e) {
-        }
-    }
+
+	}
+	/*Portal portal = new Portal(new RepositorioDeJogoDB(new Fabrica("150.162.52.177", "jogoes", "@fuckingpassword@", "engenhariasoftware")));
+        Jogador j = new Jogador("jean", "1234");
+        portal.autenticar(j);        
+        ControleRemoto ctr = portal.conectarAoOponente("192.168.1.3", 1234);
+        Thread.sleep(2000);
+        ctr.jogar(new LinkedList<Carta>());*/
+
 }

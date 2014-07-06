@@ -11,7 +11,10 @@ public class AguardandoJogada implements EstadoDaPartida{
 			p.adicionarJogada(jgd, j);
 			p.notificarObservadores(new Mensagem("jogada_realizada", jgd));
 			if(p.associacaoCompleta()){
-				p.fixarEstado(new VerificandoPontuacao());
+				VerificandoPontuacao v = new VerificandoPontuacao();				
+				p.fixarEstado(v);
+				v.verificandoVencedorDoTurno(p);
+				
 			}
 			
 		}catch(ExcecaoQuebraDeRegrasDoBaralho e){
