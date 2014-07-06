@@ -9,6 +9,10 @@ public class AguardandoJogada implements EstadoDaPartida{
 		try{
 			j.baralhoValido(new ValidacaoMao());
 			p.adicionarJogada(jgd, j);
+			if(p.associacaoCompleta()){
+				//notificar ainda nao está completo
+				p.fixarEstado(new VerificandoPontuacao());
+			}
 			
 		}catch(ExcecaoQuebraDeRegrasDoBaralho e){
 			p.notificarObservadores(this);

@@ -58,7 +58,12 @@ public class Partida implements Observado {
 		_estado.jogar(this, jgd, j);
 	}
 	public boolean associacaoCompleta(){
-		
+		for (Jogador j : jogadores) {
+			if(!(mapaJogadas.containsKey(j))){
+				return false;
+			}			
+		}
+		return true;
 	}
 
 	@Override
