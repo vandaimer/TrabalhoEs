@@ -62,7 +62,7 @@ class Servico implements Runnable {
         _numMaxJogadores = numJogadores;
         _svsocket = new ServerSocket(porta);
         _ouvintePorta = new Thread(new OuvinteDePorta(_svsocket, this));
-        _svsocket.setSoTimeout(timeOut);
+        //_svsocket.setSoTimeout(timeOut);
         partida = new Partida(_numMaxJogadores);
 
     }

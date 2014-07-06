@@ -21,6 +21,7 @@ public class Teste {
     public static void main(String[] args) throws ExcececaoConexaoRecusada, IOException {
     	Jogador j = new Jogador("rodrigo", "123");
     	Portal p = new Portal(new RepositorDeJogoEmMemoria());
+    	
     	p.criarJogador(j);
     	p.autenticar(j);    	
     	p.criarPartida(1234);
