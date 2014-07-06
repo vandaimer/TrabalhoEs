@@ -6,11 +6,13 @@ import java.util.Map;
 
 public class Partida implements Observado {
 
-	private EstadoDaPartida _estado;
-	private int _numDeJogadores;
-	private List<Jogador> jogadores = new LinkedList<Jogador>();   
-	private Map<Jogador, Jogada> mapaJogadas;
-	int _turnoAtual;
+
+
+    private EstadoDaPartida _estado;
+    private int _numDeJogadores;
+    private List<Jogador> jogadores = new LinkedList<Jogador>();
+    private Map<Jogador, Jogada> mapaJogadas;
+    int _turnoAtual;
 
 	public Partida(int numDeJogadores) {    	
 		_estado = null;//insere estado inicial
@@ -19,18 +21,12 @@ public class Partida implements Observado {
 
 	}
 	public void verificarJogada(Jogada j){
-		//verificar jogada
-		try{
-			ValidacaoMao v = new ValidacaoMao();
-			
 
-		}catch(ExcecaoQuebraDeRegrasDoBaralho e){
-			
-		}
 
 	}
 
-	public synchronized void iniciar() {    	
+	public synchronized void iniciar() { 
+		_estado.iniciar(this);
 	}
 	public void incrementarTurno(){
 		_turnoAtual++;
@@ -80,5 +76,7 @@ public class Partida implements Observado {
 	public void notificarObservadores(Object msg) {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
-
 }
+
+
+ 
