@@ -1,7 +1,9 @@
 package controle.gui_visualizador_de_cartas;
 
 import modelo.jogo.Carta;
+import modelo.jogo.CartaAbstrata;
 import visao.GUIVisualizadorDeCartas;
+
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -15,7 +17,7 @@ public class SelecionarUmaCarta implements ListSelectionListener {
 
     @Override
     public void valueChanged(ListSelectionEvent e) {
-        Carta c = v.obterCartaSelecionada();
+        CartaAbstrata c = v.obterCartaSelecionada();
         v.mostrar(c);
 
     }

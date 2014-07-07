@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.Random;
 
 import modelo.jogo.Carta;
+import modelo.jogo.CartaAbstrata;
 import modelo.jogo.servidor.controleremoto.ControleRemoto;
 import modelo.util.Observado;
 import modelo.util.Observador;
@@ -33,7 +34,7 @@ private StringBuilder log;
             try {
                 Random r = new Random();
                 Thread.sleep(r.nextInt(5000));
-                ctr.jogar(new LinkedList<Carta>());
+                ctr.jogar(new LinkedList<CartaAbstrata>());
             } catch (Exception e) {
             }
 

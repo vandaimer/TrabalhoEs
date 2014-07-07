@@ -24,7 +24,7 @@ public class ValidacaoBaralhoComRegrasDoJogo implements EstrategiaDeValidacaoDoB
 
     @Override
     public void validar(Baralho b) throws ExcecaoQuebraDeRegrasDoBaralho {
-        List<Carta> cartas = b.listarCartas();
+        List<CartaAbstrata> cartas = b.listarCartas();
         int quantidadeCartas = cartas.size();
 
         if (quantidadeCartas < _qtdMininaDeCartas) {
@@ -44,11 +44,11 @@ public class ValidacaoBaralhoComRegrasDoJogo implements EstrategiaDeValidacaoDoB
 
     }
 
-    private boolean verificaRepeticao(List<Carta> lista) {
+    private boolean verificaRepeticao(List<CartaAbstrata> lista) {
 
         boolean existeRepeticao = false;
-        HashMap<Carta, Integer> mapeamentoQuantidade = new HashMap<>();
-        for (Carta c : lista) {
+        HashMap<CartaAbstrata, Integer> mapeamentoQuantidade = new HashMap<>();
+        for (CartaAbstrata c : lista) {
 
             if (!mapeamentoQuantidade.containsKey(c)) {
                 mapeamentoQuantidade.put(c, 1);
@@ -60,7 +60,7 @@ public class ValidacaoBaralhoComRegrasDoJogo implements EstrategiaDeValidacaoDoB
 
         }
 
-        for (Carta c : mapeamentoQuantidade.keySet()) {
+        for (CartaAbstrata c : mapeamentoQuantidade.keySet()) {
             if (mapeamentoQuantidade.get(c) > _qtdMaximaDeCartasRepetidas) {
                 existeRepeticao = true;
                 break;

@@ -2,9 +2,11 @@
 package controle.gui_portal;
 
 import controle.configuradores_gui.ConfiguradorVisualizadorDeCartas;
+import modelo.jogo.CartaAbstrata;
 import modelo.jogo.Portal;
 import modelo.jogo.Carta;
 import visao.janelas.FormVisualizadorDeCartas;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -26,7 +28,7 @@ public class VisualizarAcervo implements  ActionListener{
         FormVisualizadorDeCartas vs=new FormVisualizadorDeCartas();
         ConfiguradorVisualizadorDeCartas conf=new ConfiguradorVisualizadorDeCartas();
         vs.aplicarConfiguracao(conf);
-        List<Carta> cartas=portal.obterAcervo();
+        List<CartaAbstrata> cartas=portal.obterAcervo();
         vs.listarCartas(cartas);
         
     }

@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Baralho implements Serializable{
 
-    private List<Carta> lista = new LinkedList<>();
+    private List<CartaAbstrata> lista = new LinkedList<>();
 
     public Baralho() {
     }
@@ -15,12 +15,12 @@ public class Baralho implements Serializable{
         lista = b.listarCartas();
     }
 
-    public void adicionar(Carta c) {
-        lista.add(new Carta(c));
+    public void adicionar(CartaAbstrata c) {
+        lista.add(c.clonar());
 
     }
 
-    public void remover(Carta c) {
+    public void remover(CartaAbstrata c) {
         lista.remove(c);
 
     }
@@ -30,22 +30,22 @@ public class Baralho implements Serializable{
     }
 
     // seria esse o método pra obter as cartas?
-    public List<Carta> listarCartas() {
-        List<Carta> cartas = new LinkedList<>();
+    public List<CartaAbstrata> listarCartas() {
+        List<CartaAbstrata> cartas = new LinkedList<>();
 
-        for (Carta c : lista) {
+        for (CartaAbstrata c : lista) {
 
-            cartas.add(new Carta(c));
+            cartas.add(c.clonar());
 
         }
         /* Deve retornar uma copia da lista do baralho */
         return cartas;
     }
 
-    public void montarBaralho(List<Carta> c) {
-        for (Carta i : c) {
+    public void montarBaralho(List<CartaAbstrata> c) {
+        for (CartaAbstrata i : c) {
 
-            lista.add(new Carta(i));
+            lista.add(i.clonar());
 
         }
     }

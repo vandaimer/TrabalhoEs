@@ -1,13 +1,16 @@
 package visao.janelas;
 
 import modelo.jogo.Carta;
+import modelo.jogo.CartaAbstrata;
+
 import java.awt.Color;
 import java.awt.Graphics2D;
+
 import javax.swing.JPanel;
 
 class PainelCarta extends JPanel {
 
-    public void mostrarCarta(Carta c) {
+    public void mostrarCarta(CartaAbstrata c) {
         if (c == null) {
             return;
         }

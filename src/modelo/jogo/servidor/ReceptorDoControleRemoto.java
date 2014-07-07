@@ -3,10 +3,13 @@ package modelo.jogo.servidor;
 import modelo.metodoremoto.MetodoRemotoReceptor;
 import modelo.jogo.Jogador;
 import modelo.jogo.partida.Partida;
+
 import java.io.Serializable;
 import java.util.List;
+
 import modelo.jogo.Baralho;
 import modelo.jogo.Carta;
+import modelo.jogo.CartaAbstrata;
 import modelo.jogo.Jogada;
 import modelo.jogo.servidor.controleremoto.Finalizar;
 import modelo.jogo.servidor.controleremoto.NotificarObservadores;
@@ -35,7 +38,7 @@ public class ReceptorDoControleRemoto implements Observador, Serializable {
         
     }
     
-    public void jogar(List<Carta> cartas) {
+    public void jogar(List<CartaAbstrata> cartas) {
         Baralho b = new Baralho();
         b.montarBaralho(cartas);
         Jogada jgda = new Jogada(b);

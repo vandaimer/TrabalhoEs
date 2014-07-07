@@ -1,6 +1,7 @@
 package modelo.persistencia;
 
 import modelo.persistencia.RepositorioDoJogo;
+import modelo.jogo.CartaAbstrata;
 import modelo.jogo.Jogador;
 import modelo.jogo.Carta;
 import modelo.persistencia.FabricaFerramentasPersistencia;
@@ -20,7 +21,7 @@ public class RepositorioDeJogoDB implements RepositorioDoJogo
     }
 
     @Override
-    public List<Carta> obterCartasDoAcervo() throws ExcecaoDePersistencia
+    public List<CartaAbstrata> obterCartasDoAcervo() throws ExcecaoDePersistencia
     {
         return  this.mapeador.obterCartasDoAcervo( this.fabrica.obterConexao() );
     }
