@@ -5,6 +5,8 @@ public class VerificandoPontuacao implements EstadoDaPartida{
 	@Override
 	public void jogar(Partida p, Jogador jgd, Jogada j) {
 
+
+
 		
 	}
 

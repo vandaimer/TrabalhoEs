@@ -76,7 +76,7 @@ public class ControleRemoto extends ObservadoImpl {
                         Serializable conteudo = msg.obterConteudo();
 
                         if (_jgd.equals(conteudo)) {
-                            //faca algo
+                            System.out.println("jogada realizada por "+conteudo);
                         }
 
 
