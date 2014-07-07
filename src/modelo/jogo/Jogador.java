@@ -24,12 +24,12 @@ public class Jogador implements Serializable{
         this.baralho = new Baralho(j.baralho);
     }
 
-    public void adicionarCarta(Carta c)
+    public void adicionarCarta(CartaAbstrata c)
     {
         baralho.adicionar(c);
     }
 
-    public void adicionarCarta(List<Carta> c) {
+    public void adicionarCarta(List<CartaAbstrata> c) {
         baralho.montarBaralho(c);
     }
 
@@ -38,13 +38,13 @@ public class Jogador implements Serializable{
         baralho.validar(new ValidacaoBaralhoComRegrasDoJogo());
     }
 
-    public List<Carta> obterCartasAtuais()
+    public List<CartaAbstrata> obterCartasAtuais()
     {
 
         return baralho.listarCartas();
     }
 
-    public void remover(Carta c) {
+    public void remover(CartaAbstrata c) {
         baralho.remover(c);
     }
 

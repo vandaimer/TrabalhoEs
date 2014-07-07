@@ -2,9 +2,14 @@ package visao.janelas;
 
 import visao.GUIVisualizadorDeCartas;
 import controle.Configurador;
+
 import java.util.Collections;
+
 import modelo.jogo.Carta;
+import modelo.jogo.CartaAbstrata;
+
 import java.util.List;
+
 import javax.swing.DefaultListModel;
 import javax.swing.event.ListSelectionListener;
 
@@ -82,15 +87,15 @@ public class FormVisualizadorDeCartas extends javax.swing.JFrame implements GUIV
     // End of variables declaration//GEN-END:variables
 
     @Override
-    public void mostrar(Carta c) {
+    public void mostrar(CartaAbstrata c) {
         ((PainelCarta) jPApresentacaoCarta).mostrarCarta(c);
     }
     
     @Override
-    public void listarCartas(List<Carta> l) {
-        DefaultListModel<Carta> model = new DefaultListModel();
+    public void listarCartas(List<CartaAbstrata> l) {
+        DefaultListModel<CartaAbstrata> model = new DefaultListModel();
         
-        for (Carta carta : l) {
+        for (CartaAbstrata carta : l) {
             model.addElement(carta);
         }
         
@@ -103,8 +108,8 @@ public class FormVisualizadorDeCartas extends javax.swing.JFrame implements GUIV
     }
     
     @Override
-    public Carta obterCartaSelecionada() {
-        return (Carta) jLCartas.getSelectedValue();
+    public CartaAbstrata obterCartaSelecionada() {
+        return (CartaAbstrata) jLCartas.getSelectedValue();
     }
     
     @Override

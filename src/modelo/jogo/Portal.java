@@ -64,7 +64,7 @@ public class Portal extends ObservadoImpl {
         return repositorioJogo.salvar(j);
     }
 
-    public List<Carta> obterAcervo() throws ExcecaoDePersistencia {
+    public List<CartaAbstrata> obterAcervo() throws ExcecaoDePersistencia {
         return this.repositorioJogo.obterCartasDoAcervo();
     }
 

@@ -5,6 +5,7 @@ import java.io.Serializable;
 
 public class Jogada implements Serializable,Comparable<Jogada> {
 
+
     private Baralho _b;
     private Jogador _j;
 
@@ -31,5 +32,9 @@ public class Jogada implements Serializable,Comparable<Jogada> {
 		
 		return 0;
 	}
+
+
+    
+    
 
 }

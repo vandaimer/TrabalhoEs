@@ -2,9 +2,12 @@ package visao.janelas;
 
 import controle.Configurador;
 import modelo.jogo.Carta;
+import modelo.jogo.CartaAbstrata;
 import visao.GUIEditorDejogador;
+
 import java.awt.event.ActionListener;
 import java.util.List;
+
 import javax.swing.DefaultListModel;
 import javax.swing.event.ListSelectionListener;
 
@@ -186,10 +189,10 @@ public class FormEditorJogador extends javax.swing.JFrame implements GUIEditorDe
     }
     
     @Override
-    public void listarCartasDoJogador(List<Carta> j) {
-        DefaultListModel<Carta> model = new DefaultListModel<>();
+    public void listarCartasDoJogador(List<CartaAbstrata> j) {
+        DefaultListModel<CartaAbstrata> model = new DefaultListModel<>();
         
-        for (Carta carta : j) {
+        for (CartaAbstrata carta : j) {
             model.addElement(carta);
         }
         
@@ -198,10 +201,10 @@ public class FormEditorJogador extends javax.swing.JFrame implements GUIEditorDe
     }
     
     @Override
-    public void listarCartasDoAcervo(List<Carta> j) {
-        DefaultListModel<Carta> model = new DefaultListModel<>();
+    public void listarCartasDoAcervo(List<CartaAbstrata> j) {
+        DefaultListModel<CartaAbstrata> model = new DefaultListModel<>();
         
-        for (Carta carta : j) {
+        for (CartaAbstrata carta : j) {
             model.addElement(carta);
         }
         
@@ -220,23 +223,23 @@ public class FormEditorJogador extends javax.swing.JFrame implements GUIEditorDe
     }
     
     @Override
-    public Carta obterCartaSelecionadaDoAcervo() {
+    public CartaAbstrata obterCartaSelecionadaDoAcervo() {
         return (Carta) jLAcervo.getSelectedValue();
         
     }
     
     @Override
-    public Carta obterCartaSelecionadaDoJogador() {
+    public CartaAbstrata obterCartaSelecionadaDoJogador() {
         return (Carta) jLJogador.getSelectedValue();
     }
     
     @Override
-    public void mostrarCartaDoAcervo(Carta c) {
+    public void mostrarCartaDoAcervo(CartaAbstrata c) {
         ((PainelCarta) jPAcervo).mostrarCarta(c);
     }
     
     @Override
-    public void mostrarCartaDoJogador(Carta c) {
+    public void mostrarCartaDoJogador(CartaAbstrata c) {
         ((PainelCarta) jPJogador).mostrarCarta(c);
     }
     
