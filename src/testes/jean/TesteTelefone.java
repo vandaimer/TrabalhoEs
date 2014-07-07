@@ -1,8 +1,8 @@
 package testes.jean;
 
-import modelo.ConectorCliente;
-import modelo.Observado;
-import modelo.Observador;
+import modelo.util.ConectorCliente;
+import modelo.util.Observado;
+import modelo.util.Observador;
 
 public class TesteTelefone {
 
@@ -13,7 +13,7 @@ public class TesteTelefone {
         t.registrar(new Observador() {
 
             @Override
-            public void notificar(Observado fonte, Object msg) {
+            public void notificar(Object fonte, Object msg) {
                 System.out.println("ouvi: "+msg);
             }
         });

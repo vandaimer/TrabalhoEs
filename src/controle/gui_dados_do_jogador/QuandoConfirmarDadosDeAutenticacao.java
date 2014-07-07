@@ -1,7 +1,7 @@
 package controle.gui_dados_do_jogador;
 
-import modelo.Jogador;
-import modelo.Portal;
+import modelo.jogo.Jogador;
+import modelo.jogo.Portal;
 import visao.GUIDadosDoJogador;
 
 

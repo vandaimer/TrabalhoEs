@@ -2,7 +2,7 @@
 package controle.gui_portal;
 
 import controle.configuradores_gui.ConfiguradorNovoJogador;
-import modelo.Portal;
+import modelo.jogo.Portal;
 import visao.janelas.FormDadosDoJogador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

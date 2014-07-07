@@ -1,7 +1,7 @@
 package controle.gui_editor_jogador;
 
-import modelo.Carta;
-import modelo.Jogador;
+import modelo.jogo.Carta;
+import modelo.jogo.Jogador;
 import visao.GUIEditorDejogador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

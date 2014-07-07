@@ -2,8 +2,8 @@
 package controle.gui_portal;
 
 import controle.configuradores_gui.ConfiguradorVisualizadorDeCartas;
-import modelo.Portal;
-import modelo.Carta;
+import modelo.jogo.Portal;
+import modelo.jogo.Carta;
 import visao.janelas.FormVisualizadorDeCartas;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

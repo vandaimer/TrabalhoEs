@@ -2,7 +2,7 @@ package visao.janelas;
 
 import visao.GUIVisualizadorDeCartas;
 import controle.Configurador;
-import modelo.Carta;
+import modelo.jogo.Carta;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.List;

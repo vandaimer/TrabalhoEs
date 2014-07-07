@@ -3,9 +3,9 @@ package testes.jean;
 
 import java.io.IOException;
 import java.net.ServerSocket;
-import modelo.ConectorCliente;
-import modelo.Observado;
-import modelo.Observador;
+import modelo.util.ConectorCliente;
+import modelo.util.Observado;
+import modelo.util.Observador;
 
 
 public class TesteTelefone2 {
@@ -21,7 +21,7 @@ public class TesteTelefone2 {
       
             
             @Override
-            public void notificar(Observado fonte, Object msg) {
+            public void notificar(Object fonte, Object msg) {
                 System.out.println("ouvi: "+msg);
             }
         });

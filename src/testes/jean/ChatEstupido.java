@@ -11,10 +11,10 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.net.ServerSocket;
-import modelo.Conector;
-import modelo.ConectorCliente;
-import modelo.Observado;
-import modelo.Observador;
+import modelo.util.Conector;
+import modelo.util.ConectorCliente;
+import modelo.util.Observado;
+import modelo.util.Observador;
 
 /**
  *
@@ -196,7 +196,7 @@ public class ChatEstupido extends javax.swing.JFrame {
         tel.registrar(new Observador() {
 
             @Override
-            public void notificar(Observado fonte, Object msg) {
+            public void notificar(Object fonte, Object msg) {
 
                 StringBuilder sb = new StringBuilder(jTChat.getText());
                 sb.append("outro: ");

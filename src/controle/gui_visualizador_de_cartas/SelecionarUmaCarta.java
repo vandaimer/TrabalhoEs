@@ -1,6 +1,6 @@
 package controle.gui_visualizador_de_cartas;
 
-import modelo.Carta;
+import modelo.jogo.Carta;
 import visao.GUIVisualizadorDeCartas;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;

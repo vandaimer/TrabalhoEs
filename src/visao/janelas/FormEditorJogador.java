@@ -1,7 +1,7 @@
 package visao.janelas;
 
 import controle.Configurador;
-import modelo.Carta;
+import modelo.jogo.Carta;
 import visao.GUIEditorDejogador;
 import java.awt.event.ActionListener;
 import java.util.List;

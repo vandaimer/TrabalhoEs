@@ -1,8 +1,8 @@
 package controle.gui_portal;
 
-import modelo.Observado;
-import modelo.Observador;
-import modelo.Portal;
+import modelo.util.Observado;
+import modelo.util.Observador;
+import modelo.jogo.Portal;
 import visao.GUIPortal;
 
 public class ObservadorDoPortal implements Observador {
@@ -16,7 +16,7 @@ public class ObservadorDoPortal implements Observador {
     }
 
     @Override
-    public void notificar(Observado fonte, Object msg) {
+    public void notificar(Object fonte, Object msg) {
 
         if (portal.equals(fonte)) {
 

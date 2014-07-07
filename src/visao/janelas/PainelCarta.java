@@ -1,6 +1,6 @@
 package visao.janelas;
 
-import modelo.Carta;
+import modelo.jogo.Carta;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;

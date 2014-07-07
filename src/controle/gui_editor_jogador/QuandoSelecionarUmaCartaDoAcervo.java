@@ -1,7 +1,7 @@
 
 package controle.gui_editor_jogador;
 
-import modelo.Carta;
+import modelo.jogo.Carta;
 import visao.GUIEditorDejogador;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;

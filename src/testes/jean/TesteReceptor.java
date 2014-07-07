@@ -2,11 +2,11 @@ package testes.jean;
 
 import java.io.IOException;
 import java.net.ServerSocket;
-import modelo.ConectorCliente;
-import modelo.ControladorDePartida;
-import modelo.Jogador;
-import modelo.Partida;
-import modelo.ReceptorDoControleRemoto;
+import modelo.util.ConectorCliente;
+import modelo.jogo.partida.ControladorDePartida;
+import modelo.jogo.Jogador;
+import modelo.jogo.partida.Partida;
+import modelo.jogo.servidor.ReceptorDoControleRemoto;
 
 public class TesteReceptor {
     
