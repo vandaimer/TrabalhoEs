@@ -2,15 +2,17 @@ package testes.jean;
 
 import java.util.LinkedList;
 import java.util.Random;
+
 import modelo.jogo.Carta;
 import modelo.jogo.servidor.controleremoto.ControleRemoto;
 import modelo.util.Observado;
 import modelo.util.Observador;
 
+
 public class Simulador implements Observador {
 
     private ControleRemoto ctr;
-    private StringBuilder log;
+private StringBuilder log;
 
     public Simulador(ControleRemoto ctr) {
         this.ctr = ctr;
@@ -35,6 +37,7 @@ public class Simulador implements Observador {
             } catch (Exception e) {
             }
 
+
             log.append("joguei\n");
         }
         
@@ -50,6 +53,7 @@ public class Simulador implements Observador {
             log.append("O jogo acabou\n");
             System.out.println(log);
             
+
         }
 
     }

@@ -1,10 +1,12 @@
 package testes.jean;
 
 import java.io.IOException;
+
 import modelo.jogo.servidor.controleremoto.ControleRemoto;
 import modelo.jogo.Jogador;
 import modelo.jogo.Portal;
 import modelo.persistencia.RepositorioDeJogoDB;
+
 import modelo.persistencia.Fabrica;
 
 public class Teste {
@@ -40,3 +42,5 @@ public class Teste {
     }
 
 }
+
+

@@ -3,7 +3,7 @@ package modelo.jogo.servidor.controleremoto;
 
 import modelo.metodoremoto.MetodoRemotoControleRemoto;
 import modelo.metodoremoto.SinalizarReconhecimento;
-import modelo.metodoremoto.Jogar;
+import modelo.metodoremoto.Jogar;          
 import modelo.jogo.Jogador;
 import modelo.jogo.Carta;
 

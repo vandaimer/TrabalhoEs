@@ -2,6 +2,7 @@ package main;
 
 
 import controle.configuradores_gui.ConfiguradorPortal;
+
 import modelo.jogo.Portal;
 import modelo.persistencia.RepositorDeJogoEmMemoria;
 import modelo.persistencia.RepositorioDeJogoDB;

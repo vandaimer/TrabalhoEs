@@ -3,143 +3,144 @@ package modelo.jogo;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Carta implements Comparable<Carta>, Serializable {
 
-    private String nome;
-    private int id;
-    private int ataque;
-    private int defesa;
-    private int efeito;
-    private int inteligencia;
-    private int forca;
-    private int agilidade;
 
-    public Carta(String nome, int id) {
-        this.nome = nome;
-        this.id = id;
-    }
+public class Carta implements Serializable, Comparable<Carta>{
+	private String nome;
+	private int id;
+	private int inteligencia;
+	private int forca;
+	private int agilidade;
+	protected String tipo;
 
-    public Carta(Carta c) {
-        nome = c.getNome();
-        id = c.getId();
+	public Carta(String nome, int id, int inteligencia, int forca, int agilidade) {
+		this.nome = nome;
+		this.id = id;
+		this.inteligencia = inteligencia;
+		this.forca = forca;
+		this.agilidade = agilidade;
+		this.tipo = "Carta";
+	}
+	
+	public Carta(String nome, int id) {
+		this.nome = nome;
+		this.id = id;
+	}
 
-    }
+	public Carta(Carta c) {
+		nome = c.getNome();
+		id = c.getId();
+		inteligencia = c.getInteligencia();
+		forca = c.getForca();
+		agilidade = c.getAgilidade();
+		tipo = c.getTipo();
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	
+	
+	
+	public String getNome() {
+		return nome;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public void setAtaque(int ataque) {
-        this.ataque = ataque;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public void setDefesa(int defesa) {
-        this.defesa = defesa;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public void setEfeito(int efeito) {
-        this.efeito = efeito;
-    }
+	public int getInteligencia() {
+		return inteligencia;
+	}
 
-    public void setInteligencia(int inteligencia) {
-        this.inteligencia = inteligencia;
-    }
+	public void setInteligencia(int inteligencia) {
+		this.inteligencia = inteligencia;
+	}
 
-    public void setForca(int forca) {
-        this.forca = forca;
-    }
+	public int getForca() {
+		return forca;
+	}
 
-    public void setAgilidade(int agilidade) {
-        this.agilidade = agilidade;
-    }
+	public void setForca(int forca) {
+		this.forca = forca;
+	}
 
-    
+	public int getAgilidade() {
+		return agilidade;
+	}
 
-    public int getId() {
-        return this.id;
-    }
+	public void setAgilidade(int agilidade) {
+		this.agilidade = agilidade;
+	}
+	
+	public String getTipo() {
+		return tipo;
+	}
 
-    public String getNome() {
-        return this.nome;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 67 * hash + Objects.hashCode(this.nome);
-        hash = 67 * hash + this.id;
-        hash = 67 * hash + this.ataque;
-        hash = 67 * hash + this.defesa;
-        hash = 67 * hash + this.efeito;
-        hash = 67 * hash + this.inteligencia;
-        hash = 67 * hash + this.forca;
-        hash = 67 * hash + this.agilidade;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Carta other = (Carta) obj;
-        if (!Objects.equals(this.nome, other.nome)) {
-            return false;
-        }
-        if (this.id != other.id) {
-            return false;
-        }
-        if (this.ataque != other.ataque) {
-            return false;
-        }
-        if (this.defesa != other.defesa) {
-            return false;
-        }
-        if (this.efeito != other.efeito) {
-            return false;
-        }
-        if (this.inteligencia != other.inteligencia) {
-            return false;
-        }
-        if (this.forca != other.forca) {
-            return false;
-        }
-        if (this.agilidade != other.agilidade) {
-            return false;
-        }
-        return true;
-    }
-
-    
-    
-    
-    
-    
-    
-
-    @Override
-    public String toString() {
-        String retorno = "Nome: " + this.nome
-                + "\n      Ataque: " + this.ataque
-                + "\n      Defesa: " + this.defesa
-                + "\n      Efeito: " + this.efeito
-                + "\n      Inteligencia: " + this.inteligencia
-                + "\n      Agilidade: " + this.agilidade
-                + "\n";
-        return retorno;
-    }
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
 
 	@Override
-	public int compareTo(Carta o) {
-		// TODO Auto-generated method stub
+	public int hashCode() {
+		int hash = 7;
+		hash = 73 * hash + Objects.hashCode(this.nome);
+		hash = 73 * hash + Objects.hashCode(this.id); // ???
+		return hash;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		final Carta other = (Carta) obj;
+		if (!Objects.equals(this.nome, other.nome)) {
+			return false;
+		}
+
+		return true;
+	}
+	
+	
+
+	@Override
+	public String toString() {
+		String retorno = "Nome: " + getNome() + "\n      Força: " + getForca()
+				+ "\n      Inteligencia: " + getInteligencia()
+				+ "\n      Agilidade: " + getAgilidade() + "\n";
+		return retorno;
+	}
+
+	/*
+		quando a carta que eu quero comparar com a que veio por parâmetro é a maior, retorna 1
+		caso contrário, -1
+		se forem iguais 0
+	*/
+	@Override
+	public int compareTo(Carta outraCarta) {
+		int somaAtributos = this.getAgilidade()+this.getForca()+this.getInteligencia();
+		int somaAtributosOutraCarta = outraCarta.getAgilidade()+outraCarta.getForca()+outraCarta.getInteligencia();
+		
+		if(somaAtributos > somaAtributosOutraCarta){
+			return 1;
+		}
+		
+		if(somaAtributos < somaAtributosOutraCarta){
+			return -1;
+		}
+				
 		return 0;
 	}
 
 }
+
