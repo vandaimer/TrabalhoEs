@@ -34,7 +34,9 @@ public class Teste {
 		
 		Thread.sleep(5000);
 		r.jogar(new LinkedList<Carta>());
-
+		
+		Thread.sleep(10000);
+		r.jogar(new LinkedList<Carta>());
 
 
 	}
