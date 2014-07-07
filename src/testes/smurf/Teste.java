@@ -13,7 +13,7 @@ import java.util.LinkedList;
 import testes.jean.Simulador;
 import modelo.jogo.Carta;
 import modelo.util.ConectorCliente;
-import modelo.jogo.servidor.ControleRemoto;
+import modelo.jogo.servidor.controleremoto.ControleRemoto;
 import modelo.jogo.servidor.ExcececaoConexaoRecusada;
 import modelo.jogo.Jogador;
 import modelo.jogo.Portal;

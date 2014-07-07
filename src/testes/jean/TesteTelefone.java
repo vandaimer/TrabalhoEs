@@ -13,7 +13,7 @@ public class TesteTelefone {
         t.registrar(new Observador() {
 
             @Override
-            public void notificar(Observado fonte, Object msg) {
+            public void notificar(Object fonte, Object msg) {
                 System.out.println("ouvi: "+msg);
             }
         });

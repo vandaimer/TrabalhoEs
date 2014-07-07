@@ -3,7 +3,7 @@ package testes.jean;
 import java.util.LinkedList;
 import java.util.Random;
 import modelo.jogo.Carta;
-import modelo.jogo.servidor.ControleRemoto;
+import modelo.jogo.servidor.controleremoto.ControleRemoto;
 import modelo.util.Observado;
 import modelo.util.Observador;
 
@@ -23,7 +23,7 @@ public class Simulador implements Observador {
     
 
     @Override
-    public void notificar(Observado fonte, Object msg) {
+    public void notificar(Object fonte, Object msg) {
 
         if ("iniciar_turno".equals(msg)) {
             log.append("Heee posso jogar\n");

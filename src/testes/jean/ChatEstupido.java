@@ -196,7 +196,7 @@ public class ChatEstupido extends javax.swing.JFrame {
         tel.registrar(new Observador() {
 
             @Override
-            public void notificar(Observado fonte, Object msg) {
+            public void notificar(Object fonte, Object msg) {
 
                 StringBuilder sb = new StringBuilder(jTChat.getText());
                 sb.append("outro: ");

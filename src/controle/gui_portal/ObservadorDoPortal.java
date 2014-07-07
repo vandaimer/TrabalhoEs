@@ -16,7 +16,7 @@ public class ObservadorDoPortal implements Observador {
     }
 
     @Override
-    public void notificar(Observado fonte, Object msg) {
+    public void notificar(Object fonte, Object msg) {
 
         if (portal.equals(fonte)) {
 

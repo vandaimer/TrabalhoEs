@@ -21,7 +21,7 @@ public class TesteTelefone2 {
       
             
             @Override
-            public void notificar(Observado fonte, Object msg) {
+            public void notificar(Object fonte, Object msg) {
                 System.out.println("ouvi: "+msg);
             }
         });

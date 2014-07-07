@@ -2,5 +2,5 @@ package modelo.util;
 
 public interface Observador
 {
-    public void notificar( Observado fonte, Object msg );
+    public void notificar( Object fonte, Object msg);
 }

@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import modelo.jogo.Carta;
 import modelo.util.ConectorCliente;
-import modelo.jogo.servidor.ControleRemoto;
+import modelo.jogo.servidor.controleremoto.ControleRemoto;
 import modelo.jogo.Jogador;
 import modelo.util.Observado;
 import modelo.util.Observador;
@@ -20,7 +20,7 @@ public class TesteControleRemoto {
         r.registrar(new Observador() {
 
             @Override
-            public void notificar(Observado fonte, Object msg) {
+            public void notificar(Object fonte, Object msg) {
                 System.out.println(msg);
 
                

@@ -1,6 +1,6 @@
 package modelo.util;
 
-import modelo.util.Observador;
+
 import java.util.LinkedList;
 
 public class ObservadoImpl implements Observado {

@@ -1,7 +1,7 @@
 package testes.jean;
 
 import java.io.IOException;
-import modelo.jogo.servidor.ControleRemoto;
+import modelo.jogo.servidor.controleremoto.ControleRemoto;
 import modelo.jogo.Jogador;
 import modelo.jogo.Portal;
 import modelo.persistencia.RepositorioDeJogoDB;

@@ -4,12 +4,14 @@ import modelo.metodoremoto.MetodoRemotoPartida;
 import modelo.jogo.Jogador;
 import modelo.jogo.partida.Partida;
 import java.io.Serializable;
+import modelo.jogo.servidor.controleremoto.Finalizar;
+import modelo.jogo.servidor.controleremoto.NotificarObservadores;
 import modelo.util.Conector;
-import modelo.util.Observado;
+import modelo.util.Mensagem;
 import modelo.util.Observador;
 import testes.jean.Telefone;
 
-public class ReceptorDoControleRemoto implements Observador {
+public class ReceptorDoControleRemoto implements Observador,Serializable {
 
     private Jogador _jgd;
     private Partida _p;
@@ -29,27 +31,47 @@ public class ReceptorDoControleRemoto implements Observador {
 
     }
 
-  
-
     @Override
-    public void notificar(Observado fonte, Object leitura) {
+    public void notificar(Object fonte, Object msg) {
 
         if (fonte.equals(tel)) {
 
-            if (leitura instanceof MetodoRemotoPartida) {
-                MetodoRemotoPartida m = (MetodoRemotoPartida) leitura;
+            if (msg instanceof MetodoRemotoPartida) {
+                MetodoRemotoPartida m = (MetodoRemotoPartida) msg;
                 m.aceitar(_p);
             }
 
+            return;
         }
 
         if (fonte.equals(_p)) {
 
-            tel.falar((Serializable) leitura);
+            Mensagem m = (Mensagem) msg;
+            Serializable assunto = m.obterAssunto();
 
-            if ("fim_do_jogo".equals(leitura)) {
-                tel.desligar();
+            if ("iniciar_turno".equals(assunto)) {
+                
+                tel.falar(new NotificarObservadores("iniciar_turno"));
+                return;
             }
+
+            if ("jogada_realizada".equals(assunto) && _jgd.equals(m.obterConteudo())) {
+                tel.falar(new NotificarObservadores("jogada_realizada"));
+                return;
+            }
+
+            if ("atualizar_pontuacao".equals(assunto)) {
+              tel.falar(new NotificarObservadores("atualizar_pontuacao"));
+                return;
+            }
+
+            if ("fim_do_jogo".equals(assunto)) {
+                tel.falar(new NotificarObservadores("fim_do_jogo"));
+                tel.falar(new Finalizar());
+                tel.desligar();
+                return;
+            }
+
         }
 
     }

@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 import modelo.util.ConectorCliente;
-import modelo.jogo.servidor.ControleRemoto;
+import modelo.jogo.servidor.controleremoto.ControleRemoto;
 import modelo.persistencia.ExcecaoDePersistencia;
 import modelo.jogo.servidor.ExcececaoConexaoRecusada;
 import modelo.util.ObservadoImpl;
