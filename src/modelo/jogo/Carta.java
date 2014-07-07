@@ -4,12 +4,13 @@ import java.io.Serializable;
 import java.util.Objects;
 
 
-public  class Carta implements Serializable{
+public class Carta implements Serializable{
 	private String nome;
 	private int id;
 	private int inteligencia;
 	private int forca;
 	private int agilidade;
+	protected String tipo;
 
 	public Carta(String nome, int id, int inteligencia, int forca, int agilidade) {
 		this.nome = nome;
@@ -17,6 +18,7 @@ public  class Carta implements Serializable{
 		this.inteligencia = inteligencia;
 		this.forca = forca;
 		this.agilidade = agilidade;
+		this.tipo = "Carta";
 	}
 	
 	public Carta(String nome, int id) {
@@ -30,6 +32,7 @@ public  class Carta implements Serializable{
 		inteligencia = c.getInteligencia();
 		forca = c.getForca();
 		agilidade = c.getAgilidade();
+		tipo = c.getTipo();
 	}
 
 	
@@ -75,16 +78,12 @@ public  class Carta implements Serializable{
 		this.agilidade = agilidade;
 	}
 	
-	public void aumentaForca(int forca){
-		this.forca += forca;
+	public String getTipo() {
+		return tipo;
 	}
-	
-	public void aumentaInteligencia(int inteligencia){
-		this.inteligencia += inteligencia;
-	}
-	
-	public void aumentaAgilidade(int agilidade){
-		this.agilidade += agilidade;
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 	@Override
