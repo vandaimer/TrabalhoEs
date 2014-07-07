@@ -4,7 +4,7 @@ public class IniciandoTurno implements EstadoDaPartida{
 
 	@Override
 	public void jogar(Partida p, Jogador jgd, Jogada j) {
-
+		
 
 	}
 

@@ -5,10 +5,10 @@ public class AguardandoJogada implements EstadoDaPartida{
 	@Override
 	public void jogar(Partida p, Jogador jgd, Jogada j) {
 		//vou fazer algum coisa
-                if(p.realizouJogada(jgd)){
-                return;
-                }
-                
+		if(p.realizouJogada(jgd)){
+			return;
+		}
+
 		try{
 			j.baralhoValido(new ValidacaoMao());
 			p.adicionarJogada(jgd, j);
@@ -49,7 +49,7 @@ public class AguardandoJogada implements EstadoDaPartida{
 	@Override
 	public void verificandoReconhecimento(Partida p, Jogador jgd) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 
