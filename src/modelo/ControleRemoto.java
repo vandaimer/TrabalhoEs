@@ -71,29 +71,30 @@ public class ControleRemoto extends ObservadoImpl {
 
                 if (leitura instanceof Mensagem) {
                     Mensagem msg = (Mensagem) leitura;
-
+                    
+                            
+                    if ("iniciar_turno".equals(msg.obterAssunto())) {
+                        
+                         notificarObservadores("iniciar_turno");
+                        
+                    }
                     if ("jogada_realizada".equals(msg.obterAssunto())) {
                         Serializable conteudo = msg.obterConteudo();
 
                         if (_jgd.equals(conteudo)) {
-                            System.out.println("jogada realizada por " + conteudo);
+                            notificarObservadores("jogada_realizada");
                         }
                     }
 
                     if ("atualizar_pontuacao".equals(msg.obterAssunto())) {
-                        Serializable conteudo = msg.obterConteudo();
-
-                        System.out.println("atualizando pontuacao " + conteudo);
+                        
+                        notificarObservadores("atualizar_pontuacao");
 
                     }
 
                     if ("fim_do_jogo".equals(msg.obterAssunto())) {
-                        Serializable conteudo = msg.obterConteudo();
-
                         tNotificao.interrupt();
-                        
-                        System.out.println("atualizando pontuacao " + conteudo);
-                        notificarObservadores(conteudo);
+                        notificarObservadores("fim_do_jogo");
 
                     }
 
