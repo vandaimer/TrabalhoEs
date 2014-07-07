@@ -37,7 +37,7 @@ public class Simulador implements Observador {
 
             System.out.println("joguei");
         }
-
+        
         if ("jogada_realizada".equals(msg)) {
             System.out.println("minha jogada foi aceita");
         }
