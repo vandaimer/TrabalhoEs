@@ -2,9 +2,12 @@ package testes.jean;
 
 import java.io.IOException;
 import java.util.LinkedList;
+import java.util.Random;
 import modelo.Carta;
 import modelo.ControleRemoto;
 import modelo.Jogador;
+import modelo.Observado;
+import modelo.Observador;
 import modelo.Portal;
 import modelo.RepositorioDeJogoDB;
 import modelo.persistencia.Fabrica;
@@ -29,10 +32,13 @@ public class Teste {
     }
 
     public static void servir(Portal p, int porta) throws IOException, InterruptedException {
+
         ControleRemoto ctr = p.criarPartida(porta);
-        System.out.println("partida criada");
-        Thread.sleep(2000);
-        ctr.jogar(new LinkedList<Carta>());
+        Simulador s = new Simulador(ctr);
+
+        while (!s.fim()) {}
 
     }
 }
+
+

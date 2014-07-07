@@ -32,8 +32,14 @@ public class VerificandoPontuacao implements EstadoDaPartida{
                         
 		}else{
 			
-			p.fixarEstado(new AguardandoIniciar());
+			p.fixarEstado(new IniciandoTurno());
 		}		
+	}
+
+	@Override
+	public void verificandoReconhecimento(Partida p, Jogador jgd) {
+		// TODO Auto-generated method stub
+		
 	}
 
 
