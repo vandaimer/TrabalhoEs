@@ -2,19 +2,16 @@ package visao.janelas;
 
 import visao.GUIVisualizadorDeCartas;
 import controle.Configurador;
+import java.util.Collections;
 import modelo.jogo.Carta;
-import java.awt.Color;
-import java.awt.Graphics2D;
 import java.util.List;
 import javax.swing.DefaultListModel;
-import javax.swing.JPanel;
 import javax.swing.event.ListSelectionListener;
 
 public class FormVisualizadorDeCartas extends javax.swing.JFrame implements GUIVisualizadorDeCartas {
     
     public FormVisualizadorDeCartas() {
         initComponents();
-      
     }
     
     @SuppressWarnings("unchecked")
