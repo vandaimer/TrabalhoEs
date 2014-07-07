@@ -31,8 +31,6 @@ public class ControleRemoto extends ObservadoImpl {
             throw new IOException("Falha ao conectar");
         }
 
-        System.out.println(resposta);
-
         tNotificao = new Thread(new LeitorDeNotificacao(con, this));
         tNotificao.start();
 
@@ -71,31 +69,31 @@ public class ControleRemoto extends ObservadoImpl {
 
                 if (leitura instanceof Mensagem) {
                     Mensagem msg = (Mensagem) leitura;
-                    
-                            
+
                     if ("iniciar_turno".equals(msg.obterAssunto())) {
-                        
-                         notificarObservadores("iniciar_turno");
-                        
+
+                        notificarObservadores("iniciar_turno");
+                        return;
                     }
+
                     if ("jogada_realizada".equals(msg.obterAssunto())) {
                         Serializable conteudo = msg.obterConteudo();
 
                         if (_jgd.equals(conteudo)) {
                             notificarObservadores("jogada_realizada");
                         }
+                        return;
                     }
 
                     if ("atualizar_pontuacao".equals(msg.obterAssunto())) {
-                        
-                        notificarObservadores("atualizar_pontuacao");
 
+                        notificarObservadores("atualizar_pontuacao");
+                        return;
                     }
 
                     if ("fim_do_jogo".equals(msg.obterAssunto())) {
-                        tNotificao.interrupt();
                         notificarObservadores("fim_do_jogo");
-
+                        return;
                     }
 
                 }

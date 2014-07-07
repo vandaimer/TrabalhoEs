@@ -24,6 +24,7 @@ public class Simulador implements Observador {
     public void notificar(Observado fonte, Object msg) {
 
         if ("iniciar_turno".equals(msg)) {
+            
             System.out.println("Heee posso jogar");
             try {
                 Random r = new Random();

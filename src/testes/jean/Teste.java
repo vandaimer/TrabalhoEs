@@ -39,6 +39,8 @@ public class Teste {
         while (!s.fim()) {}
 
     }
+    
+    
 }
 
 
