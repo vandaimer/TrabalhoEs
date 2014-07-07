@@ -1,23 +1,27 @@
 package modelo;
 
-public class FimDoJogo implements EstadoDaPartida{
-
+public class IniciandoTurno implements EstadoDaPartida{
 
 	@Override
 	public void jogar(Partida p, Jogador jgd, Jogada j) {
-		
-	}
 
-	@Override
-	public void iniciar(Partida p) {
-		
 
 	}
 
 	@Override
-	public void fimDoJogo(Partida p) {		
-		p.notificarObservadores(new Mensagem("fim_do_jogo", null));
-                p.sinalizarFimDeJogo();
+	public void iniciar(Partida p) {		
+
+		p.notificarObservadores(new Mensagem("iniciar_turno", null));
+		p.limparJogadas();
+		p.incrementarTurno();
+		p.fixarEstado(new AguardandoJogada());
+		
+	}
+
+	@Override
+	public void fimDoJogo(Partida p) {
+
+
 	}
 
 	@Override
@@ -29,9 +33,8 @@ public class FimDoJogo implements EstadoDaPartida{
 	@Override
 	public void verificandoReconhecimento(Partida p, Jogador jgd) {
 		// TODO Auto-generated method stub
-		
-	}
 
+	}
 
 
 

@@ -10,6 +10,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.LinkedList;
 
+import testes.jean.Simulador;
 import modelo.Carta;
 import modelo.ConectorCliente;
 import modelo.ControleRemoto;
@@ -19,7 +20,7 @@ import modelo.Portal;
 import modelo.RepositorDeJogoEmMemoria;
 import modelo.RepositorioDeJogoDB;
 import modelo.persistencia.Fabrica;
-import testes.jean.Simulador;
+
 
 /**
  *
@@ -33,6 +34,7 @@ public class Teste {
         p.autenticar(j);
         
         ControleRemoto r = p.conectarAoOponente("192.168.1.4", 1234);
+        
         Simulador s = new Simulador(r);
 
         while (!s.fim()) {}

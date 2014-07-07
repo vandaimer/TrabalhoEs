@@ -46,6 +46,12 @@ public class AguardandoJogada implements EstadoDaPartida{
 
 	}
 
+	@Override
+	public void verificandoReconhecimento(Partida p, Jogador jgd) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 
 }

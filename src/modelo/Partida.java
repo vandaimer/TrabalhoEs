@@ -17,7 +17,7 @@ public class Partida extends ObservadoImpl {
 
     public Partida(int numDeJogadores, ControladorDePartida ctr) {
 
-        _estado = new AguardandoIniciar();//insere estado inicial
+        _estado = new IniciandoTurno();//insere estado inicial
         _numDeJogadores = numDeJogadores;
         _turnoAtual = 0;
         _ctr = ctr;
@@ -87,5 +87,11 @@ public class Partida extends ObservadoImpl {
         }
         return true;
     }
-
+    public boolean contemJogador(List<Jogador> reconhecidos){
+    	if( jogadores.size()!=reconhecidos.size()){
+    		return false;
+    	}
+    	return jogadores.containsAll(reconhecidos);
+    	
+    }
 }
