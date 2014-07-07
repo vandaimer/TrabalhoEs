@@ -2,8 +2,9 @@ package modelo.jogo;
 
 public class Carta extends CartaAbstrata {
 
-	public Carta() {
-		// TODO Auto-generated constructor stub
+
+public Carta() {
+
 	}
 	public Carta(String nome, int id, int inteligencia, int forca, int agilidade) {
 		super(nome, id, inteligencia, forca, agilidade);
@@ -24,3 +25,4 @@ public class Carta extends CartaAbstrata {
 	}
 
 }
+

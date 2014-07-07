@@ -1,5 +1,8 @@
 package modelo.jogo.partida.estados;
 
+import java.io.Serializable;
+import java.util.Map;
+
 import modelo.jogo.Jogada;
 import modelo.jogo.Jogador;
 import modelo.jogo.partida.Partida;
@@ -12,43 +15,44 @@ public class VerificandoPontuacao implements EstadoDaPartida{
 
 
 
-		
+
 	}
 
 	@Override
 	public void iniciar(Partida p) {
-		
+
 	}
 
 	@Override
 	public void fimDoJogo(Partida p) {	
-		
+
 	}
 
 	@Override
 	public void verificandoVencedorDoTurno(Partida p) {
-               
+		p.verificarPontuacao();
 		//atualizar o score através da comparação de cartas
-		p.notificarObservadores(new Mensagem("atualizar_pontuacao", 100));
-		if(p.fimDeJogo()){
-			//enviar o score atual como mensagem no notifica
+		//metodo que atualiza o pontuacao do turno
+		Map<Jogador,Integer> jd = p.getPontuacao();
+		p.notificarObservadores(new Mensagem("atualizar_pontuacao", (Serializable)jd));
+		if(p.fimDeJogo()){			
 			FimDoJogo f=new FimDoJogo();
-                        p.fixarEstado(f);
-                        f.fimDoJogo(p);
-                        
+			p.fixarEstado(f);
+			f.fimDoJogo(p);
+
 		}else{
 			IniciandoTurno it=new IniciandoTurno();
 			p.fixarEstado(new IniciandoTurno());
-                        
-                        it.iniciar(p);
-                        
+
+			it.iniciar(p);
+
 		}		
 	}
 
 	@Override
 	public void verificandoReconhecimento(Partida p, Jogador jgd) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 

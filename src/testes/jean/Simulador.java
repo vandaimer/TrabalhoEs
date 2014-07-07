@@ -41,7 +41,7 @@ private StringBuilder log;
 
             log.append("joguei\n");
         }
-
+        
         if ("jogada_realizada".equals(msg)) {
             log.append("minha jogada foi aceita\n");
         }
