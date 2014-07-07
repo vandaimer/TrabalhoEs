@@ -5,22 +5,28 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-public class Partida extends ObservadoImpl{
+public class Partida extends ObservadoImpl {
 
     private EstadoDaPartida _estado;
     private int _numDeJogadores;
     private List<Jogador> jogadores = new LinkedList<Jogador>();
     private Map<Jogador, Jogada> mapaJogadas = new Hashtable<Jogador, Jogada>();
     private List<Observador> observadores = new LinkedList<Observador>();
-    int _turnoAtual;
+    private int _turnoAtual;
+    private ControladorDePartida _ctr;
 
+<<<<<<< HEAD
     
 
 
     public Partida(int numDeJogadores) {
+=======
+    public Partida(int numDeJogadores, ControladorDePartida ctr) {
+>>>>>>> 9e912f343e6a9ae557b31a1f343184799d589b8d
         _estado = new AguardandoIniciar();//insere estado inicial
         _numDeJogadores = numDeJogadores;
         _turnoAtual = 0;
+        _ctr = ctr;
 
     }
 
@@ -46,11 +52,20 @@ public class Partida extends ObservadoImpl{
     }
 
     public boolean fimDeJogo() {
-        return _estado.fimDoJogo();
+        return _turnoAtual == 10;
+    }
+
+    public void sinalizarFimDeJogo() {
+        _ctr.notificarFimDeJogo();
     }
 
     public void adicionarJogador(Jogador j) throws IllegalArgumentException {
+        if (jogadores.contains(j)) {
+            throw new IllegalArgumentException("Usuario ja inserido na partida.");
+        }
+
         jogadores.add(j);
+
     }
 
     public void adicionarJogada(Jogador jgd, Jogada j) {
@@ -74,5 +89,4 @@ public class Partida extends ObservadoImpl{
         return true;
     }
 
-    
 }

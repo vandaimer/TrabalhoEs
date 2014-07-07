@@ -8,7 +8,7 @@ public interface EstadoDaPartida extends Serializable{
     public void iniciar(Partida p);
     public void fimDoJogo(Partida p);
     public void verificandoVencedorDoTurno(Partida p);
-    public boolean fimDoJogo();
+  
     
    
 

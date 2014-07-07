@@ -10,12 +10,22 @@ public class AguardandoJogada implements EstadoDaPartida{
 			j.baralhoValido(new ValidacaoMao());
 			p.adicionarJogada(jgd, j);
 			p.notificarObservadores(new Mensagem("jogada_realizada", jgd));
+<<<<<<< HEAD
 			if(p.associacaoCompleta()){
 				VerificandoPontuacao v = new VerificandoPontuacao();				
 				p.fixarEstado(v);
 				v.verificandoVencedorDoTurno(p);
 				
 			}
+=======
+			
+                        if(p.associacaoCompleta()){
+                                VerificandoPontuacao v=new VerificandoPontuacao();
+				p.fixarEstado(v);
+                                v.verificandoVencedorDoTurno(p);
+			
+                        }
+>>>>>>> 9e912f343e6a9ae557b31a1f343184799d589b8d
 			
 		}catch(ExcecaoQuebraDeRegrasDoBaralho e){
 			p.notificarObservadores(new Mensagem("Excecao", e));
@@ -41,9 +51,6 @@ public class AguardandoJogada implements EstadoDaPartida{
 		
 	}
 
-	@Override
-	public boolean fimDoJogo() {		
-		return false;
-	}
+	
 
 }

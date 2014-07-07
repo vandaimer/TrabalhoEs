@@ -30,10 +30,6 @@ public class AguardandoIniciar implements EstadoDaPartida{
 		
 	}
 
-	@Override
-	public boolean fimDoJogo() {
-	
-		return false;
-	}
+
 
 }
