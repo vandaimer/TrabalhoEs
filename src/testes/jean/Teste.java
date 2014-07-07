@@ -19,7 +19,9 @@ public class Teste {
         Portal portal = new Portal(new RepositorioDeJogoDB(new Fabrica("150.162.52.177", "jogoes", "@fuckingpassword@", "engenhariasoftware")));
         Jogador j = new Jogador("jean", "1234");
         portal.autenticar(j);
+        System.out.println("Servidor Iniciado");
         servir(portal, 1234);
+        System.out.println("Fim do jogo");
     }
 
     public static void conectar(Portal p, String ip, int porta) throws IOException, InterruptedException {

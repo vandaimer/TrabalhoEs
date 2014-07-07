@@ -20,6 +20,11 @@ public class Mensagem implements Serializable{
         return conteudo;
     }
 
+    @Override
+    public String toString() {
+    return "assunto: "+assunto+"| conteudo: "+conteudo;
+    }
+
     
     
  

@@ -68,6 +68,8 @@ public class ControleRemoto extends ObservadoImpl {
                 Serializable leitura = _con.receber();
 
                 if (leitura instanceof Mensagem) {
+                    System.out.println("mensagem no controle remoto: "+leitura);
+                    
                     Mensagem msg = (Mensagem) leitura;
 
                     if ("iniciar_turno".equals(msg.obterAssunto())) {
