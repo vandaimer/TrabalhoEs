@@ -28,7 +28,7 @@ public class Jogada implements Serializable,Comparable<Jogada> {
 
 	@Override
 	public int compareTo(Jogada o) {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 
