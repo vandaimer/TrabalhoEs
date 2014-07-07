@@ -76,6 +76,7 @@ public class Partida extends ObservadoImpl {
 
 	public boolean associacaoCompleta() {
 		for (Jogador j : jogadores) {
+                    
 			if (!(mapaJogadas.containsKey(j))) {
 				return false;
 			}
