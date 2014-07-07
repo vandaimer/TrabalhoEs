@@ -3,7 +3,7 @@ package modelo.jogo;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Carta implements Serializable {
+public class Carta implements Comparable<Carta>, Serializable {
 
     private String nome;
     private int id;
@@ -135,5 +135,11 @@ public class Carta implements Serializable {
                 + "\n";
         return retorno;
     }
+
+	@Override
+	public int compareTo(Carta o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 }

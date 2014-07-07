@@ -2,10 +2,14 @@ package modelo.jogo.partida;
 
 import modelo.jogo.partida.estados.AguardandoReconhecimento;
 import modelo.jogo.partida.estados.EstadoDaPartida;
+
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Hashtable;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+
 import modelo.jogo.Jogada;
 import modelo.jogo.Jogador;
 import modelo.util.ObservadoImpl;
@@ -20,6 +24,7 @@ public class Partida extends ObservadoImpl {
     private List<Observador> observadores = new LinkedList<Observador>();
     private int _turnoAtual;
     private ControladorDePartida _ctr;
+    private Map<Jogador,Integer> pontuacao = new Hashtable<Jogador,Integer>();
     
     public Partida(int numDeJogadores, ControladorDePartida ctr) {
         
@@ -27,9 +32,10 @@ public class Partida extends ObservadoImpl {
         _numDeJogadores = numDeJogadores;
         _turnoAtual = 0;
         _ctr = ctr;
+        inicializarPontuacao();
         
     }
-    
+       
     public void limparJogadas() {
         mapaJogadas.clear();
     }
@@ -101,6 +107,22 @@ public class Partida extends ObservadoImpl {
     
     public synchronized void sinalizarReconhecimento(Jogador j) {
         _estado.verificandoReconhecimento(this, j);
+    }
+    public void inicializarPontuacao(){
+    	for (Jogador j : jogadores) {
+			pontuacao.put(j, new Integer(0));
+		}
+    }
+    public void verificarPontuacao(){
+		LinkedList<Jogada> rank = new LinkedList<Jogada>(mapaJogadas.values());    	
+		Collections.sort(rank);
+		Jogada jd = rank.getLast();
+		Integer novaPontuacao = new Integer(pontuacao.get(jd)+1);
+		pontuacao.put(jd.getJogador(), novaPontuacao);
+		
+    }
+    public Map<Jogador,Integer> getPontuacao(){
+    	return pontuacao;
     }
     
 }
