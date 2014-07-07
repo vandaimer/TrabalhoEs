@@ -3,7 +3,7 @@ package controle.gui_dados_do_jogador;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import modelo.Portal;
+import modelo.jogo.Portal;
 import visao.GUIDadosDoJogador;
 
 public class ConfirmarAutenticacaoPorTecla extends QuandoConfirmarDadosDeAutenticacao implements KeyListener

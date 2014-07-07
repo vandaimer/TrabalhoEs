@@ -7,8 +7,8 @@ import controle.gui_editor_jogador.QuandoSelecionarUmaCartaDoAcervo;
 import controle.gui_editor_jogador.QuandoSelecionarUmaDoJogador;
 import controle.gui_editor_jogador.RemoverUmaCarta;
 import controle.gui_editor_jogador.SalvarAlteracoes;
-import modelo.Jogador;
-import modelo.Portal;
+import modelo.jogo.Jogador;
+import modelo.jogo.Portal;
 import visao.GUIEditorDejogador;
 
 

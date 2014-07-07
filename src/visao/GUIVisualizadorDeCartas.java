@@ -4,7 +4,7 @@ package visao;
 
 import controle.Configuravel;
 import java.util.List;
-import modelo.Carta;
+import modelo.jogo.Carta;
 import javax.swing.event.ListSelectionListener;
 
 

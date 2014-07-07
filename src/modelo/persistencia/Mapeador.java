@@ -1,8 +1,9 @@
 package modelo.persistencia;
 
-import modelo.Carta;
-import modelo.ExcecaoDePersistencia;
-import modelo.Jogador;
+
+import modelo.jogo.Carta;
+import modelo.jogo.Jogador;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -31,9 +32,10 @@ public class Mapeador implements MapeadorEntidadesDoJogo
                 Carta c = new Carta( result.getString( "NOME" ), result.getInt( "ID" ) );
                 c.setAgilidade(result.getInt("agilidade"));
                 c.setForca(result.getInt("forca"));
-                //c.setDefesa(result.getInt("defesa"));
-                //c.setEfeito(result.getInt("efeito"));
-                //c.setAtaque(result.getInt("ataque"));
+
+                
+                
+
                 c.setInteligencia(result.getInt("inteligencia"));
                 cartas.add(c);
             }
@@ -75,9 +77,7 @@ public class Mapeador implements MapeadorEntidadesDoJogo
                         Carta newCarta = new Carta(carta.getString("NOME"), idCarta);
                         newCarta.setAgilidade(carta.getInt("agilidade"));
                         newCarta.setForca(carta.getInt("forca"));
-                        //newCarta.setDefesa(carta.getInt("defesa"));
-                        //newCarta.setEfeito(carta.getInt("efeito"));
-                        //newCarta.setAtaque(carta.getInt("ataque"));
+
                         j.editarBaralho(newCarta, 0);
                     }
                 }

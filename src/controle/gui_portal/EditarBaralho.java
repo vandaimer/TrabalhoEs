@@ -3,7 +3,7 @@
 package controle.gui_portal;
 
 import controle.configuradores_gui.ConfiguradorEditorDeJogador;
-import modelo.Portal;
+import modelo.jogo.Portal;
 import visao.janelas.FormEditorJogador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

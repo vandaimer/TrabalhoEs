@@ -2,9 +2,10 @@ package main;
 
 
 import controle.configuradores_gui.ConfiguradorPortal;
-import modelo.Portal;
-import modelo.RepositorDeJogoEmMemoria;
-import modelo.RepositorioDeJogoDB;
+
+import modelo.jogo.Portal;
+import modelo.persistencia.RepositorDeJogoEmMemoria;
+import modelo.persistencia.RepositorioDeJogoDB;
 import modelo.persistencia.Fabrica;
 import modelo.persistencia.FabricaFerramentasPersistencia;
 import visao.janelas.FormPortal;

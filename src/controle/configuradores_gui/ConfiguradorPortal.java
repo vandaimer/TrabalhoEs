@@ -7,7 +7,7 @@ import controle.gui_portal.NovoJogador;
 import controle.gui_portal.ObservadorDoPortal;
 import controle.gui_portal.Sair;
 import controle.gui_portal.VisualizarAcervo;
-import modelo.Portal;
+import modelo.jogo.Portal;
 import visao.GUIPortal;
 
 public class ConfiguradorPortal implements Configurador<GUIPortal> {

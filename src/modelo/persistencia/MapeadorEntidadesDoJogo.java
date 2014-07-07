@@ -1,7 +1,9 @@
 package modelo.persistencia;
 
-import modelo.Carta;
-import modelo.Jogador;
+
+import modelo.jogo.Carta;
+import modelo.jogo.Jogador;
+
 
 import java.sql.Connection;
 import java.util.List;
