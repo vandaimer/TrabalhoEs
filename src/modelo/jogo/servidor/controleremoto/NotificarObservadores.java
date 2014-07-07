@@ -3,6 +3,9 @@ package modelo.jogo.servidor.controleremoto;
 
 
 import java.io.Serializable;
+import java.util.Map;
+
+import modelo.jogo.Jogador;
 import modelo.metodoremoto.MetodoRemotoControleRemoto;
 
 
@@ -20,6 +23,7 @@ public class NotificarObservadores implements MetodoRemotoControleRemoto {
     public void aceitar(ControleRemoto c) {
         c.notificarObservadores(msg);
     }
+
 
  
 }

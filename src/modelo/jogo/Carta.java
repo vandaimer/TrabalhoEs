@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 
+
 public class Carta implements Serializable, Comparable<Carta>{
 	private String nome;
 	private int id;
@@ -142,3 +143,4 @@ public class Carta implements Serializable, Comparable<Carta>{
 	}
 
 }
+

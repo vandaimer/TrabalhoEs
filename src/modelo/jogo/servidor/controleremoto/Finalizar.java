@@ -10,5 +10,6 @@ public class Finalizar implements MetodoRemotoControleRemoto{
     public void aceitar(ControleRemoto c) {
         c.finalizar();
     }
+
     
 }

@@ -3,11 +3,14 @@ package modelo.jogo.servidor;
 import modelo.metodoremoto.MetodoRemotoReceptor;
 import modelo.jogo.Jogador;
 import modelo.jogo.partida.Partida;
+
 import java.io.Serializable;
 import java.util.List;
+
 import modelo.jogo.Baralho;
 import modelo.jogo.Carta;
 import modelo.jogo.Jogada;
+import modelo.jogo.servidor.controleremoto.AtualizarPontuacaoControleRemoto;
 import modelo.jogo.servidor.controleremoto.Finalizar;
 import modelo.jogo.servidor.controleremoto.NotificarObservadores;
 import modelo.util.Conector;
@@ -76,6 +79,7 @@ public class ReceptorDoControleRemoto implements Observador, Serializable {
             }
             
             if ("atualizar_pontuacao".equals(assunto)) {
+            	tel.falar(new AtualizarPontuacaoControleRemoto(m.obterConteudo()));
                 tel.falar(new NotificarObservadores("atualizar_pontuacao"));
                 return;
             }
