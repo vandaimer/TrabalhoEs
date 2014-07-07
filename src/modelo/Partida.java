@@ -17,7 +17,7 @@ public class Partida extends ObservadoImpl {
     
     public Partida(int numDeJogadores, ControladorDePartida ctr) {
         
-        _estado = new IniciandoTurno();//insere estado inicial
+        _estado = new AguardandoReconhecimento();//insere estado inicial
         _numDeJogadores = numDeJogadores;
         _turnoAtual = 0;
         _ctr = ctr;

@@ -30,7 +30,7 @@ public class Simulador implements Observador {
             System.out.println("Heee posso jogar");
             try {
                 Random r = new Random();
-                Thread.sleep(r.nextInt(10000));
+                Thread.sleep(r.nextInt(5000));
                 ctr.jogar(new LinkedList<Carta>());
             } catch (Exception e) {
             }
