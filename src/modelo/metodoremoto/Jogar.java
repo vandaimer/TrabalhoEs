@@ -1,24 +1,23 @@
 package modelo.metodoremoto;
 
-import modelo.jogo.Jogada;
-import modelo.metodoremoto.MetodoRemotoPartida;
-import modelo.jogo.Jogador;
-import modelo.jogo.partida.Partida;
+import java.util.List;
+import modelo.jogo.Carta;
+import modelo.metodoremoto.MetodoRemotoReceptor;
+import modelo.jogo.servidor.ReceptorDoControleRemoto;
 
 
-public class Jogar implements MetodoRemotoPartida {
+public class Jogar implements MetodoRemotoReceptor {
     
-    private final Jogador j;
-    private final Jogada jgd;
-    
-    public Jogar(Jogador j, Jogada jgd) {
-        this.j = j;
-        this.jgd = jgd;
+    private List<Carta> cartas;
+
+    public Jogar(List<Carta> cartas) {
+        this.cartas = cartas;
     }
     
+    
     @Override
-    public void aceitar(Partida p) {
-        p.jogar(j, jgd);
+    public void aceitar(ReceptorDoControleRemoto p) {
+        p.jogar(cartas);
     }
     
 }

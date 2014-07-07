@@ -3,9 +3,7 @@ package modelo.jogo.servidor.controleremoto;
 
 import modelo.metodoremoto.MetodoRemotoControleRemoto;
 import modelo.metodoremoto.SinalizarReconhecimento;
-import modelo.jogo.Jogada;
 import modelo.metodoremoto.Jogar;
-import modelo.jogo.Baralho;
 import modelo.jogo.Jogador;
 import modelo.jogo.Carta;
 import java.util.List;
@@ -26,16 +24,13 @@ public class ControleRemoto extends ObservadoImpl implements Observador {
     }
 
     public void jogar(List<Carta> cartas) {
-        Baralho b = new Baralho();
-        b.montarBaralho(cartas);
-        Jogada jgda = new Jogada(b);
-        tel.falar(new Jogar(_jgd, jgda));
+        tel.falar(new Jogar(cartas));
     }
 
     public void iniciar() {
         tel.ligar();
         tel.registrar(this);
-        SinalizarReconhecimento sr = new SinalizarReconhecimento(_jgd);
+        SinalizarReconhecimento sr = new SinalizarReconhecimento();
         tel.falar(sr);
     }
 

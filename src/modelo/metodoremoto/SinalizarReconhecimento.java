@@ -1,20 +1,15 @@
 package modelo.metodoremoto;
 
-import modelo.metodoremoto.MetodoRemotoPartida;
-import modelo.jogo.Jogador;
-import modelo.jogo.partida.Partida;
+import modelo.metodoremoto.MetodoRemotoReceptor;
+import modelo.jogo.servidor.ReceptorDoControleRemoto;
 
-public class SinalizarReconhecimento implements MetodoRemotoPartida {
+public class SinalizarReconhecimento implements MetodoRemotoReceptor {
     
-    private Jogador _j;
-    
-    public SinalizarReconhecimento(Jogador j) {
-        _j = j;
-    }
+
     
     @Override
-    public void aceitar(Partida p) {
-        p.sinalizarReconhecimento(_j);
+    public void aceitar(ReceptorDoControleRemoto p) {
+        p.sinalisarReconhecimento();
         
     }
     
