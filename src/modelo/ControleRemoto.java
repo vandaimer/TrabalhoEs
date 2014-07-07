@@ -104,4 +104,9 @@ public class ControleRemoto extends ObservadoImpl {
 
     }
 
+    public void ligar() {
+        SinalizarReconhecimento sr=new SinalizarReconhecimento(_jgd);
+        con.enviar(sr);
+    }
+
 }

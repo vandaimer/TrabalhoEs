@@ -1,8 +1,7 @@
 package modelo;
 
-import java.io.Serializable;
 
-public class Jogar implements Serializable,MetodoRemotoPartida {
+public class Jogar implements MetodoRemotoPartida {
     
     private final Jogador j;
     private final Jogada jgd;

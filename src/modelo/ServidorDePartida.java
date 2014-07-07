@@ -120,10 +120,10 @@ class Servico implements Runnable,ControladorDePartida {
                 r.iniciar();
             }
 
-            Thread.sleep(5000);
-            partida.iniciar();
+       
             semafaro.acquire();
  
+            
             for (ReceptorDoControleRemoto r : receptores) {
                 r.finalizar();
             }

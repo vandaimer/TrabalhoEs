@@ -14,6 +14,8 @@ public class Simulador implements Observador {
 
     public Simulador(ControleRemoto ctr) {
         this.ctr = ctr;
+        ctr.registrar(this);
+        ctr.ligar();
     }
 
     public boolean fim() {
