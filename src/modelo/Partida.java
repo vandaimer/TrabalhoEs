@@ -36,9 +36,6 @@ public class Partida extends ObservadoImpl {
         return mapaJogadas.containsKey(j);
     }
     
-    public synchronized void iniciar() {
-        _estado.iniciar(this);
-    }
     
     public void incrementarTurno() {
         _turnoAtual++;
@@ -50,7 +47,7 @@ public class Partida extends ObservadoImpl {
     }
     
     public boolean fimDeJogo() {
-        return _turnoAtual == 2;
+        return _turnoAtual == 1;
     }
     
     public void sinalizarFimDeJogo() {
@@ -96,7 +93,7 @@ public class Partida extends ObservadoImpl {
         
     }
     
-    public void sinalizarReconhecimento(Jogador j) {
+    public synchronized void sinalizarReconhecimento(Jogador j) {
         _estado.verificandoReconhecimento(this, j);
     }
     

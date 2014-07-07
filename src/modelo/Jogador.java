@@ -74,11 +74,16 @@ public class Jogador implements Serializable{
             return false;
         }
         final Jogador other = (Jogador) obj;
+        if (!Objects.equals(this.nome, other.nome)) {
+            return false;
+        }
         if (this.id != other.id) {
             return false;
         }
         return true;
     }
+
+    
     
     
 
@@ -88,6 +93,8 @@ public class Jogador implements Serializable{
         StringBuilder sb = new StringBuilder();
         sb.append("{\"nome\":\"");
         sb.append(nome);
+        sb.append(",\"id\":\"");
+        sb.append(id);
         sb.append("\"}");
         return sb.toString();
     }

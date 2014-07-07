@@ -37,7 +37,9 @@ public class Teste {
 
         ControleRemoto ctr = p.criarPartida(porta);
         Simulador s = new Simulador(ctr);
-
+        ctr.registrar(s);
+        ctr.iniciar();
+        
         while (!s.fim()) {}
 
     }

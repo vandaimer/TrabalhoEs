@@ -36,6 +36,12 @@ public class ControleRemoto extends ObservadoImpl {
 
     }
 
+    public ControleRemoto(Jogador _jgd, Conector con) {
+        this._jgd = _jgd;
+        this.con = con;
+        tNotificao = new Thread(new LeitorDeNotificacao(con, this));
+    }
+
     public void jogar(List<Carta> cartas) {
 
         Baralho b = new Baralho();
@@ -44,10 +50,15 @@ public class ControleRemoto extends ObservadoImpl {
         con.enviar(new Jogar(_jgd, jgda));
     }
 
-    @Override
-    protected void finalize() throws Throwable {
-        super.finalize();
+    public void iniciar() {
+        tNotificao.start();
+        SinalizarReconhecimento sr = new SinalizarReconhecimento(_jgd);
+        con.enviar(sr);      
+    }
+
+    public void finalizar() {
         tNotificao.interrupt();
+
     }
 
     class LeitorDeNotificacao implements Runnable {
@@ -66,15 +77,15 @@ public class ControleRemoto extends ObservadoImpl {
             while (true) {
 
                 Serializable leitura = _con.receber();
+                System.out.println(leitura);
 
                 if (leitura instanceof Mensagem) {
-                    System.out.println("mensagem no controle remoto: "+leitura);
-                    
+
                     Mensagem msg = (Mensagem) leitura;
 
                     if ("iniciar_turno".equals(msg.obterAssunto())) {
 
-                        notificarObservadores("iniciar_turno");
+                        _ctr.notificarObservadores("iniciar_turno");
                         return;
                     }
 
@@ -82,19 +93,19 @@ public class ControleRemoto extends ObservadoImpl {
                         Serializable conteudo = msg.obterConteudo();
 
                         if (_jgd.equals(conteudo)) {
-                            notificarObservadores("jogada_realizada");
+                            _ctr.notificarObservadores("jogada_realizada");
                         }
                         return;
                     }
 
                     if ("atualizar_pontuacao".equals(msg.obterAssunto())) {
 
-                        notificarObservadores("atualizar_pontuacao");
+                        _ctr.notificarObservadores("atualizar_pontuacao");
                         return;
                     }
 
                     if ("fim_do_jogo".equals(msg.obterAssunto())) {
-                        notificarObservadores("fim_do_jogo");
+                        _ctr.notificarObservadores("fim_do_jogo");
                         return;
                     }
 
@@ -106,9 +117,6 @@ public class ControleRemoto extends ObservadoImpl {
 
     }
 
-    public void ligar() {
-        SinalizarReconhecimento sr=new SinalizarReconhecimento(_jgd);
-        con.enviar(sr);
-    }
+    
 
 }

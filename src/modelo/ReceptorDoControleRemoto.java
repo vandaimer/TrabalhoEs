@@ -29,18 +29,14 @@ public class ReceptorDoControleRemoto implements Observador {
     @Override
     public void notificar(Observado fonte, Object msg) {
         
-        if (fonte.equals(_p)) {
-            
-            try {
-                
-                _con.enviar((Serializable) msg);
-                
-            } catch (Exception e) {
-            }
-            
+        if(msg instanceof Mensagem){
+        Mensagem m=(Mensagem)msg;
+        _con.enviar(m);
         }
-    }
+        
+        
     
+}
 }
 
 class Leitor implements Runnable {
@@ -58,6 +54,7 @@ class Leitor implements Runnable {
         
         while (true) {
             Serializable leitura = con.receber();
+          
             if (leitura instanceof MetodoRemotoPartida) {
                 MetodoRemotoPartida m = (MetodoRemotoPartida) leitura;
                 m.aceitar(p);
