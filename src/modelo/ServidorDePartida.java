@@ -48,7 +48,7 @@ public class ServidorDePartida {
 
 }
 
-class Servico implements Runnable {
+class Servico implements Runnable,ControladorDePartida {
 
     private final ServerSocket _svsocket;
     private final List<ReceptorDoControleRemoto> receptores = new LinkedList<>();
@@ -63,7 +63,7 @@ class Servico implements Runnable {
         _svsocket = new ServerSocket(porta);
         _ouvintePorta = new Thread(new OuvinteDePorta(_svsocket, this));
         _svsocket.setSoTimeout(timeOut);
-        partida = new Partida(_numMaxJogadores);
+        partida = new Partida(_numMaxJogadores,this);
 
     }
 
@@ -91,7 +91,7 @@ class Servico implements Runnable {
             partida.registrar(recp);
             con.enviar(j);
 
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
             con.enviar(e);
         }
 
@@ -121,26 +121,22 @@ class Servico implements Runnable {
             }
 
             partida.iniciar();
-
-            
-
-            while (!partida.fimDeJogo()) {
-                Thread.sleep(5000);
-                System.out.println("Jogo rodando");
-                
-
-            }
-
+            semafaro.acquire();
+ 
             for (ReceptorDoControleRemoto r : receptores) {
                 r.finalizar();
             }
-
             _svsocket.close();
-            System.out.println("fim de jodo");
+          
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+    }
+
+    @Override
+    public void notificarFimDeJogo() {
+    liberaSemafaro();
     }
 
 }
