@@ -16,7 +16,7 @@ public class FimDoJogo implements EstadoDaPartida{
 
 	@Override
 	public void fimDoJogo(Partida p) {		
-		p.notificarObservadores(new Mensagem("Fim do jogo", null));
+		p.notificarObservadores(new Mensagem("fim_do_jogo", null));
                 p.sinalizarFimDeJogo();
 	}
 
