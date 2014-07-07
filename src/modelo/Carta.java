@@ -2,117 +2,121 @@ package modelo;
 
 import java.util.Objects;
 
-public class Carta
-{
-    private String nome;
-    private int id;
+public  class Carta {
+	private String nome;
+	private int id;
+	private int inteligencia;
+	private int forca;
+	private int agilidade;
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public Carta(String nome, int id, int inteligencia, int forca, int agilidade) {
+		this.nome = nome;
+		this.id = id;
+		this.inteligencia = inteligencia;
+		this.forca = forca;
+		this.agilidade = agilidade;
+	}
+	
+	public Carta(String nome, int id) {
+		this.nome = nome;
+		this.id = id;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public Carta(Carta c) {
+		nome = c.getNome();
+		id = c.getId();
+		inteligencia = c.getInteligencia();
+		forca = c.getForca();
+		agilidade = c.getAgilidade();
+	}
 
-    public void setAtaque(int ataque) {
-        this.ataque = ataque;
-    }
+	
+	
+	
+	public String getNome() {
+		return nome;
+	}
 
-    public void setDefesa(int defesa) {
-        this.defesa = defesa;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public void setEfeito(int efeito) {
-        this.efeito = efeito;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public void setInteligencia(int inteligencia) {
-        this.inteligencia = inteligencia;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public void setForca(int forca) {
-        this.forca = forca;
-    }
+	public int getInteligencia() {
+		return inteligencia;
+	}
 
-    public void setAgilidade(int agilidade) {
-        this.agilidade = agilidade;
-    }
+	public void setInteligencia(int inteligencia) {
+		this.inteligencia = inteligencia;
+	}
 
-    private int ataque;
-    private int defesa;
-    private int efeito;
-    private int inteligencia;
-    private int forca;
-    private int agilidade;
+	public int getForca() {
+		return forca;
+	}
 
-    private TipoCarta tipo;
-    
-    public Carta( String nome, int id )
-    {
-    	this.nome = nome;
-        this.id = id;
-    }
-    
-   public Carta(Carta c)
-   {
-    	nome = c.getNome();
-        id =   c.getId();
-        tipo=  c.getTipo();
-    }
+	public void setForca(int forca) {
+		this.forca = forca;
+	}
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 73 * hash + Objects.hashCode(this.nome);
-        hash = 73 * hash + Objects.hashCode(this.tipo);
-        return hash;
-    }
+	public int getAgilidade() {
+		return agilidade;
+	}
 
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Carta other = (Carta) obj;
-        if (!Objects.equals(this.nome, other.nome)) {
-            return false;
-        }
-        if (this.tipo != other.tipo) {
-            return false;
-        }
-        return true;
-    }
- 
-    public int getId()
-    {
-        return this.id;
-    }
+	public void setAgilidade(int agilidade) {
+		this.agilidade = agilidade;
+	}
+	
+	public void aumentaForca(int forca){
+		this.forca += forca;
+	}
+	
+	public void aumentaInteligencia(int inteligencia){
+		this.inteligencia += inteligencia;
+	}
+	
+	public void aumentaAgilidade(int agilidade){
+		this.agilidade += agilidade;
+	}
 
-    public String getNome()
-    {
-        return this.nome;
-    }
+	@Override
+	public int hashCode() {
+		int hash = 7;
+		hash = 73 * hash + Objects.hashCode(this.nome);
+		hash = 73 * hash + Objects.hashCode(this.id); // ???
+		return hash;
+	}
 
-    public TipoCarta getTipo()
-    {
-        return this.tipo;
-    }
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		final Carta other = (Carta) obj;
+		if (!Objects.equals(this.nome, other.nome)) {
+			return false;
+		}
 
-    @Override
-    public String toString()
-    {
-    	String retorno = "Nome: " + this.nome +
-                         "\n      Ataque: " + this.ataque +
-                         "\n      Defesa: " + this.defesa +
-                         "\n      Efeito: " + this.efeito +
-                         "\n      Inteligencia: " + this.inteligencia +
-                         "\n      Agilidade: " + this.agilidade +
-                         "\n";
-        return retorno;
-    }
-    
+		return true;
+	}
+	
+	
+
+	@Override
+	public String toString() {
+		String retorno = "Nome: " + getNome() + "\n      Força: " + getForca()
+				+ "\n      Inteligencia: " + getInteligencia()
+				+ "\n      Agilidade: " + getAgilidade() + "\n";
+		return retorno;
+	}
+
 }

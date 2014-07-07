@@ -1,9 +1,10 @@
 package modelo;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Baralho {
+public class Baralho implements Serializable{
 
     private List<Carta> lista = new LinkedList<>();
 

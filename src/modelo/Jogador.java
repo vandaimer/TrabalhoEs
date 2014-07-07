@@ -1,9 +1,10 @@
 package modelo;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
-public class Jogador {
+public class Jogador implements Serializable{
 
     private Baralho baralho = new Baralho();
     private String nome;
@@ -54,6 +55,16 @@ public class Jogador {
             baralho.remover(c);
         }
     }    
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 47 * hash + Objects.hashCode(this.nome);
+        hash = 47 * hash + Objects.hashCode(this.senha);
+        hash = 47 * hash + this.id;
+        return hash;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -63,16 +74,13 @@ public class Jogador {
             return false;
         }
         final Jogador other = (Jogador) obj;
-        if (!Objects.equals(this.nome, other.nome)) {
+        if (this.id != other.id) {
             return false;
         }
-
-        if (!Objects.equals(this.senha, other.senha)) {
-            return false;
-        }
-
         return true;
     }
+    
+    
 
     @Override
     public String toString()

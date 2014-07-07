@@ -1,48 +1,44 @@
 package testes.jean;
 
-import modelo.ConectorCliente;
 import java.io.IOException;
-import java.io.Serializable;
-import java.net.ServerSocket;
+import java.util.LinkedList;
+import java.util.Random;
+import modelo.Carta;
+import modelo.ControleRemoto;
+import modelo.Jogador;
+import modelo.Observado;
+import modelo.Observador;
+import modelo.Portal;
+import modelo.RepositorioDeJogoDB;
+import modelo.persistencia.Fabrica;
 
-public class Teste implements Runnable {
+public class Teste {
 
-    private ConectorCliente cli;
+    public static void main(String[] args) throws IOException, InterruptedException {
 
-    public Teste(ConectorCliente cli) {
-        this.cli = cli;
+        Portal portal = new Portal(new RepositorioDeJogoDB(new Fabrica("150.162.52.177", "jogoes", "@fuckingpassword@", "engenhariasoftware")));
+        Jogador j = new Jogador("jean", "1234");
+        portal.autenticar(j);
+        servir(portal, 1234);
     }
 
-    public static void main(String[] args) throws IOException {
-        ServerSocket sv = new ServerSocket(1234);
+    public static void conectar(Portal p, String ip, int porta) throws IOException, InterruptedException {
 
-        while (true) {
-
-            System.out.println("Aguardando conexao");
-            ConectorCliente cli = new ConectorCliente(sv.accept());
-            new Thread(new Teste(cli)).start();
-
-        }
+        ControleRemoto ctr = p.conectarAoOponente(ip, porta);
+        System.out.println("conectado ao oponente");
+        Thread.sleep(2000);
+        ctr.jogar(new LinkedList<Carta>());
 
     }
 
-    @Override
-    public void run() {
-        cli.enviar("conexao_aceita");
+    public static void servir(Portal p, int porta) throws IOException, InterruptedException {
 
-        while (true) {
-            Serializable receber = cli.receber();
-            
-            if (receber==null) {
-                break;
-            }
-            
-            System.out.println(receber);
+        ControleRemoto ctr = p.criarPartida(porta);
+        Simulador s = new Simulador(ctr);
 
-            
-        }
-
-        System.out.println("fim conexao");
+        while (!s.fim()) {}
 
     }
 }
+
+
