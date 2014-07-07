@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 
-public class Carta implements Serializable{
+public class Carta implements Serializable, Comparable<Carta>{
 	private String nome;
 	private int id;
 	private int inteligencia;
@@ -118,6 +118,27 @@ public class Carta implements Serializable{
 				+ "\n      Inteligencia: " + getInteligencia()
 				+ "\n      Agilidade: " + getAgilidade() + "\n";
 		return retorno;
+	}
+
+	/*
+		quando a carta que eu quero comparar com a que veio por parâmetro é a maior, retorna 1
+		caso contrário, -1
+		se forem iguais 0
+	*/
+	@Override
+	public int compareTo(Carta outraCarta) {
+		int somaAtributos = this.getAgilidade()+this.getForca()+this.getInteligencia();
+		int somaAtributosOutraCarta = outraCarta.getAgilidade()+outraCarta.getForca()+outraCarta.getInteligencia();
+		
+		if(somaAtributos > somaAtributosOutraCarta){
+			return 1;
+		}
+		
+		if(somaAtributos < somaAtributosOutraCarta){
+			return -1;
+		}
+				
+		return 0;
 	}
 
 }
