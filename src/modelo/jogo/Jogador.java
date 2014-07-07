@@ -74,14 +74,16 @@ public class Jogador implements Serializable{
             return false;
         }
         final Jogador other = (Jogador) obj;
-        if (!Objects.equals(this.nome, other.nome)) {
-            return false;
-        }
         if (this.id != other.id) {
             return false;
         }
+
+    
+
         return true;
     }
+    
+    
 
     
     

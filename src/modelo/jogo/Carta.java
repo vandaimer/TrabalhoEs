@@ -3,137 +3,122 @@ package modelo.jogo;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Carta implements Serializable {
 
-    private String nome;
-    private int id;
-    private int ataque;
-    private int defesa;
-    private int efeito;
-    private int inteligencia;
-    private int forca;
-    private int agilidade;
+public  class Carta implements Serializable{
+	private String nome;
+	private int id;
+	private int inteligencia;
+	private int forca;
+	private int agilidade;
 
-    public Carta(String nome, int id) {
-        this.nome = nome;
-        this.id = id;
-    }
+	public Carta(String nome, int id, int inteligencia, int forca, int agilidade) {
+		this.nome = nome;
+		this.id = id;
+		this.inteligencia = inteligencia;
+		this.forca = forca;
+		this.agilidade = agilidade;
+	}
+	
+	public Carta(String nome, int id) {
+		this.nome = nome;
+		this.id = id;
+	}
 
-    public Carta(Carta c) {
-        nome = c.getNome();
-        id = c.getId();
+	public Carta(Carta c) {
+		nome = c.getNome();
+		id = c.getId();
+		inteligencia = c.getInteligencia();
+		forca = c.getForca();
+		agilidade = c.getAgilidade();
+	}
 
-    }
+	
+	
+	
+	public String getNome() {
+		return nome;
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public void setAtaque(int ataque) {
-        this.ataque = ataque;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public void setDefesa(int defesa) {
-        this.defesa = defesa;
-    }
+	public int getInteligencia() {
+		return inteligencia;
+	}
 
-    public void setEfeito(int efeito) {
-        this.efeito = efeito;
-    }
+	public void setInteligencia(int inteligencia) {
+		this.inteligencia = inteligencia;
+	}
 
-    public void setInteligencia(int inteligencia) {
-        this.inteligencia = inteligencia;
-    }
+	public int getForca() {
+		return forca;
+	}
 
-    public void setForca(int forca) {
-        this.forca = forca;
-    }
+	public void setForca(int forca) {
+		this.forca = forca;
+	}
 
-    public void setAgilidade(int agilidade) {
-        this.agilidade = agilidade;
-    }
+	public int getAgilidade() {
+		return agilidade;
+	}
 
-    
+	public void setAgilidade(int agilidade) {
+		this.agilidade = agilidade;
+	}
+	
+	public void aumentaForca(int forca){
+		this.forca += forca;
+	}
+	
+	public void aumentaInteligencia(int inteligencia){
+		this.inteligencia += inteligencia;
+	}
+	
+	public void aumentaAgilidade(int agilidade){
+		this.agilidade += agilidade;
+	}
 
-    public int getId() {
-        return this.id;
-    }
+	@Override
+	public int hashCode() {
+		int hash = 7;
+		hash = 73 * hash + Objects.hashCode(this.nome);
+		hash = 73 * hash + Objects.hashCode(this.id); // ???
+		return hash;
+	}
 
-    public String getNome() {
-        return this.nome;
-    }
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		final Carta other = (Carta) obj;
+		if (!Objects.equals(this.nome, other.nome)) {
+			return false;
+		}
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 67 * hash + Objects.hashCode(this.nome);
-        hash = 67 * hash + this.id;
-        hash = 67 * hash + this.ataque;
-        hash = 67 * hash + this.defesa;
-        hash = 67 * hash + this.efeito;
-        hash = 67 * hash + this.inteligencia;
-        hash = 67 * hash + this.forca;
-        hash = 67 * hash + this.agilidade;
-        return hash;
-    }
+		return true;
+	}
+	
+	
 
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Carta other = (Carta) obj;
-        if (!Objects.equals(this.nome, other.nome)) {
-            return false;
-        }
-        if (this.id != other.id) {
-            return false;
-        }
-        if (this.ataque != other.ataque) {
-            return false;
-        }
-        if (this.defesa != other.defesa) {
-            return false;
-        }
-        if (this.efeito != other.efeito) {
-            return false;
-        }
-        if (this.inteligencia != other.inteligencia) {
-            return false;
-        }
-        if (this.forca != other.forca) {
-            return false;
-        }
-        if (this.agilidade != other.agilidade) {
-            return false;
-        }
-        return true;
-    }
-
-    
-    
-    
-    
-    
-    
-
-    @Override
-    public String toString() {
-        String retorno = "Nome: " + this.nome
-                + "\n      Ataque: " + this.ataque
-                + "\n      Defesa: " + this.defesa
-                + "\n      Efeito: " + this.efeito
-                + "\n      Inteligencia: " + this.inteligencia
-                + "\n      Agilidade: " + this.agilidade
-                + "\n";
-        return retorno;
-    }
+	@Override
+	public String toString() {
+		String retorno = "Nome: " + getNome() + "\n      Força: " + getForca()
+				+ "\n      Inteligencia: " + getInteligencia()
+				+ "\n      Agilidade: " + getAgilidade() + "\n";
+		return retorno;
+	}
 
 }
