@@ -1,8 +1,8 @@
 package testes.jean;
 
-import modelo.ConectorCliente;
-import modelo.Observado;
-import modelo.Observador;
+import modelo.util.ConectorCliente;
+import modelo.util.Observado;
+import modelo.util.Observador;
 
 public class TesteTelefone {
 

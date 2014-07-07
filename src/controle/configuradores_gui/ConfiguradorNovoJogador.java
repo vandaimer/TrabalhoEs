@@ -8,7 +8,7 @@ import controle.gui_dados_do_jogador.ConfirmarAutenticacaoPorClick;
 import controle.gui_dados_do_jogador.ConfirmarAutenticacaoPorTecla;
 import controle.gui_dados_do_jogador.QuandoCancelar;
 import controle.gui_dados_do_jogador.QuandoConfirmarDadosNovoJogador;
-import modelo.Portal;
+import modelo.jogo.Portal;
 import visao.GUIDadosDoJogador;
 
 public class ConfiguradorNovoJogador implements Configurador<GUIDadosDoJogador> {

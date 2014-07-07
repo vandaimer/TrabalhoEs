@@ -1,13 +1,13 @@
 
 package testes.jean;
 
-import modelo.Baralho;
-import modelo.ControladorDePartida;
-import modelo.Jogada;
-import modelo.Jogador;
-import modelo.Observado;
-import modelo.Observador;
-import modelo.Partida;
+import modelo.jogo.Baralho;
+import modelo.jogo.partida.ControladorDePartida;
+import modelo.jogo.Jogada;
+import modelo.jogo.Jogador;
+import modelo.util.Observado;
+import modelo.util.Observador;
+import modelo.jogo.partida.Partida;
 
 
 

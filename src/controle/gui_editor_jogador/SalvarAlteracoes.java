@@ -1,12 +1,12 @@
 package controle.gui_editor_jogador;
 
-import modelo.Jogador;
-import modelo.Portal;
+import modelo.jogo.Jogador;
+import modelo.jogo.Portal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
-import modelo.ExcecaoDePersistencia;
-import modelo.ExcecaoQuebraDeRegrasDoBaralho;
+import modelo.persistencia.ExcecaoDePersistencia;
+import modelo.jogo.ExcecaoQuebraDeRegrasDoBaralho;
 
 public class SalvarAlteracoes implements ActionListener {
 

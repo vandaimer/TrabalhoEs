@@ -1,8 +1,8 @@
 package testes.jean;
 
 import java.io.Serializable;
-import modelo.Conector;
-import modelo.ObservadoImpl;
+import modelo.util.Conector;
+import modelo.util.ObservadoImpl;
 
 public class Telefone extends ObservadoImpl {
 

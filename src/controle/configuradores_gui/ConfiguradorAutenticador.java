@@ -1,7 +1,7 @@
 
 package controle.configuradores_gui;
 
-import modelo.Portal;
+import modelo.jogo.Portal;
 import visao.GUIDadosDoJogador;
 import controle.Configurador;
 import controle.gui_dados_do_jogador.ConfirmarAutenticacaoPorClick;

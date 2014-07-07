@@ -3,7 +3,7 @@ package controle.gui_dados_do_jogador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import modelo.Portal;
+import modelo.jogo.Portal;
 import visao.GUIDadosDoJogador;
 
 public class ConfirmaDadosNovoJogorClick extends QuandoConfirmarDadosNovoJogador implements ActionListener

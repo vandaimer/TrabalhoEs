@@ -1,8 +1,7 @@
 package modelo.persistencia;
 
-import modelo.Carta;
-import modelo.ExcecaoDePersistencia;
-import modelo.Jogador;
+import modelo.jogo.Carta;
+import modelo.jogo.Jogador;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
