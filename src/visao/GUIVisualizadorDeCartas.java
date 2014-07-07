@@ -3,16 +3,20 @@
 package visao;
 
 import controle.Configuravel;
+
 import java.util.List;
+
 import modelo.jogo.Carta;
+import modelo.jogo.CartaAbstrata;
+
 import javax.swing.event.ListSelectionListener;
 
 
 public interface GUIVisualizadorDeCartas extends Configuravel<GUIVisualizadorDeCartas>{
     
-public void mostrar(Carta c);
-public void listarCartas(List<Carta> l);
+public void mostrar(CartaAbstrata c);
+public void listarCartas(List<CartaAbstrata> l);
 public void selecionarUmaCarta(ListSelectionListener a);
-public Carta obterCartaSelecionada();
+public CartaAbstrata obterCartaSelecionada();
 public void tornarVisivel(boolean b);
 }

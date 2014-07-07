@@ -4,7 +4,6 @@ package main;
 import controle.configuradores_gui.ConfiguradorPortal;
 
 import modelo.jogo.Portal;
-import modelo.persistencia.RepositorDeJogoEmMemoria;
 import modelo.persistencia.RepositorioDeJogoDB;
 import modelo.persistencia.Fabrica;
 import modelo.persistencia.FabricaFerramentasPersistencia;
@@ -43,15 +42,7 @@ public class Principal {
         
     }
     
-    public static void iniciarFormularioDoPortalMemoria() throws Exception
-    {
-        FormPortal fportal=new FormPortal();
 
-        ConfiguradorPortal confp=new ConfiguradorPortal(new Portal(new RepositorDeJogoEmMemoria()));
-
-        fportal.aplicarConfiguracao(confp);
-        
-    }
     
     public static void main(String[] args) throws Exception
     {

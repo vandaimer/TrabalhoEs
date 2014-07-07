@@ -1,10 +1,14 @@
 package modelo.jogo;
 
-public class CartaEfeito extends Carta {
+public class CartaEfeito extends CartaAbstrata {
 
-	private Carta umaCarta;
+	private CartaAbstrata umaCarta;
 
-	private CartaEfeito(Carta c, String nome, int id, int inteligencia,
+	public CartaEfeito() {
+	
+	}
+	
+	private CartaEfeito(CartaAbstrata c, String nome, int id, int inteligencia,
 			int forca, int agilidade) {
 		super(nome, id, inteligencia, forca, agilidade);
 		tipo = "Efeito";
@@ -17,7 +21,7 @@ public class CartaEfeito extends Carta {
 
 	}
 
-	public Carta decorar(Carta c) {
+	public CartaAbstrata decorar(CartaAbstrata c) {
 		return new CartaEfeito(c, super.getNome(), super.getId(),
 				super.getInteligencia(), super.getForca(), super.getAgilidade());
 	}
@@ -66,11 +70,16 @@ public class CartaEfeito extends Carta {
 	}
 
 	public static void main(String[] args) {
-		Carta c1 = new Carta("m1", 1, 10, 10, 10);
+		CartaAbstrata c1 = new Carta("m1", 1, 10, 10, 10);
 		CartaEfeito ce1 = new CartaEfeito("e1", 2, 2, 2, 2);
-		Carta aux = ce1.decorar(c1);
+		CartaAbstrata aux = ce1.decorar(c1);
 		aux = ce1.decorar(aux);
 		System.out.println(aux);
+	}
+
+	@Override
+	public CartaAbstrata clonar() {
+		return new CartaEfeito(umaCarta, nome, id, inteligencia, forca, agilidade);
 	}
 
 }

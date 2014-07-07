@@ -1,16 +1,18 @@
 package modelo.metodoremoto;
 
 import java.util.List;
+
 import modelo.jogo.Carta;
+import modelo.jogo.CartaAbstrata;
 import modelo.metodoremoto.MetodoRemotoReceptor;
 import modelo.jogo.servidor.ReceptorDoControleRemoto;
 
 
 public class Jogar implements MetodoRemotoReceptor {
     
-    private List<Carta> cartas;
+    private List<CartaAbstrata> cartas;
 
-    public Jogar(List<Carta> cartas) {
+    public Jogar(List<CartaAbstrata> cartas) {
         this.cartas = cartas;
     }
     

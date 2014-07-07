@@ -1,7 +1,9 @@
 package controle.gui_editor_jogador;
 
 import modelo.jogo.Carta;
+import modelo.jogo.CartaAbstrata;
 import visao.GUIEditorDejogador;
+
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -15,7 +17,7 @@ public class QuandoSelecionarUmaDoJogador implements ListSelectionListener {
     
     @Override
     public void valueChanged(ListSelectionEvent e) {
-        Carta c = gui.obterCartaSelecionadaDoJogador();
+        CartaAbstrata c = gui.obterCartaSelecionadaDoJogador();
         gui.mostrarCartaDoJogador(c);
     }
     
