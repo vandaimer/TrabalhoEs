@@ -62,13 +62,10 @@ class Servico implements Runnable,ControladorDePartida {
         _numMaxJogadores = numJogadores;
         _svsocket = new ServerSocket(porta);
         _ouvintePorta = new Thread(new OuvinteDePorta(_svsocket, this));
-<<<<<<< HEAD
-        //_svsocket.setSoTimeout(timeOut);
-        partida = new Partida(_numMaxJogadores);
-=======
+
         _svsocket.setSoTimeout(timeOut);
         partida = new Partida(_numMaxJogadores,this);
->>>>>>> 9e912f343e6a9ae557b31a1f343184799d589b8d
+
 
     }
 

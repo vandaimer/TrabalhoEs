@@ -4,31 +4,16 @@ public class VerificandoPontuacao implements EstadoDaPartida{
 
 	@Override
 	public void jogar(Partida p, Jogador jgd, Jogada j) {
-<<<<<<< HEAD
-	
-=======
-
->>>>>>> 9e912f343e6a9ae557b31a1f343184799d589b8d
 		
 	}
 
 	@Override
 	public void iniciar(Partida p) {
-<<<<<<< HEAD
-		
-=======
-	
->>>>>>> 9e912f343e6a9ae557b31a1f343184799d589b8d
 		
 	}
 
 	@Override
 	public void fimDoJogo(Partida p) {	
-<<<<<<< HEAD
-	
-=======
-		
->>>>>>> 9e912f343e6a9ae557b31a1f343184799d589b8d
 		
 	}
 
@@ -48,13 +33,5 @@ public class VerificandoPontuacao implements EstadoDaPartida{
 		}		
 	}
 
-<<<<<<< HEAD
-	@Override
-	public boolean fimDoJogo() {
-		return false;
-	}
-=======
-
->>>>>>> 9e912f343e6a9ae557b31a1f343184799d589b8d
 
 }
