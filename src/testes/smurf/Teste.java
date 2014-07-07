@@ -36,7 +36,8 @@ public class Teste {
         ControleRemoto r = p.conectarAoOponente("192.168.1.4", 1234);
         
         Simulador s = new Simulador(r);
-
+        r.registrar(s);
+        r.iniciar();
         while (!s.fim()) {}
 
     }

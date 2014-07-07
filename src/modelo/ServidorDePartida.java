@@ -128,7 +128,7 @@ class Servico implements Runnable,ControladorDePartida {
                 r.finalizar();
             }
             _svsocket.close();
-          
+           
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -137,7 +137,7 @@ class Servico implements Runnable,ControladorDePartida {
 
     @Override
     public void notificarFimDeJogo() {
-    liberaSemafaro();
+        liberaSemafaro();
     }
 
 }

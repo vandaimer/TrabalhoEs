@@ -22,6 +22,7 @@ public class VerificandoPontuacao implements EstadoDaPartida{
 
 	@Override
 	public void verificandoVencedorDoTurno(Partida p) {
+               
 		//atualizar o score através da comparação de cartas
 		p.notificarObservadores(new Mensagem("atualizar_pontuacao", 100));
 		if(p.fimDeJogo()){
@@ -31,8 +32,11 @@ public class VerificandoPontuacao implements EstadoDaPartida{
                         f.fimDoJogo(p);
                         
 		}else{
-			
+			IniciandoTurno it=new IniciandoTurno();
 			p.fixarEstado(new IniciandoTurno());
+                        System.out.println("novo turno");
+                        it.iniciar(p);
+                        
 		}		
 	}
 

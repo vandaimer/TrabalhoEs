@@ -18,7 +18,7 @@ public class AguardandoJogada implements EstadoDaPartida{
 				VerificandoPontuacao v=new VerificandoPontuacao();
 				p.fixarEstado(v);
 				v.verificandoVencedorDoTurno(p);
-
+                               
 			}
 
 
