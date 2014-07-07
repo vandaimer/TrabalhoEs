@@ -30,7 +30,7 @@ public class ServidorDePartida {
     }
 
     public ServidorDePartida(int porta) throws IOException {
-        this(porta, 2, 10000);
+        this(porta, 2, 5000);
     }
 
     public ServidorDePartida() throws IOException {
@@ -88,7 +88,6 @@ class Servico implements Runnable,ControladorDePartida {
             partida.adicionarJogador(j);
             ReceptorDoControleRemoto recp = new ReceptorDoControleRemoto(partida, j, con);
             receptores.add(recp);
-            partida.registrar(recp);
             con.enviar(j);
 
         } catch (IllegalArgumentException e) {
@@ -122,17 +121,14 @@ class Servico implements Runnable,ControladorDePartida {
 
        
             semafaro.acquire();
- 
-            
-            for (ReceptorDoControleRemoto r : receptores) {
-                r.finalizar();
-            }
             _svsocket.close();
            
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        
+       
+    
     }
 
     @Override
@@ -187,7 +183,6 @@ class OuvinteDePorta implements Runnable {
 
                 if (++_nTimeOut == 6) {
                     _s.liberaSemafaro();
-                    System.out.println(_nTimeOut);
                     break;
                 }
 

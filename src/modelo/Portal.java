@@ -1,10 +1,11 @@
 package modelo;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Portal extends ObservadoImpl{
+public class Portal extends ObservadoImpl {
 
     private final RepositorioDoJogo repositorioJogo;
     private Jogador jogador;
@@ -15,7 +16,15 @@ public class Portal extends ObservadoImpl{
     }
 
     public ControleRemoto conectarAoOponente(String ip, int porta) throws ExcececaoConexaoRecusada, IOException {
-        return new ControleRemoto(jogador, ip, porta);
+        ConectorCliente c = new ConectorCliente(ip, porta);
+        c.enviar(jogador);
+        Serializable rec = c.receber();
+
+        if (rec instanceof ExcececaoConexaoRecusada) {
+            throw ((ExcececaoConexaoRecusada) rec);
+        }
+        
+        return new ControleRemoto(jogador, c);
     }
 
     public ControleRemoto criarPartida(int porta) throws IOException, ExcececaoConexaoRecusada {
@@ -44,10 +53,6 @@ public class Portal extends ObservadoImpl{
             return false;
         }
 
- 
-
-        
-
         return repositorioJogo.salvar(j);
     }
 
@@ -74,6 +79,5 @@ public class Portal extends ObservadoImpl{
 
         return salvou;
     }
-
 
 }

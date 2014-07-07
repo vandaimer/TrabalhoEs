@@ -38,8 +38,8 @@ public class Teste {
         Simulador s = new Simulador(r);
         r.registrar(s);
         r.iniciar();
-        while (!s.fim()) {}
-
+        
+        
     }
     /*Portal portal = new Portal(new RepositorioDeJogoDB(new Fabrica("150.162.52.177", "jogoes", "@fuckingpassword@", "engenhariasoftware")));
      Jogador j = new Jogador("jean", "1234");

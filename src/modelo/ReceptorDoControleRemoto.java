@@ -1,65 +1,50 @@
 package modelo;
 
 import java.io.Serializable;
+import testes.jean.Telefone;
 
 public class ReceptorDoControleRemoto implements Observador {
-    
+
     private Jogador _jgd;
-    private Conector _con;
-    private Thread tLeitura;
     private Partida _p;
-    
+    private Telefone tel;
+
     public ReceptorDoControleRemoto(Partida p, Jogador jgd, Conector con) {
         _jgd = jgd;
-        _con = con;
         _p = p;
-        tLeitura = new Thread(new Leitor(p, con));
-        
-    }
-    
-    public void iniciar() {
-        tLeitura.start();
-        
-    }
-    
-    public void finalizar() {
-        tLeitura.interrupt();
-    }
-    
-    @Override
-    public void notificar(Observado fonte, Object msg) {
-        
-        if(msg instanceof Mensagem){
-        Mensagem m=(Mensagem)msg;
-        _con.enviar(m);
-        }
-        
-        
-    
-}
-}
+        tel = new Telefone(con);
 
-class Leitor implements Runnable {
-    
-    private Partida p;
-    private Conector con;
-    
-    public Leitor(Partida p, Conector con) {
-        this.p = p;
-        this.con = con;
     }
-    
+
+    public void iniciar() {
+        tel.registrar(this);
+        _p.registrar(this);
+        tel.ligar();
+
+    }
+
+  
+
     @Override
-    public void run() {
-        
-        while (true) {
-            Serializable leitura = con.receber();
-          
+    public void notificar(Observado fonte, Object leitura) {
+
+        if (fonte.equals(tel)) {
+
             if (leitura instanceof MetodoRemotoPartida) {
                 MetodoRemotoPartida m = (MetodoRemotoPartida) leitura;
-                m.aceitar(p);
+                m.aceitar(_p);
+            }
+
+        }
+
+        if (fonte.equals(_p)) {
+
+            tel.falar((Serializable) leitura);
+
+            if ("fim_do_jogo".equals(leitura)) {
+                tel.desligar();
             }
         }
+
     }
-    
 }

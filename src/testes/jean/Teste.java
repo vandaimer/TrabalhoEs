@@ -21,7 +21,7 @@ public class Teste {
         portal.autenticar(j);
         System.out.println("Servidor Iniciado");
         servir(portal, 1234);
-        System.out.println("Fim do jogo");
+       
     }
 
     public static void conectar(Portal p, String ip, int porta) throws IOException, InterruptedException {
@@ -40,8 +40,7 @@ public class Teste {
         ctr.registrar(s);
         ctr.iniciar();
         
-        while (!s.fim()) {}
-
+        
     }
     
     

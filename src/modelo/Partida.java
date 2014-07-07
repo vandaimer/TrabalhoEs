@@ -47,7 +47,7 @@ public class Partida extends ObservadoImpl {
     }
     
     public boolean fimDeJogo() {
-        return _turnoAtual == 1;
+        return _turnoAtual == 2;
     }
     
     public void sinalizarFimDeJogo() {
