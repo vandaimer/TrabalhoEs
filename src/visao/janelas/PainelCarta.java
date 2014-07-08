@@ -10,11 +10,15 @@ import visao.VCarta;
 
 class PainelCarta extends JPanel {
 
+    
+    
+    
+
     public void mostrarCarta(CartaAbstrata c) {
         if (c == null) {
             return;
         }
-
+        
         VCarta vc = new VCarta(c);
 
         limpar();

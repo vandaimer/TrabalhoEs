@@ -53,6 +53,7 @@ public class ControleRemoto extends ObservadoImpl implements Observador {
     public void atualizarPontuacao(Serializable pontuacao) {
         infoTurno = (List<InformacaoDoTurno>) pontuacao;
     }
+    
     public List<InformacaoDoTurno> getListaInformacaoTurno(){
     	return infoTurno;
     }

@@ -45,7 +45,8 @@ public class ConectarAoOponente implements ActionListener {
             ControleRemoto controle = _p.conectarAoOponente(host, porta);
             FormDoJogo f=new FormDoJogo();
 
-            f.aplicarConfiguracao(new ConfiguradorGuiJogo(controle));
+            f.aplicarConfiguracao(new ConfiguradorGuiJogo(controle,_gp));
+            _gp.incluir(f);
 
         } catch (NumberFormatException | IOException | ExcececaoConexaoRecusada ex) {
             _gp.mostrarMensagem(ex.getMessage());

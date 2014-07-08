@@ -6,16 +6,20 @@ import controle.Configurador;
 
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
+import javax.swing.JInternalFrame;
 
 import javax.swing.JOptionPane;
 
 
-public class FormDadosDoJogador extends javax.swing.JFrame implements GUIDadosDoJogador{
+public class FormDadosDoJogador extends JInternalFrame implements GUIDadosDoJogador{
 
  
-    public FormDadosDoJogador() {
+    public FormDadosDoJogador(String titulo) {
+        setMaximizable(true);
+        setClosable(true);
+         
         initComponents();
-
+        setTitle(titulo);
     }
 
    
@@ -32,6 +36,7 @@ public class FormDadosDoJogador extends javax.swing.JFrame implements GUIDadosDo
         jBCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setText("Nome do jogador:");
 

@@ -7,6 +7,8 @@ import modelo.jogo.CartaAbstrata;
 import modelo.jogo.Jogada;
 
 
+
+
 public class InformacaoDoTurno implements Serializable{
 	
 	private Jogada _jgd;
@@ -18,6 +20,13 @@ public class InformacaoDoTurno implements Serializable{
 		_pontuacao = pontuacao;
 		_turno = turno;
 	}
+    public Jogada obterJogada() {
+        return _jgd;
+    }
+
+    public Integer obterPontuacao() {
+        return _pontuacao;
+    }
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
@@ -33,5 +42,6 @@ public class InformacaoDoTurno implements Serializable{
 	}
 	
 	
+
 
 }

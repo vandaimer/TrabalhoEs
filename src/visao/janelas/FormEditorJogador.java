@@ -8,12 +8,15 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JInternalFrame;
 import javax.swing.event.ListSelectionListener;
 import visao.VCarta;
 
-public class FormEditorJogador extends javax.swing.JFrame implements GUIEditorDejogador {
+public class FormEditorJogador extends JInternalFrame implements GUIEditorDejogador {
 
     public FormEditorJogador() {
+          setMaximizable(true);
+        setClosable(true);
         initComponents();
     }
 
@@ -44,6 +47,7 @@ public class FormEditorJogador extends javax.swing.JFrame implements GUIEditorDe
         jTMsg = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         javax.swing.GroupLayout jPJogadorLayout = new javax.swing.GroupLayout(jPJogador);
         jPJogador.setLayout(jPJogadorLayout);

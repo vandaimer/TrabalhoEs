@@ -1,87 +1,87 @@
 package visao.janelas;
 
 import controle.Configurador;
+import controle.configuradores_gui.ConfiguradorVisualizadorDeCartas;
+import controle.gui_visualizador_de_cartas.SelecionarUmaCarta;
 import java.awt.Graphics2D;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.util.List;
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
+import modelo.jogo.Jogada;
+import modelo.jogo.partida.InformacaoDoTurno;
 import visao.GUIJogo;
 
-public class FormDoJogo extends javax.swing.JFrame implements GUIJogo {
-    
+public class FormDoJogo extends JInternalFrame implements GUIJogo {
+
     public FormDoJogo() {
+        setClosable(true);
         initComponents();
-        
+        placarP1.selecionarUmaCarta(new SelecionarUmaCarta(placarP1));
+        placarP2.selecionarUmaCarta(new SelecionarUmaCarta(placarP2));
+
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jBMontar = new javax.swing.JButton();
+        placarP1 = new visao.janelas.PlacarAtual();
+        placarP2 = new visao.janelas.PlacarAtual();
+        jLP1 = new javax.swing.JLabel();
+        jLP2 = new javax.swing.JLabel();
         jBVisualizarPlacar = new javax.swing.JButton();
-        jPTela = new javax.swing.JPanel();
+        jBMontar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        jLP1.setText(" ");
 
-        jBMontar.setText("Montar Jogada");
-        jBMontar.setEnabled(false);
+        jLP2.setText(" ");
 
         jBVisualizarPlacar.setText("Visualizar Placar");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(277, 277, 277)
-                .addComponent(jBMontar, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jBVisualizarPlacar, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(294, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBMontar)
-                    .addComponent(jBVisualizarPlacar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPTelaLayout = new javax.swing.GroupLayout(jPTela);
-        jPTela.setLayout(jPTelaLayout);
-        jPTelaLayout.setHorizontalGroup(
-            jPTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPTelaLayout.setVerticalGroup(
-            jPTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 652, Short.MAX_VALUE)
-        );
+        jBMontar.setText("Montar Jogada");
+        jBMontar.setEnabled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPTela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(placarP1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLP1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(placarP2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLP2, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jBVisualizarPlacar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBMontar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLP1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(placarP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLP2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(placarP2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPTela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jBMontar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jBVisualizarPlacar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -102,42 +102,38 @@ public class FormDoJogo extends javax.swing.JFrame implements GUIJogo {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBMontar;
     private javax.swing.JButton jBVisualizarPlacar;
-    private javax.swing.JPanel jPTela;
+    private javax.swing.JLabel jLP1;
+    private javax.swing.JLabel jLP2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private visao.janelas.PlacarAtual placarP1;
+    private visao.janelas.PlacarAtual placarP2;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public void habilitarMontarJogada(boolean b) {
         jBMontar.setEnabled(b);
     }
-    
+
     @Override
     public void habilitarVisualizarPontuacao(boolean b) {
         jBVisualizarPlacar.setEnabled(b);
     }
-    
-    @Override
-    public void atualizarTelaDoJogo(BufferedImage i) {
-        Graphics2D g2d = (Graphics2D) jPTela.getGraphics();
-        g2d.drawImage(i,0,0, null);
-    }
-    
+
     @Override
     public void aplicarConfiguracao(Configurador<GUIJogo> conf) {
         conf.configurar(this);
     }
-    
+
     @Override
     public void quandorMontarJogada(ActionListener c) {
         jBMontar.addActionListener(c);
     }
-    
+
     @Override
     public void quandorVisualizarPontuacao(ActionListener c) {
         jBVisualizarPlacar.addActionListener(c);
     }
-    
+
     @Override
     public void tornarVisivel(boolean b) {
         setVisible(b);
@@ -145,11 +141,30 @@ public class FormDoJogo extends javax.swing.JFrame implements GUIJogo {
 
     @Override
     public void fechar() {
-    dispose();
+        dispose();
     }
 
     @Override
     public void mostrasMensagem(String m) {
         JOptionPane.showMessageDialog(this, m);
     }
+
+    public void atualizarPlacar(List<InformacaoDoTurno> info) {
+
+        if (info != null && info.size() == 2) {
+
+            InformacaoDoTurno it;
+
+            it = info.get(0);
+            jLP1.setText(it.obterJogada().getJogador().getNome());
+            placarP1.listarCartas(it.obterJogada().getBaralhoJogada().listarCartas());
+
+            it = info.get(1);
+            jLP2.setText(it.obterJogada().getJogador().getNome());
+            placarP2.listarCartas(it.obterJogada().getBaralhoJogada().listarCartas());
+
+        }
+
+    }
+
 }

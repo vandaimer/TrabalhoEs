@@ -5,6 +5,7 @@ package visao;
 import controle.Configuravel;
 
 import java.awt.event.ActionListener;
+import javax.swing.JInternalFrame;
 
 
 
@@ -28,4 +29,6 @@ public interface GUIPortal extends Configuravel<GUIPortal>{
     public String mostrarJanelaDeEntradaSimples(String msg);
     public void tornarVisivel(boolean v);
     public void mostrarMensagem(String m);
+    
+    public void incluir(JInternalFrame j);
 }
