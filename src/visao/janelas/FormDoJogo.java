@@ -9,6 +9,8 @@ import java.awt.image.BufferedImage;
 import java.util.List;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import modelo.jogo.Jogada;
@@ -20,8 +22,31 @@ public class FormDoJogo extends JInternalFrame implements GUIJogo {
     public FormDoJogo() {
         setClosable(true);
         initComponents();
-        placarP1.selecionarUmaCarta(new SelecionarUmaCarta(placarP1));
-        placarP2.selecionarUmaCarta(new SelecionarUmaCarta(placarP2));
+
+        class Acao implements ListSelectionListener {
+
+            private PlacarAtual p;
+
+            public Acao(PlacarAtual p) {
+                this.p = p;
+            }
+
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                try {
+
+                    p.mostrar(p.obterCartaSelecionada());
+
+                } catch (Exception ex) {
+
+                }
+
+            }
+
+        }
+
+        placarP1.selecionarUmaCarta(new Acao(placarP1));
+        placarP2.selecionarUmaCarta(new Acao(placarP2));
 
     }
 
@@ -136,7 +161,7 @@ public class FormDoJogo extends JInternalFrame implements GUIJogo {
 
     @Override
     public void habilitarVisualizarPontuacao(boolean b) {
-       
+
     }
 
     @Override
@@ -151,7 +176,7 @@ public class FormDoJogo extends JInternalFrame implements GUIJogo {
 
     @Override
     public void quandorVisualizarPontuacao(ActionListener c) {
-      
+
     }
 
     @Override
@@ -171,23 +196,22 @@ public class FormDoJogo extends JInternalFrame implements GUIJogo {
 
     @Override
     public void atualizarPlacar(List<InformacaoDoTurno> info) {
-        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         if (info != null && info.size() == 2) {
 
             InformacaoDoTurno it;
 
             it = info.get(0);
-            
-            jLP1.setText(it.obterJogada().getJogador().getNome()+" turno: "+it.obterTurno());
+
+            jLP1.setText(it.obterJogada().getJogador().getNome() + " turno: " + it.obterTurno());
             placarP1.listarCartas(it.obterJogada().getBaralhoJogada().listarCartas());
-            model.addRow(new Object[]{it.obterJogada().getJogador().getNome(),it.obterTurno(),it.obterPontuacao()});
-            
+            model.addRow(new Object[]{it.obterJogada().getJogador().getNome(), it.obterTurno(), it.obterPontuacao()});
+
             it = info.get(1);
-            model.addRow(new Object[]{it.obterJogada().getJogador().getNome(),it.obterTurno(),it.obterPontuacao()});
-            jLP2.setText(it.obterJogada().getJogador().getNome()+" turno: "+it.obterTurno());
+            model.addRow(new Object[]{it.obterJogada().getJogador().getNome(), it.obterTurno(), it.obterPontuacao()});
+            jLP2.setText(it.obterJogada().getJogador().getNome() + " turno: " + it.obterTurno());
             placarP2.listarCartas(it.obterJogada().getBaralhoJogada().listarCartas());
 
-        
         }
 
     }
