@@ -7,7 +7,6 @@ import modelo.jogo.Carta;
 import modelo.jogo.CartaAbstrata;
 import modelo.jogo.CartaEfeito;
 import modelo.jogo.servidor.controleremoto.ControleRemoto;
-import modelo.util.Observado;
 import modelo.util.Observador;
 
 public class Simulador implements Observador {

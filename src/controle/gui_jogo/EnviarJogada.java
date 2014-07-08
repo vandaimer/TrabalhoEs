@@ -27,15 +27,7 @@ public class EnviarJogada implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        Random r = new Random();
-        LinkedList<CartaAbstrata> l = new LinkedList();
-        l.add(new Carta("larman", 1, r.nextInt(30), r.nextInt(30), r.nextInt(30)));
-        l.add(new CartaEfeito("efeito", 2, r.nextInt(3), r.nextInt(3), r.nextInt(3)));
-        l.add(new CartaEfeito("efeito", 3, r.nextInt(3), r.nextInt(3), r.nextInt(3)));
-//        _ctr.jogar(l);
-        
-        List<CartaAbstrata> obterCartasAtuais = _jd.obterCartasAtuais();
-        
+        List<CartaAbstrata> obterCartasAtuais = _jd.obterCartasAtuais();        
         _ctr.jogar(obterCartasAtuais);
         _gui.fechar();
 

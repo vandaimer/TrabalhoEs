@@ -5,6 +5,7 @@
  */
 package testes.jean;
 
+import modelo.jogo.servidor.Telefone;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyAdapter;

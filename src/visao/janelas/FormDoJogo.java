@@ -120,7 +120,7 @@ public class FormDoJogo extends javax.swing.JFrame implements GUIJogo {
     @Override
     public void atualizarTelaDoJogo(BufferedImage i) {
         Graphics2D g2d = (Graphics2D) jPTela.getGraphics();
-        g2d.drawImage(i, jPTela.getWidth(), jPTela.getHeight(), null);
+        g2d.drawImage(i,0,0, null);
     }
     
     @Override

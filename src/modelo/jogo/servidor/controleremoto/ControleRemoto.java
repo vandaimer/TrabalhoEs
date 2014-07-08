@@ -15,7 +15,7 @@ import java.util.Map;
 import modelo.util.Conector;
 import modelo.util.ObservadoImpl;
 import modelo.util.Observador;
-import testes.jean.Telefone;
+import modelo.jogo.servidor.Telefone;
 
 public class ControleRemoto extends ObservadoImpl implements Observador {
 

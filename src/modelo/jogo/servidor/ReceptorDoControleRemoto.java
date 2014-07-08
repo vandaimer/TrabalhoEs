@@ -16,7 +16,6 @@ import modelo.jogo.servidor.controleremoto.NotificarObservadores;
 import modelo.util.Conector;
 import modelo.util.Mensagem;
 import modelo.util.Observador;
-import testes.jean.Telefone;
 
 public class ReceptorDoControleRemoto implements Observador, Serializable {
     

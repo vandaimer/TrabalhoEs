@@ -3,22 +3,20 @@ package visao.janelas;
 import visao.GUIVisualizadorDeCartas;
 import controle.Configurador;
 
-import java.util.Collections;
-
-import modelo.jogo.Carta;
 import modelo.jogo.CartaAbstrata;
 
 import java.util.List;
 
 import javax.swing.DefaultListModel;
 import javax.swing.event.ListSelectionListener;
+import visao.VCarta;
 
 public class FormVisualizadorDeCartas extends javax.swing.JFrame implements GUIVisualizadorDeCartas {
-    
+
     public FormVisualizadorDeCartas() {
         initComponents();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -40,7 +38,7 @@ public class FormVisualizadorDeCartas extends javax.swing.JFrame implements GUIV
         );
         jPApresentacaoCartaLayout.setVerticalGroup(
             jPApresentacaoCartaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 272, Short.MAX_VALUE)
+            .addGap(0, 407, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -50,9 +48,9 @@ public class FormVisualizadorDeCartas extends javax.swing.JFrame implements GUIV
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPApresentacaoCarta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 558, Short.MAX_VALUE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
+                    .addComponent(jPApresentacaoCarta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -60,7 +58,7 @@ public class FormVisualizadorDeCartas extends javax.swing.JFrame implements GUIV
                 .addContainerGap()
                 .addComponent(jPApresentacaoCarta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -68,7 +66,9 @@ public class FormVisualizadorDeCartas extends javax.swing.JFrame implements GUIV
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 9, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,28 +90,29 @@ public class FormVisualizadorDeCartas extends javax.swing.JFrame implements GUIV
     public void mostrar(CartaAbstrata c) {
         ((PainelCarta) jPApresentacaoCarta).mostrarCarta(c);
     }
-    
+
     @Override
     public void listarCartas(List<CartaAbstrata> l) {
-        DefaultListModel<CartaAbstrata> model = new DefaultListModel();
-        
+        DefaultListModel<VCarta> model = new DefaultListModel();
+
         for (CartaAbstrata carta : l) {
-            model.addElement(carta);
+            model.addElement(new VCarta(carta));
         }
-        
+
         jLCartas.setModel(model);
     }
-    
+
     @Override
     public void selecionarUmaCarta(ListSelectionListener a) {
         jLCartas.addListSelectionListener(a);
     }
-    
+
     @Override
     public CartaAbstrata obterCartaSelecionada() {
-        return (CartaAbstrata) jLCartas.getSelectedValue();
+        VCarta selecionada = (VCarta) jLCartas.getSelectedValue();
+        return selecionada.obterCarta();
     }
-    
+
     @Override
     public void aplicarConfiguracao(Configurador<GUIVisualizadorDeCartas> conf) {
         conf.configurar(this);
@@ -122,5 +123,3 @@ public class FormVisualizadorDeCartas extends javax.swing.JFrame implements GUIV
         setVisible(b);
     }
 }
-
-
