@@ -1,10 +1,11 @@
 package modelo.jogo;
 
-import modelo.jogo.Baralho;
 
-import java.awt.List;
 import java.io.Serializable;
 import java.util.LinkedList;
+
+
+
 
 public class Jogada implements Serializable, Comparable<Jogada> {
 
@@ -19,6 +20,7 @@ public class Jogada implements Serializable, Comparable<Jogada> {
 		_b = b;
 		_j = j;
 	}
+
 
 	public void baralhoValido(EstrategiaDeValidacaoDoBaralho e)
 			throws ExcecaoQuebraDeRegrasDoBaralho {
@@ -48,6 +50,7 @@ public class Jogada implements Serializable, Comparable<Jogada> {
 		}
 
 		return umaCarta;
+
 
 	}
 

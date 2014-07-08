@@ -5,7 +5,7 @@ import visao.GUIPortal;
 import controle.Configurador;
 
 import java.awt.event.ActionListener;
-import java.awt.event.KeyListener;
+import javax.swing.JOptionPane;
 
 public class FormPortal extends javax.swing.JFrame implements GUIPortal {
     
@@ -24,6 +24,8 @@ public class FormPortal extends javax.swing.JFrame implements GUIPortal {
         jBAcervoDeCartas = new javax.swing.JButton();
         jBSair = new javax.swing.JButton();
         jBEditarBaralho = new javax.swing.JButton();
+        jBCriarPartida = new javax.swing.JButton();
+        jBConectarAoOponente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -38,6 +40,10 @@ public class FormPortal extends javax.swing.JFrame implements GUIPortal {
         jBEditarBaralho.setText("Editar Baralho");
         jBEditarBaralho.setEnabled(false);
 
+        jBCriarPartida.setText("Criar Partida");
+
+        jBConectarAoOponente.setText("Conectar Ao Oponente");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -47,9 +53,11 @@ public class FormPortal extends javax.swing.JFrame implements GUIPortal {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jBAutenticar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jBNovoJogador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jBAcervoDeCartas, javax.swing.GroupLayout.PREFERRED_SIZE, 141, Short.MAX_VALUE)
+                    .addComponent(jBAcervoDeCartas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jBSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jBEditarBaralho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jBEditarBaralho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jBCriarPartida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jBConectarAoOponente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -61,11 +69,15 @@ public class FormPortal extends javax.swing.JFrame implements GUIPortal {
                 .addComponent(jBNovoJogador)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jBAcervoDeCartas)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBCriarPartida)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBConectarAoOponente)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jBEditarBaralho)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jBSair)
-                .addGap(24, 24, 24))
+                .addContainerGap(267, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -75,26 +87,28 @@ public class FormPortal extends javax.swing.JFrame implements GUIPortal {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(444, Short.MAX_VALUE))
+                .addContainerGap(703, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 81, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -104,6 +118,8 @@ public class FormPortal extends javax.swing.JFrame implements GUIPortal {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBAcervoDeCartas;
     private javax.swing.JButton jBAutenticar;
+    private javax.swing.JButton jBConectarAoOponente;
+    private javax.swing.JButton jBCriarPartida;
     private javax.swing.JButton jBEditarBaralho;
     private javax.swing.JButton jBNovoJogador;
     private javax.swing.JButton jBSair;
@@ -111,7 +127,6 @@ public class FormPortal extends javax.swing.JFrame implements GUIPortal {
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 
-    
     @Override
     public void autenticarJogador(ActionListener a) {
         jBAutenticar.addActionListener(a);
@@ -122,9 +137,6 @@ public class FormPortal extends javax.swing.JFrame implements GUIPortal {
         jBEditarBaralho.addActionListener(a);
     }
     
-   
-
-    
     @Override
     public void visualizarAcervo(ActionListener a) {
         jBAcervoDeCartas.addActionListener(a);
@@ -134,41 +146,70 @@ public class FormPortal extends javax.swing.JFrame implements GUIPortal {
     public void aplicarConfiguracao(Configurador<GUIPortal> conf) {
         conf.configurar(this);
     }
-
+    
     @Override
-    public void novoJogador(ActionListener a)
-    {
-    	jBNovoJogador.addActionListener(a);
+    public void novoJogador(ActionListener a) {
+        jBNovoJogador.addActionListener(a);
     }
-
+    
     @Override
     public void habilitarAutenticarJogador(boolean b) {
-    jBAutenticar.setEnabled(b);
+        jBAutenticar.setEnabled(b);
     }
-
+    
     @Override
     public void habilitarNovoJogador(boolean b) {
-    jBNovoJogador.setEnabled(b);
+        jBNovoJogador.setEnabled(b);
     }
-
+    
     @Override
     public void habilitarEditarBaralho(boolean b) {
-    jBEditarBaralho.setEnabled(b);
+        jBEditarBaralho.setEnabled(b);
     }
-
+    
     @Override
     public void habilitarVisualizarAcervo(boolean b) {
-    jBAcervoDeCartas.setEnabled(b);
+        jBAcervoDeCartas.setEnabled(b);
     }
-
+    
     @Override
     public void tornarVisivel(boolean v) {
         setVisible(v);
     }
+    
+    @Override
+    public void sair(ActionListener a) {
+        jBSair.addActionListener(a);
+    }
+    
+    @Override
+    public void conectarAoOponente(ActionListener a) {
+        jBConectarAoOponente.addActionListener(a);
+    }
+    
+    @Override
+    public void criarPartida(ActionListener a) {
+        jBCriarPartida.addActionListener(a);
+    }
+    
+    @Override
+    public void habilitarConectarAoOponente(boolean b) {
+        jBConectarAoOponente.setEnabled(b);
+    }
+    
+    @Override
+    public void habilitarCriarPartida(boolean b) {
+        jBCriarPartida.setEnabled(b);
+    }
+    
+    @Override
+    public void mostrarMensagem(String m) {
+        JOptionPane.showMessageDialog(this, m);
+        
+    }
 
     @Override
-    public void sair(ActionListener a)
-    {
-    	jBSair.addActionListener(a);
+    public String mostrarJanelaDeEntradaSimples(String msg) {
+    return JOptionPane.showInputDialog(this, msg);
     }
 }
