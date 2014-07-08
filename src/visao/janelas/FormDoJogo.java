@@ -113,7 +113,7 @@ public class FormDoJogo extends javax.swing.JFrame implements GUIJogo {
     
     @Override
     public void habilitarVisualizarPontuacao(boolean b) {
-        jBVisualizarPlacar.setEnabled(true);
+        jBVisualizarPlacar.setEnabled(b);
     }
     
     @Override
@@ -139,6 +139,6 @@ public class FormDoJogo extends javax.swing.JFrame implements GUIJogo {
     
     @Override
     public void tornarVisivel(boolean b) {
-        setVisible(true);
+        setVisible(b);
     }
 }
