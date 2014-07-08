@@ -41,6 +41,7 @@ public class Teste {
         r.registrar(s);
         r.iniciar();
         
+        
 
     }
 
