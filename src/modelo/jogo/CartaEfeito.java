@@ -79,7 +79,7 @@ public class CartaEfeito extends CartaAbstrata {
 
 	@Override
 	public CartaAbstrata clonar() {
-		return new CartaEfeito(umaCarta, nome, id, inteligencia, forca, agilidade);
+		return new CartaEfeito(umaCarta.clonar(), nome, id, inteligencia, forca, agilidade);
 	}
 
 }

@@ -33,7 +33,8 @@ public class VerificandoPontuacao implements EstadoDaPartida{
 		p.verificarPontuacao();
 		//atualizar o score através da comparação de cartas
 		//metodo que atualiza o pontuacao do turno
-		Map<Jogador,Integer> jd = p.getPontuacao();
+		
+                Map<Jogador,Integer> jd = p.getPontuacao();
 		p.notificarObservadores(new Mensagem("atualizar_pontuacao", (Serializable)jd));
 		if(p.fimDeJogo()){			
 			FimDoJogo f=new FimDoJogo();
