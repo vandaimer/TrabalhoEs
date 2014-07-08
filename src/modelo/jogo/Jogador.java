@@ -52,7 +52,7 @@ public class Jogador implements Serializable{
         baralho.remover(c);
     }
 
-    public void editarBaralho(Carta c, int opcao) {
+    public void editarBaralho(CartaAbstrata c, int opcao) {
         if (opcao == 0) {
             baralho.adicionar(c);
         } else {

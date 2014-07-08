@@ -3,6 +3,7 @@ package controle.gui_jogo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Random;
 import modelo.jogo.Carta;
 import modelo.jogo.CartaAbstrata;
@@ -26,13 +27,16 @@ public class EnviarJogada implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-//        Random r = new Random();
-//        LinkedList<CartaAbstrata> l = new LinkedList();
-//        l.add(new Carta("larman", 1, r.nextInt(30), r.nextInt(30), r.nextInt(30)));
-//        l.add(new CartaEfeito("efeito", 2, r.nextInt(3), r.nextInt(3), r.nextInt(3)));
-//        l.add(new CartaEfeito("efeito", 3, r.nextInt(3), r.nextInt(3), r.nextInt(3)));
+        Random r = new Random();
+        LinkedList<CartaAbstrata> l = new LinkedList();
+        l.add(new Carta("larman", 1, r.nextInt(30), r.nextInt(30), r.nextInt(30)));
+        l.add(new CartaEfeito("efeito", 2, r.nextInt(3), r.nextInt(3), r.nextInt(3)));
+        l.add(new CartaEfeito("efeito", 3, r.nextInt(3), r.nextInt(3), r.nextInt(3)));
 //        _ctr.jogar(l);
-        _ctr.jogar(_jd.obterCartasAtuais());
+        
+        List<CartaAbstrata> obterCartasAtuais = _jd.obterCartasAtuais();
+        
+        _ctr.jogar(obterCartasAtuais);
         _gui.fechar();
 
     }

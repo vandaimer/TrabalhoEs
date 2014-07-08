@@ -1,7 +1,7 @@
 package modelo.persistencia;
 
 
-import modelo.jogo.Carta;
+
 import modelo.jogo.CartaAbstrata;
 import modelo.jogo.Jogador;
 
