@@ -6,9 +6,11 @@ import modelo.metodoremoto.Jogar;
 import modelo.jogo.CartaAbstrata;
 import modelo.jogo.Jogador;
 import modelo.jogo.Carta;
+import modelo.jogo.partida.InformacaoDoTurno;
 
 import java.io.Serializable;
 import java.util.Hashtable;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -21,7 +23,7 @@ public class ControleRemoto extends ObservadoImpl implements Observador {
 
     private Jogador _jgd;
     private Telefone tel;
-    private Hashtable<Jogador, Integer> _pontuacao = new Hashtable<Jogador, Integer>();
+    private List<InformacaoDoTurno> infoTurno;
 
     public ControleRemoto(Jogador _jgd, Conector con) {
         this._jgd = _jgd;
@@ -49,8 +51,12 @@ public class ControleRemoto extends ObservadoImpl implements Observador {
     }
 
     public void atualizarPontuacao(Serializable pontuacao) {
-        _pontuacao = (Hashtable<Jogador, Integer>) pontuacao;
+        infoTurno = (List<InformacaoDoTurno>) pontuacao;
     }
+    public List<InformacaoDoTurno> getListaInformacaoTurno(){
+    	return infoTurno;
+    }
+    
 
     @Override
     public void notificar(Object fonte, Object msg) {

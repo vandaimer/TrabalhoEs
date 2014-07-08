@@ -65,5 +65,8 @@ public class Jogada implements Serializable, Comparable<Jogada> {
 		
 		return minha.compareTo(outraCarta);
 	}
+	public Baralho getBaralhoJogada(){
+		return _b;
+	}
 
 }
