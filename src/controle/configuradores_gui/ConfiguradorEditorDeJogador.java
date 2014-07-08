@@ -23,7 +23,7 @@ private Portal portal;
     @Override
     public void configurar(GUIEditorDejogador t) {
         Jogador jgd=portal.obterJogadorLogado();
-        
+
         t.listarCartasDoAcervo(portal.obterAcervo());
         t.listarCartasDoJogador(jgd.obterCartasAtuais());
         t.adicionarUmaCarta(new AdicionarUmaCarta(t, jgd));
