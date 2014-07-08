@@ -14,7 +14,7 @@ public class Teste {
     public static void main(String[] args) throws IOException, InterruptedException {
 
         iniciarLadoServidor();
-        iniciarLadoCliente();
+        //iniciarLadoCliente();
 
     }
 
