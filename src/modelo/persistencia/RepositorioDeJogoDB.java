@@ -27,6 +27,11 @@ public class RepositorioDeJogoDB implements RepositorioDoJogo
     }
 
     @Override
+    public List<CartaAbstrata> filtrarAcervo(int filtro) throws ExcecaoDePersistencia {
+        return this.mapeador.filtrarAcervo( this.fabrica.obterConexao(), filtro );
+    }
+
+    @Override
     public boolean autenticar(Jogador j) throws ExcecaoDePersistencia
     {
         return this.mapeador.autenticarJogador( fabrica.obterConexao(), j );

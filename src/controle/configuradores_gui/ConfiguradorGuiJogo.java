@@ -19,7 +19,7 @@ public class ConfiguradorGuiJogo implements Configurador<GUIJogo> {
     public void configurar(GUIJogo t) {
         t.quandorMontarJogada(new MontarJogada(ctr));
         t.quandorVisualizarPontuacao(new VisualizarPontuacao(ctr));
-        ctr.registrar(new ObservadorDoControleRemoto(t));
+        ctr.registrar(new ObservadorDoControleRemoto(t,ctr));
         t.tornarVisivel(true);
         ctr.iniciar();
     }

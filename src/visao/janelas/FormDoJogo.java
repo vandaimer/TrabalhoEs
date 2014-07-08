@@ -4,6 +4,7 @@ import controle.Configurador;
 import java.awt.Graphics2D;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import javax.swing.JOptionPane;
 import visao.GUIJogo;
 
 public class FormDoJogo extends javax.swing.JFrame implements GUIJogo {
@@ -140,5 +141,15 @@ public class FormDoJogo extends javax.swing.JFrame implements GUIJogo {
     @Override
     public void tornarVisivel(boolean b) {
         setVisible(b);
+    }
+
+    @Override
+    public void fechar() {
+    dispose();
+    }
+
+    @Override
+    public void mostrasMensagem(String m) {
+        JOptionPane.showMessageDialog(this, m);
     }
 }

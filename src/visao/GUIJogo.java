@@ -16,4 +16,6 @@ public interface GUIJogo extends Configuravel<GUIJogo> {
     public void habilitarVisualizarPontuacao(boolean b);
 
     public void atualizarTelaDoJogo(BufferedImage i);
+    public void fechar();
+    public void mostrasMensagem(String m);
 }
