@@ -132,7 +132,7 @@ public class Partida extends ObservadoImpl {
 		List<InformacaoDoTurno> inf = new LinkedList<>();
 		
 		for (Jogador jogador : jogadores) {
-			inf.add(new InformacaoDoTurno(mapaJogadas.get(jogador),pontuacao.get(jogador)));
+			inf.add(new InformacaoDoTurno(mapaJogadas.get(jogador),pontuacao.get(jogador),_turnoAtual));
 		}
 		
 		return inf;

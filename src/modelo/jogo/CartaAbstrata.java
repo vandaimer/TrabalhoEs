@@ -9,15 +9,15 @@ public abstract class CartaAbstrata implements Serializable, Comparable<CartaAbs
 	protected int inteligencia;
 	protected int forca;
 	protected int agilidade;
-	protected String tipo;
+	protected String tipo="";
 
-	public CartaAbstrata(String nome, int id, int inteligencia, int forca, int agilidade) {
+	public CartaAbstrata(String nome, int id, int inteligencia, int forca, int agilidade,String tipo) {
 		this.nome = nome;
 		this.id = id;
 		this.inteligencia = inteligencia;
 		this.forca = forca;
 		this.agilidade = agilidade;
-		this.tipo = "Carta";
+	
 	}
 	
 	public CartaAbstrata() {

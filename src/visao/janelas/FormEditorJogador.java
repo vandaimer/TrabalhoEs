@@ -7,24 +7,23 @@ import visao.GUIEditorDejogador;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-
 import javax.swing.DefaultListModel;
 import javax.swing.event.ListSelectionListener;
+import visao.VCarta;
 
 public class FormEditorJogador extends javax.swing.JFrame implements GUIEditorDejogador {
-    
-    
+
     public FormEditorJogador() {
         initComponents();
     }
-    
-    public FormEditorJogador(String rotuloCartasEsquerda,String rotuloCartasDireita,String rotuloBtSalvar) {
+
+    public FormEditorJogador(String rotuloCartasEsquerda, String rotuloCartasDireita, String rotuloBtSalvar) {
         initComponents();
         jLEsquerda.setText(rotuloCartasEsquerda);
         jLDireita.setText(rotuloCartasDireita);
         jBSalvar.setText(rotuloBtSalvar);
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -50,22 +49,22 @@ public class FormEditorJogador extends javax.swing.JFrame implements GUIEditorDe
         jPJogador.setLayout(jPJogadorLayout);
         jPJogadorLayout.setHorizontalGroup(
             jPJogadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 254, Short.MAX_VALUE)
+            .addGap(0, 348, Short.MAX_VALUE)
         );
         jPJogadorLayout.setVerticalGroup(
             jPJogadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 205, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPAcervoLayout = new javax.swing.GroupLayout(jPAcervo);
         jPAcervo.setLayout(jPAcervoLayout);
         jPAcervoLayout.setHorizontalGroup(
             jPAcervoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 254, Short.MAX_VALUE)
+            .addGap(0, 348, Short.MAX_VALUE)
         );
         jPAcervoLayout.setVerticalGroup(
             jPAcervoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 205, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         jLJogador.setToolTipText("");
@@ -96,63 +95,68 @@ public class FormEditorJogador extends javax.swing.JFrame implements GUIEditorDe
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jBSalvar))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1)
                             .addComponent(jPJogador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(jLEsquerda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jBAdicionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jBRemover, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(27, 27, 27)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPAcervo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
-                            .addComponent(jLDireita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jTMsg))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
+                            .addComponent(jLDireita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(13, 13, 13))
+                    .addComponent(jTMsg)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jBSalvar, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(808, 808, 808)))))
                 .addContainerGap())
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jPAcervo, jPJogador, jScrollPane1, jScrollPane2});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jPAcervo, jPJogador});
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jScrollPane1, jScrollPane2});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
+                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLEsquerda)
                             .addComponent(jLDireita))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPAcervo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPJogador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jPJogador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPAcervo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(312, Short.MAX_VALUE)
+                        .addGap(159, 159, 159)
                         .addComponent(jBAdicionar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jBRemover)
-                        .addGap(52, 52, 52)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBSalvar)
-                    .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 221, Short.MAX_VALUE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTMsg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41))
+                .addGap(12, 12, 12)
+                .addComponent(jBSalvar)
+                .addContainerGap())
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jScrollPane1, jScrollPane2});
-
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jPAcervo, jPJogador});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jBAdicionar, jBRemover});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -162,7 +166,9 @@ public class FormEditorJogador extends javax.swing.JFrame implements GUIEditorDe
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 5, Short.MAX_VALUE))
         );
 
         pack();
@@ -190,77 +196,86 @@ public class FormEditorJogador extends javax.swing.JFrame implements GUIEditorDe
     public void adicionarUmaCarta(ActionListener a) {
         jBAdicionar.addActionListener(a);
     }
-    
+
     @Override
     public void removerUmaCarta(ActionListener a) {
         jBRemover.addActionListener(a);
     }
-    
+
     @Override
     public void listarCartasDoJogador(List<CartaAbstrata> j) {
-        DefaultListModel<CartaAbstrata> model = new DefaultListModel<>();
-        
+        DefaultListModel<VCarta> model = new DefaultListModel<>();
+
         for (CartaAbstrata carta : j) {
-            model.addElement(carta);
+            model.addElement(new VCarta(carta));
+        }
+
+        
+        try {
+            
+        jLJogador.setModel(model);    
+        } catch (Exception e) {
+            System.out.println(e.getCause());
         }
         
-        jLJogador.setModel(model);
-        
+
     }
-    
+
     @Override
     public void listarCartasDoAcervo(List<CartaAbstrata> j) {
-        DefaultListModel<CartaAbstrata> model = new DefaultListModel<>();
-        
+        DefaultListModel<VCarta> model = new DefaultListModel<>();
+
         for (CartaAbstrata carta : j) {
-            model.addElement(carta);
+            model.addElement(new VCarta(carta));
         }
-        
+
         jLAcervo.setModel(model);
-        
+
     }
-    
+
     @Override
     public void quandoSelecionarUmaCartaDoAcervo(ListSelectionListener ls) {
         jLAcervo.addListSelectionListener(ls);
     }
-    
+
     @Override
     public void quandoSelecionarUmaCartaDoJogador(ListSelectionListener ls) {
         jLJogador.addListSelectionListener(ls);
     }
-    
+
     @Override
     public CartaAbstrata obterCartaSelecionadaDoAcervo() {
-        return (CartaAbstrata) jLAcervo.getSelectedValue();
-        
+        VCarta selecionada = (VCarta) jLAcervo.getSelectedValue();
+        return selecionada.obterCarta();
+
     }
-    
+
     @Override
     public CartaAbstrata obterCartaSelecionadaDoJogador() {
-        return (CartaAbstrata) jLJogador.getSelectedValue();
+        VCarta selecionada = (VCarta) jLJogador.getSelectedValue();
+        return selecionada.obterCarta();
     }
-    
+
     @Override
     public void mostrarCartaDoAcervo(CartaAbstrata c) {
         ((PainelCarta) jPAcervo).mostrarCarta(c);
     }
-    
+
     @Override
     public void mostrarCartaDoJogador(CartaAbstrata c) {
         ((PainelCarta) jPJogador).mostrarCarta(c);
     }
-    
+
     @Override
     public void salvarAlteracoes(ActionListener a) {
         jBSalvar.addActionListener(a);
     }
-    
+
     @Override
     public void tornarVisivel(boolean b) {
         setVisible(b);
     }
-    
+
     @Override
     public void aplicarConfiguracao(Configurador<GUIEditorDejogador> conf) {
         conf.configurar(this);
@@ -268,15 +283,13 @@ public class FormEditorJogador extends javax.swing.JFrame implements GUIEditorDe
 
     @Override
     public void exibirMensagem(String msg) {
-    jTMsg.setText(msg);
+        jTMsg.setText(msg);
 
     }
 
     @Override
     public void fechar() {
-    dispose();
+        dispose();
     }
-    
-    
 
 }

@@ -1,4 +1,4 @@
-package testes.jean;
+package modelo.jogo.servidor;
 
 import java.io.Serializable;
 import modelo.util.Conector;

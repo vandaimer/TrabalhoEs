@@ -76,10 +76,12 @@ public class Mapeador implements MapeadorEntidadesDoJogo {
                 if (efeito == 1)
                 {
                     c = new CartaEfeito();
+                    c.setTipo("Efeito");
                 }
                 else
                 {
                     c = new Carta();
+                    c.setTipo("Monstro");
                 }
 
                 mapearCarta(result, c);
@@ -135,11 +137,12 @@ public class Mapeador implements MapeadorEntidadesDoJogo {
                                             
                                             if(efeito==0){
                                             newCarta=new Carta();
+                                            newCarta.setTipo("Monstro");
                                             }
                                             
                                             if(efeito==1){
                                             newCarta=new CartaEfeito();
-                                            
+                                            newCarta.setTipo("Efeito");
                                             }
                                             
                                             mapearCarta(carta, newCarta);

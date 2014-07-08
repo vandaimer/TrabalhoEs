@@ -6,7 +6,7 @@ import controle.Configuravel;
 
 import java.util.List;
 
-import modelo.jogo.Carta;
+
 import modelo.jogo.CartaAbstrata;
 
 import javax.swing.event.ListSelectionListener;

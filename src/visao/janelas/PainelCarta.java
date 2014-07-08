@@ -6,6 +6,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
+import visao.VCarta;
 
 class PainelCarta extends JPanel {
 
@@ -14,10 +15,12 @@ class PainelCarta extends JPanel {
             return;
         }
 
+        VCarta vc = new VCarta(c);
+
         limpar();
+
         Graphics2D g2 = (Graphics2D) getGraphics();
-        g2.setColor(Color.BLACK);
-        g2.drawString(c.toString(), 10, 10);
+        g2.drawImage(vc.obterImagem(), 20, 0, null);
     }
 
     public void limpar() {

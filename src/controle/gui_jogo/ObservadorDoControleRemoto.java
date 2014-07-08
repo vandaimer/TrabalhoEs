@@ -1,7 +1,12 @@
 package controle.gui_jogo;
 
-
-
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import javax.imageio.IIOImage;
+import javax.imageio.ImageIO;
 import modelo.jogo.servidor.controleremoto.ControleRemoto;
 import modelo.util.Observador;
 import visao.GUIJogo;
@@ -26,13 +31,24 @@ public class ObservadorDoControleRemoto implements Observador {
 
         if ("jogada_realizada".equals(msg)) {
             _gj.habilitarMontarJogada(false);
+            try {
+
+                URL resource = getClass().getResource("/imagens/carta.jpg");
+                BufferedImage img = ImageIO.read(resource);
+                
+                _gj.atualizarTelaDoJogo(img);
+                Thread.sleep(5000);
+            } catch (InterruptedException | IOException e) {
+                _gj.mostrasMensagem(e.getMessage());
+            }
+
             return;
         }
 
         if ("atualizar_pontuacao".equals(msg)) {
-            
+
             _gj.mostrasMensagem(msg.toString());
-        
+
             return;
         }
 
