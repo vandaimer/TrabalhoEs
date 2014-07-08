@@ -2,6 +2,8 @@ package controle.configuradores_gui;
 
 import controle.Configurador;
 import controle.gui_portal.AutenticarJogador;
+import controle.gui_portal.ConectarAoOponente;
+import controle.gui_portal.CriarPartida;
 import controle.gui_portal.EditarBaralho;
 import controle.gui_portal.NovoJogador;
 import controle.gui_portal.ObservadorDoPortal;
@@ -11,17 +13,19 @@ import modelo.jogo.Portal;
 import visao.GUIPortal;
 
 public class ConfiguradorPortal implements Configurador<GUIPortal> {
-
+    
     private Portal portal;
-
+    
     public ConfiguradorPortal(Portal portal) {
         this.portal = portal;
     }
-
+    
     @Override
     public void configurar(GUIPortal v) {
-
+        
         v.autenticarJogador(new AutenticarJogador(portal));
+        v.conectarAoOponente(new ConectarAoOponente(v, portal));
+        v.criarPartida(new CriarPartida(portal, v));
         v.visualizarAcervo(new VisualizarAcervo(portal));
         v.novoJogador(new NovoJogador(portal));
         v.editarBaralho(new EditarBaralho(portal));
