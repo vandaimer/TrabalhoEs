@@ -25,4 +25,5 @@ public interface GUIEditorDejogador extends Configuravel<GUIEditorDejogador>{
     public void salvarAlteracoes(ActionListener a);
     public void exibirMensagem(String msg);
     public void tornarVisivel(boolean b);
+    public void fechar();
 }

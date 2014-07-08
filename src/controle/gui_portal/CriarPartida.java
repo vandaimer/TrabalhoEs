@@ -1,5 +1,6 @@
 package controle.gui_portal;
 
+import controle.configuradores_gui.ConfiguradorGuiJogo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -7,6 +8,7 @@ import modelo.jogo.Portal;
 import modelo.jogo.servidor.ExcececaoConexaoRecusada;
 import modelo.jogo.servidor.controleremoto.ControleRemoto;
 import visao.GUIPortal;
+import visao.janelas.FormDoJogo;
 
 public class CriarPartida implements ActionListener {
 
@@ -28,11 +30,10 @@ public class CriarPartida implements ActionListener {
                 return;
             }
 
-            
             Integer porta = new Integer(str_porta);
             ControleRemoto controle = _p.criarPartida(porta);
-            System.out.println(controle);
-
+            FormDoJogo f = new FormDoJogo();
+            f.aplicarConfiguracao(new ConfiguradorGuiJogo(controle));
         } catch (NumberFormatException | IOException | ExcececaoConexaoRecusada ex) {
             _gp.mostrarMensagem(ex.getMessage());
         }

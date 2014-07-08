@@ -1,7 +1,7 @@
 
 package controle.gui_editor_jogador;
 
-import modelo.jogo.Carta;
+
 import modelo.jogo.CartaAbstrata;
 import visao.GUIEditorDejogador;
 

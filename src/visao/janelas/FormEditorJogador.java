@@ -1,12 +1,10 @@
 package visao.janelas;
 
 import controle.Configurador;
-import modelo.jogo.Carta;
 import modelo.jogo.CartaAbstrata;
 import visao.GUIEditorDejogador;
 
 import java.awt.event.ActionListener;
-import java.util.HashMap;
 import java.util.List;
 
 
@@ -234,13 +232,13 @@ public class FormEditorJogador extends javax.swing.JFrame implements GUIEditorDe
     
     @Override
     public CartaAbstrata obterCartaSelecionadaDoAcervo() {
-        return (Carta) jLAcervo.getSelectedValue();
+        return (CartaAbstrata) jLAcervo.getSelectedValue();
         
     }
     
     @Override
     public CartaAbstrata obterCartaSelecionadaDoJogador() {
-        return (Carta) jLJogador.getSelectedValue();
+        return (CartaAbstrata) jLJogador.getSelectedValue();
     }
     
     @Override
@@ -272,6 +270,11 @@ public class FormEditorJogador extends javax.swing.JFrame implements GUIEditorDe
     public void exibirMensagem(String msg) {
     jTMsg.setText(msg);
 
+    }
+
+    @Override
+    public void fechar() {
+    dispose();
     }
     
     

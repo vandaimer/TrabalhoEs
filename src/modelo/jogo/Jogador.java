@@ -7,10 +7,14 @@ import java.util.Objects;
 public class Jogador implements Serializable{
 
     private Baralho baralho = new Baralho();
-    private String nome;
-    private String senha;
+    private String nome="";
+    private String senha="";
     private int id;
 
+    public Jogador() {
+    }
+
+    
     public Jogador(String nome, String senha)
     {
         this.nome = nome;

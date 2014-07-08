@@ -22,10 +22,12 @@ public class ObservadorDoPortal implements Observador {
 
             if ("usuario_autenticado".equals(msg)) {
 
-                guiportal.habilitarAutenticarJogador(true);
+                guiportal.habilitarAutenticarJogador(false);
                 guiportal.habilitarNovoJogador(false);
                 guiportal.habilitarEditarBaralho(true);
                 guiportal.habilitarVisualizarAcervo(true);
+                guiportal.habilitarCriarPartida(true);
+                guiportal.habilitarConectarAoOponente(true);
             }
 
             if ("usuario_nao_autenticado".equals(msg)) {
@@ -33,6 +35,8 @@ public class ObservadorDoPortal implements Observador {
                 guiportal.habilitarEditarBaralho(false);
                 guiportal.habilitarNovoJogador(true);
                 guiportal.habilitarVisualizarAcervo(true);
+                guiportal.habilitarCriarPartida(false);
+                guiportal.habilitarConectarAoOponente(false);
 
             }
         }

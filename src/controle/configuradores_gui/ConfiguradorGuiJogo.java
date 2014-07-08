@@ -1,23 +1,27 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package controle.configuradores_gui;
 
 import controle.Configurador;
+import controle.gui_jogo.MontarJogada;
+import controle.gui_jogo.ObservadorDoControleRemoto;
+import controle.gui_jogo.VisualizarPontuacao;
+import modelo.jogo.servidor.controleremoto.ControleRemoto;
 import visao.GUIJogo;
 
-/**
- *
- * @author jean
- */
-public class ConfiguradorGuiJogo implements Configurador<GUIJogo>{
+public class ConfiguradorGuiJogo implements Configurador<GUIJogo> {
+
+    private ControleRemoto ctr;
+
+    public ConfiguradorGuiJogo(ControleRemoto ctr) {
+        this.ctr = ctr;
+    }
 
     @Override
     public void configurar(GUIJogo t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        t.quandorMontarJogada(new MontarJogada(ctr));
+        t.quandorVisualizarPontuacao(new VisualizarPontuacao(ctr));
+        ctr.registrar(new ObservadorDoControleRemoto(t));
+        t.tornarVisivel(true);
+        ctr.iniciar();
     }
-    
+
 }

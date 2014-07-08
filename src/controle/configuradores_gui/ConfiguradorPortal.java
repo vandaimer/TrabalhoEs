@@ -13,16 +13,16 @@ import modelo.jogo.Portal;
 import visao.GUIPortal;
 
 public class ConfiguradorPortal implements Configurador<GUIPortal> {
-    
+
     private Portal portal;
-    
+
     public ConfiguradorPortal(Portal portal) {
         this.portal = portal;
     }
-    
+
     @Override
     public void configurar(GUIPortal v) {
-        
+
         v.autenticarJogador(new AutenticarJogador(portal));
         v.conectarAoOponente(new ConectarAoOponente(v, portal));
         v.criarPartida(new CriarPartida(portal, v));
@@ -31,7 +31,15 @@ public class ConfiguradorPortal implements Configurador<GUIPortal> {
         v.editarBaralho(new EditarBaralho(portal));
         v.sair(new Sair());
         portal.registrar(new ObservadorDoPortal(portal, v));
+
+        v.habilitarAutenticarJogador(true);
+        v.habilitarEditarBaralho(false);
+        v.habilitarNovoJogador(true);
+        v.habilitarVisualizarAcervo(true);
+        v.habilitarCriarPartida(false);
+        v.habilitarConectarAoOponente(false);
+
         v.tornarVisivel(true);
-        
+
     }
 }

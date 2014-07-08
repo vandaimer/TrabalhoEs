@@ -1,6 +1,5 @@
 package visao.janelas;
 
-import modelo.jogo.Carta;
 import modelo.jogo.CartaAbstrata;
 
 import java.awt.Color;
