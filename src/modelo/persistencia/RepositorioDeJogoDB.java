@@ -1,11 +1,7 @@
 package modelo.persistencia;
 
-import modelo.persistencia.RepositorioDoJogo;
 import modelo.jogo.CartaAbstrata;
 import modelo.jogo.Jogador;
-import modelo.jogo.Carta;
-import modelo.persistencia.FabricaFerramentasPersistencia;
-import modelo.persistencia.MapeadorEntidadesDoJogo;
 
 import java.util.List;
 
@@ -46,10 +42,11 @@ public class RepositorioDeJogoDB implements RepositorioDoJogo
     @Override
     public Jogador pesquisarPorChave(String id) throws ExcecaoDePersistencia
     {
+        Jogador retorno=this.mapeador.pesquisarPorChave( this.fabrica.obterConexao(),id );
         /*
             Ainda usa string, pois acho que nem todos usam o banco, ai iria quebrar o repositorioMemoria,
             E arruma o Memoria,não vale o trabalho, pois não ira mais ser usado
          */
-        return this.mapeador.pesquisarPorChave( this.fabrica.obterConexao(),id );
+        return retorno;
     }
 }

@@ -10,7 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
-import java.util.concurrent.ExecutionException;
+
 
 public class Mapeador implements MapeadorEntidadesDoJogo {
 	private PreparedStatement psmt;
@@ -82,7 +82,7 @@ public class Mapeador implements MapeadorEntidadesDoJogo {
                     c = new Carta();
                 }
 
-                mapear(result, c);
+                mapearCarta(result, c);
                 cartas.add(c);
             }
             return cartas;
@@ -93,7 +93,7 @@ public class Mapeador implements MapeadorEntidadesDoJogo {
         }
     }
 
-	private void mapear(ResultSet result, CartaAbstrata c) throws SQLException {
+	private void mapearCarta(ResultSet result, CartaAbstrata c) throws SQLException {
 
 		c.setId(result.getInt("ID"));
 		c.setNome(result.getString("NOME"));
@@ -129,12 +129,27 @@ public class Mapeador implements MapeadorEntidadesDoJogo {
 					ResultSet carta = this.getCartaByID(idCarta);
 
 					while (carta != null && carta.next()) {
-						Carta newCarta = new Carta(carta.getString("NOME"),
-								idCarta);
-						newCarta.setAgilidade(carta.getInt("agilidade"));
-						newCarta.setForca(carta.getInt("forca"));
+                                            
+                                            CartaAbstrata newCarta=null;
+                                            int efeito=carta.getInt("efeito");
+                                            
+                                            if(efeito==0){
+                                            newCarta=new Carta();
+                                            }
+                                            
+                                            if(efeito==1){
+                                            newCarta=new CartaEfeito();
+                                            
+                                            }
+                                            
+                                            mapearCarta(carta, newCarta);
+                                            
+//						newCarta = new Carta(carta.getString("NOME"),
+//								idCarta);
+//						newCarta.setAgilidade(carta.getInt("agilidade"));
+//						newCarta.setForca(carta.getInt("forca"));
 
-						j.editarBaralho(newCarta, 0);
+						j.adicionarCarta(newCarta);
 					}
 				}
 				listaJogador.put(j.toString(), new Jogador(j));

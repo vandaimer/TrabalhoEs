@@ -34,8 +34,12 @@ public class EnviarJogada implements ActionListener {
         l.add(new CartaEfeito("efeito", 2, r.nextInt(3), r.nextInt(3), r.nextInt(3)));
         l.add(new CartaEfeito("efeito", 3, r.nextInt(3), r.nextInt(3), r.nextInt(3)));
 //        _ctr.jogar(l);
-        List<CartaAbstrata> l1 = _jd.obterCartasAtuais();
-        _ctr.jogar(l1);
+
+        
+        List<CartaAbstrata> obterCartasAtuais = _jd.obterCartasAtuais();
+        
+        _ctr.jogar(obterCartasAtuais);
+
         _gui.fechar();
 
     }
