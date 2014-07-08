@@ -125,6 +125,20 @@ public class Partida extends ObservadoImpl {
 	public Map<Jogador,Integer> getPontuacao(){
 		return pontuacao;
 	}
+	public Map<Jogador,Jogada> getJogadaTurno(){
+		return mapaJogadas;
+	}
+	public List<InformacaoDoTurno> obterInformacaoTurno(){
+		List<InformacaoDoTurno> inf = new LinkedList<>();
+		
+		for (Jogador jogador : jogadores) {
+			inf.add(new InformacaoDoTurno(mapaJogadas.get(jogador),pontuacao.get(jogador)));
+		}
+		
+		return inf;
+		
+	}
+	
 
 
 }

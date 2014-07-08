@@ -2,8 +2,11 @@ package testes.smurf;
 
 
 
+import java.util.List;
+
 import modelo.jogo.Baralho;
 import modelo.jogo.partida.ControladorDePartida;
+import modelo.jogo.partida.InformacaoDoTurno;
 import modelo.jogo.Carta;
 import modelo.jogo.CartaEfeito;
 import modelo.jogo.Jogada;
@@ -13,6 +16,7 @@ import modelo.persistencia.Fabrica;
 import modelo.persistencia.FabricaFerramentasPersistencia;
 import modelo.persistencia.MapeadorEntidadesDoJogo;
 import modelo.persistencia.RepositorioDeJogoDB;
+import modelo.util.Mensagem;
 import modelo.util.Observado;
 import modelo.util.Observador;
 import modelo.jogo.partida.Partida;
@@ -40,6 +44,18 @@ public class TesteEstadoPartida {
             @Override
             public void notificar(Object fonte, Object msg) {
                 System.out.println(msg);
+                if(msg instanceof Mensagem){
+                	Mensagem m = (Mensagem) msg;
+                	if(m.obterAssunto().equals("atualizar_pontuacao")){
+                		List<InformacaoDoTurno> t = (List<InformacaoDoTurno>) m.obterConteudo();
+                		for (InformacaoDoTurno inf : t) {
+                			inf.toString();
+						}
+                	}
+                }
+                
+                
+                
             }
         });
         
@@ -60,7 +76,7 @@ public class TesteEstadoPartida {
         
         
         bR.adicionar(c);
-        bR.adicionar(c1);
+        
         bJ.adicionar(c1);
         bJ.adicionar(c2);
         

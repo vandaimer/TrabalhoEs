@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
+
 import modelo.jogo.Carta;
 import modelo.jogo.CartaAbstrata;
 import modelo.jogo.CartaEfeito;
@@ -27,8 +28,8 @@ public class EnviarJogada implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        List<CartaAbstrata> obterCartasAtuais = _jd.obterCartasAtuais();        
-        _ctr.jogar(obterCartasAtuais);
+        _ctr.jogar(_jd.obterCartasAtuais());
+
         _gui.fechar();
 
     }
