@@ -32,7 +32,7 @@ public class AguardandoJogada implements EstadoDaPartida{
 
 
 		}catch(ExcecaoQuebraDeRegrasDoBaralho e){
-			p.notificarObservadores(new Mensagem("Excecao", e));
+			p.notificarObservadores(new Mensagem("jogada_invalida", e));
 		}
 
 	}
