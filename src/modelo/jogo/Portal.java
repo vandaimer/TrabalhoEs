@@ -75,10 +75,10 @@ public class Portal extends ObservadoImpl {
         0 = sem filtro
      */
 
-    public List<CartaAbstrata> filtrarAcervo( int filtro ) throws ExcecaoDePersistencia
+ /*   public List<CartaAbstrata> filtrarAcervo( int filtro ) throws ExcecaoDePersistencia
     {
         return this.repositorioJogo.filtrarAcervo( filtro );
-    }
+    }*/
 
     public Jogador obterJogadorLogado() {
         return new Jogador(jogador);

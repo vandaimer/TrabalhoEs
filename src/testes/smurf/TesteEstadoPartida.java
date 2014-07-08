@@ -60,14 +60,16 @@ public class TesteEstadoPartida {
         
         
         bR.adicionar(c);
+        bR.adicionar(c1);
         bJ.adicionar(c1);
         bJ.adicionar(c2);
         
         
         
         p.jogar(j, new Jogada(bJ,j));
-        p.jogar(j, new Jogada(bJ,j));
+        
         p.jogar(r, new Jogada(bR,r));
+       // p.jogar(r, new Jogada(bR,r));
         
         p.jogar(j, new Jogada(bJ,j));
         p.jogar(r, new Jogada(bR,r));
