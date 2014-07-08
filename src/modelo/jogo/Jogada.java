@@ -2,6 +2,7 @@ package modelo.jogo;
 
 import modelo.jogo.Baralho;
 import java.io.Serializable;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class Jogada implements Serializable,Comparable<Jogada> {
 
@@ -20,15 +21,18 @@ public class Jogada implements Serializable,Comparable<Jogada> {
     public void baralhoValido(EstrategiaDeValidacaoDoBaralho e) throws ExcecaoQuebraDeRegrasDoBaralho {
         _b.validar(e);
     }
-    public Carta obterCartaEfetiva(){
-    	return null;
+    
+    private  CartaAbstrata obterCartaEfetiva(){
+    	throw  new NotImplementedException();
     }
+    
     public Jogador getJogador(){
     	return _j;
     }
 
 	@Override
 	public int compareTo(Jogada o) {
+            
 		// TODO Auto-generated method stub
 		return 0;
 	}

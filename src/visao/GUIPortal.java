@@ -5,7 +5,7 @@ package visao;
 import controle.Configuravel;
 
 import java.awt.event.ActionListener;
-import java.awt.event.KeyListener;
+
 
 
 public interface GUIPortal extends Configuravel<GUIPortal>{

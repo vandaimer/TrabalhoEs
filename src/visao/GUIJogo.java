@@ -1,17 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package visao;
 
 import controle.Configuravel;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 
-/**
- *
- * @author jean
- */
-public interface GUIJogo  extends Configuravel<GUIJogo>{
-    
+public interface GUIJogo extends Configuravel<GUIJogo> {
+
+    public void quandorMontarJogada(ActionListener c);
+
+    public void quandorVisualizarPontuacao(ActionListener c);
+
+    public void habilitarMontarJogada(boolean b);
+    public void tornarVisivel(boolean b);
+
+    public void habilitarVisualizarPontuacao(boolean b);
+
+    public void atualizarTelaDoJogo(BufferedImage i);
 }
