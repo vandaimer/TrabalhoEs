@@ -64,8 +64,20 @@ public class Portal extends ObservadoImpl {
         return repositorioJogo.salvar(j);
     }
 
-    public List<CartaAbstrata> obterAcervo() throws ExcecaoDePersistencia {
+    public List<CartaAbstrata> obterAcervo() throws ExcecaoDePersistencia
+    {
         return this.repositorioJogo.obterCartasDoAcervo();
+    }
+
+    /*
+        1 = mostro
+        2 = efeito
+        0 = sem filtro
+     */
+
+    public List<CartaAbstrata> filtrarAcervo( int filtro ) throws ExcecaoDePersistencia
+    {
+        return this.repositorioJogo.filtrarAcervo( filtro );
     }
 
     public Jogador obterJogadorLogado() {
@@ -87,5 +99,4 @@ public class Portal extends ObservadoImpl {
 
         return salvou;
     }
-
 }

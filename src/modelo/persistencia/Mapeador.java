@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
+import java.util.concurrent.ExecutionException;
 
 public class Mapeador implements MapeadorEntidadesDoJogo {
 	private PreparedStatement psmt;
@@ -18,33 +19,79 @@ public class Mapeador implements MapeadorEntidadesDoJogo {
 	private Map<String, Jogador> listaJogador = new HashMap<>();
 
 	@Override
-	public List<CartaAbstrata> obterCartasDoAcervo(Connection conexao) {
+	public List<CartaAbstrata> obterCartasDoAcervo(Connection conexao )
+    {
 		try {
 			this.connection = conexao;
 			this.tabela = "carta";
 			ResultSet result = select("");
-			System.out.println(result);
-			List<CartaAbstrata> cartas = new LinkedList<>();
-			while (result != null && result.next()) {
-
-				int efeito = result.getInt("efeito");
-				CartaAbstrata c;
-
-				if (efeito == 1) {
-					c = new CartaEfeito();
-				} else {
-					c = new Carta();
-					
-				}
-				
-				mapear(result, c);
-				cartas.add(c);
-			}
-			return cartas;
+			return this.geraListaCartas( result );
 		} catch (Exception e) {
 			throw new ExcecaoDePersistencia(e);
 		}
 	}
+
+    /*
+        Filtro = 0 --Sem Filtro
+        Filtro = 1 --Filtro carta mostro
+        Filtro = 2 --Filtro carta efeito
+     */
+
+    @Override
+    public List<CartaAbstrata> filtrarAcervo(Connection conexao, int filtro)
+    {
+        try
+        {
+            if( filtro == 1 )
+            {
+                query("SELECT * FROM carta WHERE efeito > 0");
+                return this.geraListaCartas( this.psmt.executeQuery() );
+            }
+            else if( filtro == 2 )//Filtro carta efeito
+            {
+                query("SELECT * FROM carta WHERE efeito > 0");
+                return this.geraListaCartas( this.psmt.executeQuery() );
+            }
+            else
+            {
+                return this.geraListaCartas( select("") );
+            }
+        }
+        catch( Exception e )
+        {
+            throw new ExcecaoDePersistencia(e);
+        }
+    }
+
+    private List<CartaAbstrata> geraListaCartas( ResultSet result )
+    {
+        try
+        {
+            List<CartaAbstrata> cartas = new LinkedList<>();
+            while (result != null && result.next()) {
+
+                int efeito = result.getInt("efeito");
+                CartaAbstrata c;
+
+                if (efeito == 1)
+                {
+                    c = new CartaEfeito();
+                }
+                else
+                {
+                    c = new Carta();
+                }
+
+                mapear(result, c);
+                cartas.add(c);
+            }
+            return cartas;
+        }
+        catch( Exception e )
+        {
+            throw new ExcecaoDePersistencia(e);
+        }
+    }
 
 	private void mapear(ResultSet result, CartaAbstrata c) throws SQLException {
 
