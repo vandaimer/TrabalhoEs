@@ -9,6 +9,8 @@ import java.awt.image.BufferedImage;
 import java.util.List;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import modelo.jogo.Jogada;
 import modelo.jogo.partida.InformacaoDoTurno;
 import visao.GUIJogo;
@@ -32,17 +34,34 @@ public class FormDoJogo extends JInternalFrame implements GUIJogo {
         placarP2 = new visao.janelas.PlacarAtual();
         jLP1 = new javax.swing.JLabel();
         jLP2 = new javax.swing.JLabel();
-        jBVisualizarPlacar = new javax.swing.JButton();
         jBMontar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         jLP1.setText(" ");
 
         jLP2.setText(" ");
 
-        jBVisualizarPlacar.setText("Visualizar Placar");
-
         jBMontar.setText("Montar Jogada");
         jBMontar.setEnabled(false);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Jogador", "Turno", "Pontuacao"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -59,8 +78,8 @@ public class FormDoJogo extends JInternalFrame implements GUIJogo {
                     .addComponent(jLP2, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jBVisualizarPlacar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBMontar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jBMontar, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -79,8 +98,8 @@ public class FormDoJogo extends JInternalFrame implements GUIJogo {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jBMontar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jBVisualizarPlacar)
+                .addGap(64, 64, 64)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -101,10 +120,11 @@ public class FormDoJogo extends JInternalFrame implements GUIJogo {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBMontar;
-    private javax.swing.JButton jBVisualizarPlacar;
     private javax.swing.JLabel jLP1;
     private javax.swing.JLabel jLP2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private visao.janelas.PlacarAtual placarP1;
     private visao.janelas.PlacarAtual placarP2;
     // End of variables declaration//GEN-END:variables
@@ -116,7 +136,7 @@ public class FormDoJogo extends JInternalFrame implements GUIJogo {
 
     @Override
     public void habilitarVisualizarPontuacao(boolean b) {
-        jBVisualizarPlacar.setEnabled(b);
+       
     }
 
     @Override
@@ -131,7 +151,7 @@ public class FormDoJogo extends JInternalFrame implements GUIJogo {
 
     @Override
     public void quandorVisualizarPontuacao(ActionListener c) {
-        jBVisualizarPlacar.addActionListener(c);
+      
     }
 
     @Override
@@ -149,20 +169,25 @@ public class FormDoJogo extends JInternalFrame implements GUIJogo {
         JOptionPane.showMessageDialog(this, m);
     }
 
+    @Override
     public void atualizarPlacar(List<InformacaoDoTurno> info) {
-
+        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
         if (info != null && info.size() == 2) {
 
             InformacaoDoTurno it;
 
             it = info.get(0);
-            jLP1.setText(it.obterJogada().getJogador().getNome());
+            
+            jLP1.setText(it.obterJogada().getJogador().getNome()+" turno: "+it.obterTurno());
             placarP1.listarCartas(it.obterJogada().getBaralhoJogada().listarCartas());
-
+            model.addRow(new Object[]{it.obterJogada().getJogador().getNome(),it.obterTurno(),it.obterPontuacao()});
+            
             it = info.get(1);
-            jLP2.setText(it.obterJogada().getJogador().getNome());
+            model.addRow(new Object[]{it.obterJogada().getJogador().getNome(),it.obterTurno(),it.obterPontuacao()});
+            jLP2.setText(it.obterJogada().getJogador().getNome()+" turno: "+it.obterTurno());
             placarP2.listarCartas(it.obterJogada().getBaralhoJogada().listarCartas());
 
+        
         }
 
     }

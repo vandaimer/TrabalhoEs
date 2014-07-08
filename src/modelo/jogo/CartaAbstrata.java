@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public abstract class CartaAbstrata implements Serializable, Comparable<CartaAbstrata>{
-	protected String nome;
+	protected String nome="";
 	protected int id;
 	protected int inteligencia;
 	protected int forca;
