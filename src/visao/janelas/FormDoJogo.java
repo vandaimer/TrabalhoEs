@@ -26,6 +26,7 @@ public class FormDoJogo extends javax.swing.JFrame implements GUIJogo {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jBMontar.setText("Montar Jogada");
+        jBMontar.setEnabled(false);
 
         jBVisualizarPlacar.setText("Visualizar Placar");
 

@@ -8,7 +8,6 @@ import java.io.Serializable;
 import java.util.List;
 
 import modelo.jogo.Baralho;
-import modelo.jogo.Carta;
 import modelo.jogo.CartaAbstrata;
 import modelo.jogo.Jogada;
 import modelo.jogo.servidor.controleremoto.AtualizarPontuacaoControleRemoto;

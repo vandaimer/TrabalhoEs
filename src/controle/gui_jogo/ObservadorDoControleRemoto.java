@@ -17,7 +17,14 @@ public class ObservadorDoControleRemoto implements Observador{
     
     @Override
     public void notificar(Object fonte, Object msg) {
+        
+        if("inicio_turno".equals(msg)){
+        _gj.habilitarMontarJogada(true);
+        }
+        
+        
         JOptionPane.showMessageDialog(null,"teste: "+ msg);
+        System.out.println(msg);
     }
     
 }

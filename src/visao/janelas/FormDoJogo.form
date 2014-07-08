@@ -92,6 +92,7 @@
             <Component class="javax.swing.JButton" name="jBMontar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Montar Jogada"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jBVisualizarPlacar">
