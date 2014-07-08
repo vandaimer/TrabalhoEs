@@ -33,7 +33,8 @@ public class CriarPartida implements ActionListener {
             Integer porta = new Integer(str_porta);
             ControleRemoto controle = _p.criarPartida(porta);
             FormDoJogo f = new FormDoJogo();
-            f.aplicarConfiguracao(new ConfiguradorGuiJogo(controle));
+            f.aplicarConfiguracao(new ConfiguradorGuiJogo(controle,_gp));
+            _gp.incluir(f);
         } catch (NumberFormatException | IOException | ExcececaoConexaoRecusada ex) {
             _gp.mostrarMensagem(ex.getMessage());
         }

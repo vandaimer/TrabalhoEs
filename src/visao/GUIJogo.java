@@ -2,7 +2,8 @@ package visao;
 
 import controle.Configuravel;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
+import java.util.List;
+import modelo.jogo.partida.InformacaoDoTurno;
 
 public interface GUIJogo extends Configuravel<GUIJogo> {
 
@@ -11,11 +12,13 @@ public interface GUIJogo extends Configuravel<GUIJogo> {
     public void quandorVisualizarPontuacao(ActionListener c);
 
     public void habilitarMontarJogada(boolean b);
+
     public void tornarVisivel(boolean b);
 
     public void habilitarVisualizarPontuacao(boolean b);
 
-    public void atualizarTelaDoJogo(BufferedImage i);
     public void fechar();
+
     public void mostrasMensagem(String m);
+    public void atualizarPlacar(List<InformacaoDoTurno> info);
 }

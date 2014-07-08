@@ -1,25 +1,36 @@
 package controle.gui_jogo;
 
+import controle.configuradores_gui.ConfiguradorVisualizadorDeCartas;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.List;
 import javax.imageio.IIOImage;
 import javax.imageio.ImageIO;
+import modelo.jogo.Jogada;
+import modelo.jogo.partida.InformacaoDoTurno;
 import modelo.jogo.servidor.controleremoto.ControleRemoto;
 import modelo.util.Observador;
 import visao.GUIJogo;
+import visao.GUIPortal;
+import visao.janelas.FormVisualizadorDeCartas;
 
 public class ObservadorDoControleRemoto implements Observador {
 
     private GUIJogo _gj;
     private ControleRemoto _ctr;
+    private GUIPortal gui;
 
-    public ObservadorDoControleRemoto(GUIJogo gj, ControleRemoto ctr) {
-        _gj = gj;
-        _ctr = ctr;
+    public ObservadorDoControleRemoto(GUIJogo _gj, ControleRemoto _ctr, GUIPortal gui) {
+        this._gj = _gj;
+        this._ctr = _ctr;
+        this.gui = gui;
     }
+    
+
+    
 
     @Override
     public void notificar(Object fonte, Object msg) {
@@ -31,23 +42,15 @@ public class ObservadorDoControleRemoto implements Observador {
 
         if ("jogada_realizada".equals(msg)) {
             _gj.habilitarMontarJogada(false);
-            try {
-
-                URL resource = getClass().getResource("/imagens/carta.jpg");
-                BufferedImage img = ImageIO.read(resource);
-                
-                _gj.atualizarTelaDoJogo(img);
-                Thread.sleep(5000);
-            } catch (InterruptedException | IOException e) {
-                _gj.mostrasMensagem(e.getMessage());
-            }
 
             return;
         }
 
         if ("atualizar_pontuacao".equals(msg)) {
 
-            _gj.mostrasMensagem(msg.toString());
+            List<InformacaoDoTurno> info = _ctr.getListaInformacaoTurno();
+            _gj.atualizarPlacar(info);
+       
 
             return;
         }

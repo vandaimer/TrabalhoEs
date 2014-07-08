@@ -23,12 +23,12 @@ public class ConfiguradorPortal implements Configurador<GUIPortal> {
     @Override
     public void configurar(GUIPortal v) {
 
-        v.autenticarJogador(new AutenticarJogador(portal));
+        v.autenticarJogador(new AutenticarJogador(portal,v));
         v.conectarAoOponente(new ConectarAoOponente(v, portal));
         v.criarPartida(new CriarPartida(portal, v));
-        v.visualizarAcervo(new VisualizarAcervo(portal));
-        v.novoJogador(new NovoJogador(portal));
-        v.editarBaralho(new EditarBaralho(portal));
+        v.visualizarAcervo(new VisualizarAcervo(portal,v));
+        v.novoJogador(new NovoJogador(portal,v));
+        v.editarBaralho(new EditarBaralho(portal,v));
         v.sair(new Sair());
         portal.registrar(new ObservadorDoPortal(portal, v));
 
