@@ -5,7 +5,6 @@ import controle.gui_editor_jogador.AdicionarUmaCarta;
 import controle.gui_editor_jogador.QuandoSelecionarUmaCartaDoAcervo;
 import controle.gui_editor_jogador.QuandoSelecionarUmaDoJogador;
 import controle.gui_editor_jogador.RemoverUmaCarta;
-import controle.gui_editor_jogador.SalvarAlteracoes;
 import controle.gui_montar_jogada.EnviarJogada;
 import java.util.List;
 import modelo.jogo.CartaAbstrata;
@@ -26,10 +25,10 @@ public class ConfiguradorMontarJogada implements Configurador<GUIEditorDejogador
     @Override
     public void configurar(GUIEditorDejogador t) {
         Jogador _jd=new Jogador();
-        t.listarCartasDoAcervo( cartasDoJogador);
+        t.listarCartasDoAcervo(cartasDoJogador);
         t.adicionarUmaCarta(new AdicionarUmaCarta(t, _jd));
         t.removerUmaCarta(new RemoverUmaCarta(t, _jd));
-        t.salvarAlteracoes(new EnviarJogada(ctr, _jd));
+        t.salvarAlteracoes(new EnviarJogada(ctr, _jd,t));
         t.quandoSelecionarUmaCartaDoAcervo(new QuandoSelecionarUmaCartaDoAcervo(t));
         t.quandoSelecionarUmaCartaDoJogador(new QuandoSelecionarUmaDoJogador(t));
         t.tornarVisivel(true);
