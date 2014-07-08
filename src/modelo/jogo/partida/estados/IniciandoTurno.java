@@ -21,7 +21,7 @@ public class IniciandoTurno implements EstadoDaPartida{
 		p.limparJogadas();
 		p.incrementarTurno();
 		AguardandoJogada ag=new AguardandoJogada();
-                p.fixarEstado(ag);
+          p.fixarEstado(ag);
                 
 		
 	}

@@ -24,6 +24,8 @@ public class TesteEstadosDoJogo {
         
         Jogador j=new Jogador("jean", ""),
                 r=new Jogador("rodz", "");
+        r.setID(10);
+        j.setID(20);
         
         p.registrar(new Observador() {
 
@@ -42,11 +44,11 @@ public class TesteEstadosDoJogo {
         p.sinalizarReconhecimento(r);
         
         
-        p.jogar(j, new Jogada(new Baralho()));
-        p.jogar(r, new Jogada(new Baralho()));
+        p.jogar(j, new Jogada(new Baralho(),j));
+        p.jogar(r, new Jogada(new Baralho(),r));
         
-        p.jogar(j, new Jogada(new Baralho()));
-        p.jogar(r, new Jogada(new Baralho()));
+        p.jogar(j, new Jogada(new Baralho(),j));
+        p.jogar(r, new Jogada(new Baralho(),r));
         
         
         

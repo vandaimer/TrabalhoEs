@@ -42,7 +42,7 @@ public class ReceptorDoControleRemoto implements Observador, Serializable {
     public void jogar(List<CartaAbstrata> cartas) {
         Baralho b = new Baralho();
         b.montarBaralho(cartas);
-        Jogada jgda = new Jogada(b);
+        Jogada jgda = new Jogada(b,_jgd);
         _p.jogar(_jgd, jgda);
     }
     
