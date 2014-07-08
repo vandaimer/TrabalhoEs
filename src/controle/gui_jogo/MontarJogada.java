@@ -16,7 +16,7 @@ public class MontarJogada implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        FormEditorJogador f = new FormEditorJogador("Baralho Jogada", "Baralho do jogador", "Enviar jogada");
+        FormEditorJogador f = new FormEditorJogador("Baralho Jogada", "Baralho do Jogador", "Enviar Jogada");
         f.aplicarConfiguracao(new ConfiguradorMontarJogada(ctr.baralhoDoJogador(), ctr));
     }
     

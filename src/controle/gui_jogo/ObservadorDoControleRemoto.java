@@ -1,6 +1,7 @@
 package controle.gui_jogo;
 
-import javax.swing.JOptionPane;
+
+
 import modelo.jogo.servidor.controleremoto.ControleRemoto;
 import modelo.util.Observador;
 import visao.GUIJogo;
@@ -29,7 +30,9 @@ public class ObservadorDoControleRemoto implements Observador {
         }
 
         if ("atualizar_pontuacao".equals(msg)) {
-            System.out.println("");
+            
+            _gj.mostrasMensagem(msg.toString());
+        
             return;
         }
 

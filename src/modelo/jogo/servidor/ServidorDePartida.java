@@ -24,7 +24,7 @@ public class ServidorDePartida {
     }
 
     public ServidorDePartida(int porta) throws IOException {
-        this(porta, 2, 5000);
+        this(porta, 2, 10000);
     }
 
     public ServidorDePartida() throws IOException {

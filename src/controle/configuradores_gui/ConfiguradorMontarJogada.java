@@ -5,7 +5,7 @@ import controle.gui_editor_jogador.AdicionarUmaCarta;
 import controle.gui_editor_jogador.QuandoSelecionarUmaCartaDoAcervo;
 import controle.gui_editor_jogador.QuandoSelecionarUmaDoJogador;
 import controle.gui_editor_jogador.RemoverUmaCarta;
-import controle.gui_montar_jogada.EnviarJogada;
+import controle.gui_jogo.EnviarJogada;
 import java.util.List;
 import modelo.jogo.CartaAbstrata;
 import modelo.jogo.Jogador;
