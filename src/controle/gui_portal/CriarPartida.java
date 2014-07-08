@@ -23,6 +23,12 @@ public class CriarPartida implements ActionListener {
         try {
 
             String str_porta = _gp.mostrarJanelaDeEntradaSimples("Para criar uma partida digite abaixo o numero da porta:");
+
+            if (str_porta == null) {
+                return;
+            }
+
+            
             Integer porta = new Integer(str_porta);
             ControleRemoto controle = _p.criarPartida(porta);
             System.out.println(controle);

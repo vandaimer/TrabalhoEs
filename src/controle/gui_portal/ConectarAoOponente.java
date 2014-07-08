@@ -23,11 +23,18 @@ public class ConectarAoOponente implements ActionListener {
         try {
 
             String str_endereco = _gp.mostrarJanelaDeEntradaSimples("Para conectar a um oponente, digite ip:porta, exemplo: 127.0.0.1:1234 ou localhost:1234");
-            String[] split = str_endereco.split(":");
 
+            if (str_endereco == null) {
+
+                _gp.mostrarMensagem("formato de endereco invalido.");
+
+            }
+
+            String[] split = str_endereco.split(":");
             if (split == null || split.length != 2) {
 
                 _gp.mostrarMensagem("formato de endereco invalido.");
+                return;
             }
 
             Integer porta = new Integer(split[1]);
@@ -35,7 +42,7 @@ public class ConectarAoOponente implements ActionListener {
 
             ControleRemoto controle = _p.conectarAoOponente(host, porta);
             System.out.println(controle);
-    
+
         } catch (NumberFormatException | IOException | ExcececaoConexaoRecusada ex) {
             _gp.mostrarMensagem(ex.getMessage());
         }
