@@ -30,7 +30,7 @@ public class ControleRemoto extends ObservadoImpl implements Observador {
         tel = new Telefone(con);
 
     }
-
+    //poderia gerar a excecao de validacao de mao?
     public void jogar(List<CartaAbstrata> cartas) {
         tel.falar(new Jogar(cartas));
     }

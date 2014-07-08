@@ -72,6 +72,7 @@ public class ReceptorDoControleRemoto implements Observador, Serializable {
                 tel.falar(new NotificarObservadores("iniciar_turno"));
                 return;
             }
+            //inserir condicao para enviar msg para o controle remoto sobre a excecao
             
             if ("jogada_realizada".equals(assunto) && _jgd.equals(m.obterConteudo())) {
                 tel.falar(new NotificarObservadores("jogada_realizada"));
